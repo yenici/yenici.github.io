@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GoFrontend JavaScript Lessons 11-12</title>
+    <link rel="stylesheet" href="css/normalize.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/simplejqcarousel.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css" media="screen" charset="utf-8">
+    <!-- PRODUCTION -->
+      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js" charset="utf-8"></script>
+    <!-- PRODUCTION END -->
+    <!-- DEVELOPMENT -->
+      <!-- <script src="lib/jquery-1.12.2.js" charset="utf-8"></script> -->
+    <!-- DEVELOPMENT END -->
+    <script src="js/simplejqcarousel.js" charset="utf-8"></script>
+    <script src="lib/ejohntemplate.js" charset="utf-8"></script>
+    <script src="lib/lodash.js" charset="utf-8"></script>
+    <script src="js/getcountries.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <section class="photo-carousel">
+      <div class="scandinavia-5">
+        <img src="../hwj05/img/07-Gothenburg_H_Operan.jpg" alt="Swerige. Gothenburg - Operan" />
+        <img src="../hwj05/img/10-Gothenburg_H_Feskekorka.jpg" alt="Swerige. Gothenburg - Feskekorka" />
+        <img src="../hwj05/img/32-Copenhagen_H_LittleMermaid.jpg" alt="Denmark. Copenhagen - Lttle Mermaid" />
+        <img src="../hwj05/img/33-Copenhagen_H_View.jpg" alt="Denmark. Copenhagen" />
+        <img src="../hwj05/img/44-Oslo_H_Opera.jpg" alt="Norge. Oslo - Opera" />
+        <img src="../hwj05/img/51-Oslo_H_Vigeland3.jpg" alt="Norge. Oslo - Vigeland" />
+        <img src="img/46-Oslo_H_Fjord1.jpg" alt="Oslo - Fjord. Part 1" />
+        <img src="img/47-Oslo_H_Fjord2.jpg" alt="Oslo - Fjord. Part 2" />
+        <img src="img/48-Oslo_H_Fjord3.jpg" alt="Oslo - Fjord. Part 3" />
+      </div>
+    </section>
+    <section class="photo-carousel">
+      <div class="scandinavia-3">
+        <img src="../hwj05/img/07-Gothenburg_H_Operan.jpg" alt="Swerige. Gothenburg - Operan" />
+        <img src="../hwj05/img/10-Gothenburg_H_Feskekorka.jpg" alt="Swerige. Gothenburg - Feskekorka" />
+        <img src="../hwj05/img/32-Copenhagen_H_LittleMermaid.jpg" alt="Denmark. Copenhagen - Lttle Mermaid" />
+        <img src="../hwj05/img/33-Copenhagen_H_View.jpg" alt="Denmark. Copenhagen" />
+        <img src="../hwj05/img/44-Oslo_H_Opera.jpg" alt="Norge. Oslo - Opera" />
+        <img src="../hwj05/img/51-Oslo_H_Vigeland3.jpg" alt="Norge. Oslo - Vigeland" />
+        <img src="img/46-Oslo_H_Fjord1.jpg" alt="Oslo - Fjord. Part 1" />
+        <img src="img/47-Oslo_H_Fjord2.jpg" alt="Oslo - Fjord. Part 2" />
+        <img src="img/48-Oslo_H_Fjord3.jpg" alt="Oslo - Fjord. Part 3" />
+      </div>
+    </section>
+    <section class="photo-carousel photo-carousel-narrow">
+      <div class="scandinavia-1">
+        <img src="../hwj05/img/07-Gothenburg_H_Operan.jpg" alt="Swerige. Gothenburg - Operan" />
+        <img src="../hwj05/img/10-Gothenburg_H_Feskekorka.jpg" alt="Swerige. Gothenburg - Feskekorka" />
+        <img src="../hwj05/img/32-Copenhagen_H_LittleMermaid.jpg" alt="Denmark. Copenhagen - Lttle Mermaid" />
+        <img src="../hwj05/img/33-Copenhagen_H_View.jpg" alt="Denmark. Copenhagen" />
+        <img src="../hwj05/img/44-Oslo_H_Opera.jpg" alt="Norge. Oslo - Opera" />
+        <img src="../hwj05/img/51-Oslo_H_Vigeland3.jpg" alt="Norge. Oslo - Vigeland" />
+        <img src="img/46-Oslo_H_Fjord1.jpg" alt="Oslo - Fjord. Part 1" />
+        <img src="img/47-Oslo_H_Fjord2.jpg" alt="Oslo - Fjord. Part 2" />
+        <img src="img/48-Oslo_H_Fjord3.jpg" alt="Oslo - Fjord. Part 3" />
+      </div>
+    </section>
+    <section class="countries ejohn">
+      <span class="countries__titles">John Resig’s Javascript Micro-Templating</span>
+      <div class="country-block clearfix">
+      </div>
+    </section>
+    <section class="countries lodash">
+      <span class="countries__titles">LoDash JavaScript utility library</span>
+      <div class="country-block clearfix">
+      </div>
+    </section>
+
+    <script type="text/template" id="ejohn-template">
+      <div class="country-card">
+        <h1><%=countryName%></h1>
+        (<%=countryNameEn%>)
+        <section>
+          <img src="<%=flag%>" alt="Flag" width="100px" height="auto">
+          <img src="<%=coatOfArms%>" alt="Coat of Arms" width="100px" height="auto">
+        </section>
+        <section class="country-card__description">
+          <p><%=background%></p>
+        </section>
+      </div>
+    </script>
+
+    <script type="text/template" id="lodash-template">
+      <div class="country-card">
+        <h1><%=country.countryName%></h1>
+        (<%=country.countryNameEn%>)
+        <section>
+          <img src="<%=country.flag%>" alt="Flag" width="100px" height="auto">
+          <img src="<%=country.coatOfArms%>" alt="Coat of Arms" width="100px" height="auto">
+        </section>
+        <section class="country-card__description">
+          <p><%=country.background%></p>
+          <div class="country-card__description-info">
+            <p>Official languages:
+              <ul>
+                <% for (var i = 0; i < country.officialLanguages.length; i++) { %>
+                  <li><%= country.officialLanguages[i] %></li>
+                <% }; %>
+              </ul>
+            </p>
+            <p>Area:
+              <ul>
+                <li><%=country.area.total%> sq km</li>
+                <li><%=country.area.land%> sq km</li>
+                <li><%=country.area.water%> sq km</li>
+              </ul>
+            </p>
+            <p>Population: <%=country.population%></p>
+            <p>Population density: <%=Math.round(country.population/country.area.land)%> per sq km</p>
+            <p>Median age: <%=country.medianAge%></p>
+          </div>
+        </section>
+      </div>
+    </script>
+
+    <script type="text/javascript">
+      $(function() {
+        /*
+        * Carousel Implementation
+        */
+        $(".scandinavia-5").simpleJQCarousel( {
+          imgOnScreen: 5,
+          marginWidth: 5,
+        } );
+
+        $(".scandinavia-3").simpleJQCarousel( {imgOnScreen: 3} );
+
+        $(".scandinavia-1").simpleJQCarousel( {duration: 500} );
+
+        var countries = getCountries();
+        /*
+        * John Resig’s Javascript Micro-Templating Implementation
+        */
+        for (var i = 0; i < countries.length; i++) {
+          $(".ejohn > div")
+            .append(tmpl($("#ejohn-template").html(), getCountries()[i]));
+        }
+
+        /*
+        * LoDash Template Implementation
+        */
+        var lodashCompiledTemplate = _.template(document
+          .getElementById("lodash-template").innerHTML, {variable: "country"});
+        for (var i = 0; i < countries.length; i++) {
+          document.querySelector(".lodash > div")
+            .insertAdjacentHTML("beforeend",
+              lodashCompiledTemplate(countries[i]));
+        }
+      })
+    </script>
+
+  </body>
+</html>

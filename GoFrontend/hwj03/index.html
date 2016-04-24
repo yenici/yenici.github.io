@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Start / Stop Watch Example</title>
+    <link rel="stylesheet" href="css/chronograph.css" media="screen" charset="utf-8">
+    <script src="js/chronograph.js" charset="utf-8"></script>
+    <script src="js/splitchronograph.js" charset="utf-8"></script>
+    <style media="screen">
+      .container {
+        float: left;
+        text-align: center;
+        width:33%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Simple Chronograph -->
+    <div class="container">
+      <div class="chronograph">
+        <div class="chronograph__screen">
+          <div class="chronograph__screen_hms">00:00:00</div>
+          <div class="chronograph__screen_ms">000</div>
+        </div>
+        <div class="chronograph__button chronograph__button_start">Start</div>
+        <div class="chronograph__button chronograph__button_pause">Pause</div>
+        <div class="chronograph__button chronograph__button_resume">Resume</div>
+        <div class="chronograph__button chronograph__button_clear">Clear</div>
+      </div>
+      <script type="text/javascript">
+        var chronograph = new Chronograph();
+        chronograph.init();
+      </script>
+    </div>
+    <div class="container">
+      <h1>Chronographs</h1>
+    </div>
+    <!-- Chronograph with Split Function -->
+    <div class="container">
+      <script type="text/javascript">
+      var splitchronograph = new SplitChronograph(document.getElementsByClassName("container")[2]);
+      </script>
+    </div>
+  </body>
+</html>

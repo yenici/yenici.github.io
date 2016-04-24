@@ -1,0 +1,58 @@
+.simpleJQCarousel {
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 0;
+  position: relative;
+}
+
+.simpleJQCarousel__film {
+  left: 0;
+  margin: 0 0;
+  padding: 0 0;
+  position: absolute;
+  top: 0;
+}
+
+.simpleJQCarousel__film > img {
+  display: block;
+  float: left;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.simpleJQCarousel__controls {
+  background-position: left, right;
+  background-repeat: no-repeat, no-repeat;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.simpleJQCarousel__controls--left {
+  background-image: url("../img/simpleJQCarousel_left.svg"), url("../img/simpleJQCarousel_blank.svg");
+}
+
+.simpleJQCarousel__controls--right {
+  background-image: url("../img/simpleJQCarousel_blank.svg"), url("../img/simpleJQCarousel_right.svg");
+}
+
+.simpleJQCarousel__controls--bidirectional {
+  background-image: url("../img/simpleJQCarousel_left.svg"), url("../img/simpleJQCarousel_right.svg");
+}
+
+.simpleJQCarousel__controls:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+/******************************************************************************
+* clearfix
+******************************************************************************/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -1,0 +1,68 @@
+table {
+    margin: 10px auto;
+}
+
+tr {
+    height: 40px;
+}
+
+td {
+    border: 10px solid black;
+    width: 70px;
+}
+
+.white {
+    background-color: #fff;
+}
+
+.red {
+    background-color: #ff613d;
+}
+
+.yellow {
+    background-color: #ffec27;
+}
+
+.blue {
+    background-color: #004281;
+}
+
+.black {
+    background-color: #030303;
+}
+
+.tl {
+    border-left: 0px;
+    border-top: 0px;
+}
+
+.tm {
+    border-top: 0px;
+}
+
+.tr {
+    border-top: 0px;
+    border-right: 0px;
+}
+
+.lm {
+    border-left: 0px;
+}
+
+.rm {
+    border-right: 0px;
+}
+
+.bl {
+    border-bottom: 0px;
+    border-left: 0px;
+}
+
+.bm {
+    border-bottom: 0px;
+}
+
+.br {
+    border-bottom: 0px;
+    border-right: 0px;
+}

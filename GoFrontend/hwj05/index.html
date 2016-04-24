@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Homework 9-10</title>
+    <link rel="stylesheet" href="css/normalize.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/cusel.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/selectric.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/jcarousel.basic.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/fotorama.css" media="screen" charset="utf-8">
+    <!-- PRODUCTION -->
+      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js" charset="utf-8"></script>
+      <script src="lib/cusel.min.js" charset="utf-8"></script>
+      <script src="lib/jquery.selectric.min.js" charset="utf-8"></script>
+      <script src="lib/jquery.jcarousel.min.js" charset="utf-8"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js" charset="utf-8"></script>
+    <!-- PRODUCTION END -->
+    <!-- DEVELOPMENT -->
+      <!-- <script src="lib/jquery-1.12.2.js" charset="utf-8"></script>
+      <script src="lib/cusel.js" charset="utf-8"></script>
+      <script src="lib/jScrollPane.js" charset="utf-8"></script>
+      <script src="lib/jquery.mousewheel.js" charset="utf-8"></script>
+      <script src="lib/jquery.selectric.js" charset="utf-8"></script>
+      <script src="lib/jquery.jcarousel.js" charset="utf-8"></script>
+      <script src="lib/fotorama.js" charset="utf-8"></script> -->
+    <!-- DEVELOPMENT END -->
+    <script type="text/javascript" src="lib/jquery-migrate-1.1.1.min.js"></script>
+    <script src="js/selectplugins.js" charset="utf-8"></script>
+    <script src="js/carousel.js" charset="utf-8"></script>
+    <script src="js/menu.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- ANIMATED MENU -->
+    <menu class="jq-menu">
+      <ul class="jq-menu__horizontal clearfix">
+        <li><a href="#">Denmark</a></li>
+        <li class="jq-menu__dropdown"><a href="#">Norge</a>
+          <ul class="jq-menu__submenu">
+            <li><a href="#">Oslo</a></li>
+            <li><a href="#">Bergen</a></li>
+          </ul>
+        </li>
+        <li class="jq-menu__dropdown"><a href="#">Sverige</a>
+          <ul class="jq-menu__submenu">
+            <li><a href="#">Stokholm</a></li>
+            <li class="jq-menu__dropright"><a href="#">Göteborg</a>
+              <ul class="jq-menu__submenu">
+                <li><a href="#">Askhult</a></li>
+                <li><a href="#">Tjolöholm&nbsp;Palace</a></li>
+                <li class="jq-menu__dropright"><a href="#">Monuments</a>
+                  <ul class="jq-menu__submenu">
+                    <li><a href="#">Gustaf&nbsp;II&nbsp;Adolf</a></li>
+                    <li><a href="#">Poseidon</a></li>
+                    <li><a href="#">Evert&nbsp;Taube</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">'Lipstick'&nbsp;building</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Malmö</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Suomi</a></li>
+      </ul>
+    </menu>
+    <!-- END OF ANIMATED MENU -->
+    <!-- Default and jQuery Selectric SelectBox plugin (https://plugins.jquery.com/selectric/) -->
+    <section class="select-block clearfix">
+      <div class="select-block__select">
+        <div class="block-title">&nbsp;Default Select&nbsp;</div>
+        <select name="photoselect1">
+          <option selected disabled>Select a place from the list</option>
+          <optgroup label="Sverige - Göteborg">
+            <option value="0">Göteborg Operan</option>
+            <option value="1">Feskekörka</option>
+          </optngroup>
+          <optgroup label="Denmark - København">
+            <option value="2">The Little Mermaid</option>
+            <option value="3">Street View</option>
+          </optgroup>
+          <optgroup label="Norge - Oslo">
+            <option value="4">Opera House</option>
+            <option value="5">The Monolith. Vigeland Park</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="select-block__select">
+        <div class="block-title">&nbsp;cuSel Select&nbsp;</div>
+        <!--  -->
+        <!-- It's not a good idea to use that pluggin.. -->
+        <!--  -->
+        <select class="cusel-select" name="photoselect2">
+          <!-- <option selected disabled value="">Select a place from the list</option> -->
+          <!-- <optgroup label="Sverige - Göteborg"> -->
+            <option disabled value="">Sverige - Göteborg</option>
+            <option selected value="07-Gothenburg_H_Operan">&nbsp;Göteborg - Operan</option>
+            <option value="10-Gothenburg_H_Feskekorka">&nbsp;Göteborg - Feskekörka</option>
+          <!-- </optngroup> -->
+          <!-- <optgroup label="Denmark - København"> -->
+            <option disabled value="">Denmark - København</option>
+            <option value="32-Copenhagen_H_LittleMermaid">&nbsp;København - The Little Mermaid</option>
+            <option value="33-Copenhagen_H_View">&nbsp;København - Street View</option>
+          <!-- </optgroup> -->
+          <!-- <optgroup label="Norge - Oslo"> -->
+            <option disabled value="">Norge - Oslo</option>
+            <option value="44-Oslo_H_Opera">&nbsp;Oslo - Opera House</option>
+            <option value="51-Oslo_H_Vigeland3">&nbsp;Oslo - The Monolith. Vigeland Park</option>
+          <!-- </optgroup> -->
+        </select>
+      </div>
+      <div class="select-block__select">
+        <div class="block-title">&nbsp;jQuery Selectric Select&nbsp;</div>
+        <div class="sel-select-wrapper">
+          <select class="sel-select" name="photoselect3">
+            <option disabled>Select a place from the list</option>
+            <optgroup label="Sverige - Göteborg">
+              <option value="0">Göteborg Operan</option>
+              <option value="1">Feskekörka</option>
+            </optngroup>
+            <optgroup label="Denmark - København">
+              <option value="2">The Little Mermaid</option>
+              <option value="3">Street View</option>
+            </optgroup>
+            <optgroup label="Norge - Oslo">
+              <option value="4">Opera House</option>
+              <option value="5">The Monolith. Vigeland Park</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+    </section>
+    <!-- END OF Default and jQuery Selectric SelectBox plugin. -->
+    <!-- Checkboxes block -->
+    <section class="select-block checkbox-block">
+      <div class="checkbox-block__checkboxgroup">
+        <div class="block-title">&nbsp;Default checkbox&nbsp;</div>
+        <label><input type="checkbox" name="cbox11" checked> Sverige - Göteborg</label><br>
+        <label><input type="checkbox" name="cbox12"> Denmark - København</label><br>
+        <label><input type="checkbox" name="cbox13" checked disabled> Norge - Oslo</label>
+      </div>
+      <div class="checkbox-block__checkboxgroup">
+        <div class="block-title">&nbsp;jQuery checkbox&nbsp;</div>
+        <label>
+          <span class="jq-checkbox">
+            <input type="checkbox" id="cbox21" name="cbox21" checked>
+          </span>
+           Sverige - Göteborg
+         </label><br>
+        <label>
+          <span class="jq-checkbox">
+            <input type="checkbox" id="cbox22" name="cbox22">
+          </span>
+           Denmark - København
+         </label><br>
+         <label>
+           <span class="jq-checkbox">
+             <input type="checkbox" id="cbox23" name="cbox23" disabled checked>
+           </span>
+            Norge - Oslo
+          </label>
+      </div>
+      <div class="checkbox-block__checkboxgroup">
+        <div class="block-title">&nbsp;CSS checkbox&nbsp;</div>
+        <input class="css-checkbox" type="checkbox" name="cbox31" id="cbox31" checked>
+        <label class="css-checkbox" for="cbox31"> Sverige - Göteborg</label><br>
+        <input class="css-checkbox" type="checkbox" name="cbox32" id="cbox32">
+        <label class="css-checkbox" for="cbox32"> Denmark - København</label><br>
+        <input class="css-checkbox" type="checkbox" name="cbox33" id="cbox33" disabled checked>
+        <label class="css-checkbox" for="cbox33"> Norge - Oslo</label>
+      </div>
+    </section>
+    <!-- END OF Checkboxes block -->
+
+    <!-- CAROUSEL IMPLEMENTATION -->
+    <section class="jcarousel-section">
+      <div class="jcarousel-wrapper">
+        <div class="jcarousel" data-jcarousel="true">
+          <ul>
+            <li><img src="img/07-Gothenburg_H_Operan.jpg" alt="Swerige. Gothenburg - Operan" width="598" height="401" /></li>
+            <li><img src="img/10-Gothenburg_H_Feskekorka.jpg" alt="Swerige. Gothenburg - Feskekorka" width="598" height="401" /></li>
+            <li><img src="img/32-Copenhagen_H_LittleMermaid.jpg" alt="Denmark. Copenhagen - Lttle Mermaid" width="598" height="401" /></li>
+            <li><img src="img/33-Copenhagen_H_View.jpg" alt="Denmark. Copenhagen" width="598" height="401" /></li>
+            <li><img src="img/44-Oslo_H_Opera.jpg" alt="Norge. Oslo - Opera" width="598" height="401" /></li>
+            <li><img src="img/51-Oslo_H_Vigeland3.jpg" alt="Norge. Oslo - Vigeland" width="598" height="401" /></li>
+        </div>
+        <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true">‹</a>
+        <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true">›</a>
+        <p class="jcarousel-pagination" data-jcarouselpagination="true"></p>
+      </div>
+    </section>
+    <!-- END OF CAROUSEL IMPLEMENTATION -->
+
+    <!-- FOTORAMA IMPLEMENTATION -->
+    <section class="fotorama-section">
+      <div class="fotorama">
+        <img src="img/07-Gothenburg_H_Operan.jpg" alt="Swerige. Gothenburg - Operan" />
+        <img src="img/10-Gothenburg_H_Feskekorka.jpg" alt="Swerige. Gothenburg - Feskekorka" />
+        <img src="img/32-Copenhagen_H_LittleMermaid.jpg" alt="Denmark. Copenhagen - Lttle Mermaid" />
+        <img src="img/33-Copenhagen_H_View.jpg" alt="Denmark. Copenhagen" />
+        <img src="img/44-Oslo_H_Opera.jpg" alt="Norge. Oslo - Opera" />
+        <img src="img/51-Oslo_H_Vigeland3.jpg" alt="Norge. Oslo - Vigeland" />
+      </div>
+    </section>
+    <!-- END OF FOTORAMA IMPLEMENTATION -->
+
+  </body>
+</html>

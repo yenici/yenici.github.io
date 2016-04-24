@@ -1,0 +1,31 @@
+.tb_div {
+  font-family: Arial, sans-serif;
+  line-height: 25px;
+}
+
+.tb_div > h1 {
+  text-align: center;
+}
+
+.tb_question {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tb_question > ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.tb_answer {
+  font-size: 16px;
+}
+
+.tb_answer > input {
+  margin-right: 10px;
+}
+
+.tb_submit {
+  display: block;
+  margin: 0 auto;
+}

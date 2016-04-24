@@ -1,0 +1,48 @@
+.photo-carousel {
+  border: solid 2px #ccc;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 15px 15px;
+  width: 80%;
+}
+
+.photo-carousel-narrow {
+  width: 50%;
+}
+
+.countries {
+  border: solid 2px #ccc;
+  border-radius: 10px;
+  font-family: Roboto, sans-serif;
+  padding: 0 0;
+  margin: 20px auto;
+  width: 89%;
+}
+
+.countries__titles {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 0;
+}
+
+.country-card {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  float: left;
+  padding: 10px 10px;
+  margin: 15px 15px;
+  text-align: center;
+  width: 310px;
+}
+
+.country-card__description {
+  font-size: 14px;
+  text-align: left;
+}
+
+.country-card__description-info {
+  border: solid 1px #ddd;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
