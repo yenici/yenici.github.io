@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Поошук</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link rel="stylesheet" href="css/normalize.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css" media="screen" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
+    <script src="lib/lodash.js" charset="utf-8"></script>
+    <script src="js/likegoogle.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- <div class="logo">
+      <span style="color: rgb(66, 133, 244);">П</span>
+      <span style="color: rgb(234, 67, 53);">о</span>
+      <span style="color: rgb(251, 188, 5);">о</span>
+      <span style="color: rgb(66, 133, 244);">ш</span>
+      <span style="color: rgb(52, 168, 83);">у</span>
+      <span style="color: rgb(234, 67,53);">к</span>
+      <div class="logo__country">країна</div>
+    </div> -->
+    <section id="search">
+      <div class="search__logo" title="По-ошук"></div>
+      <div class="" style="text-align: center;">
+        <input id="search__input" type="text" name="search" value="" placeholder="Що будемо шукати?" autofocus="autofocus">
+        <input id="search__button" type="button" name="search" value="Шукати" title="Розпочати пошук!">
+      </div>
+    </section>
+    <script id="search__template" type="text/template">
+      <div class="search-item">
+        <a href="<%= item.link %>" target="_blank"><%= item.htmlTitle %></a><br>
+        <span class="search-item__uri"><%= item.htmlFormattedUrl %></span><br>
+        <span class="search-item__snippet"><%= item.htmlSnippet.replace(/\n/g, "").replace(/<br>/g, "") %></span>
+      </div>
+    </script>
+    <section id="search__result"></section>
+  </body>
+</html>
