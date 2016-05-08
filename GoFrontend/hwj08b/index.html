@@ -14,9 +14,11 @@
         font-size: 16px;
       }
       #code {
-        border: solid 1 px, #c0c0c0;
+        background-color: #eee;
+        border: solid 1px #c0c0c0;
         font-family: monospace;
         font-size: 14px;
+        margin: 20px auto;
         padding: 20px, 20px;
         width: 90%;
       }
@@ -37,13 +39,14 @@
         <span class="class">Human</span></li>
     </ol>
     <h2>Результаты работы скрипта выводятся в консоль.</h2>
-    <section id="code"></section>
+    <section id="code">afeferferfererer</section>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function() {
         var oReq = new XMLHttpRequest();
         oReq.open("GET", "js/classes.js")
         oReq.onload = function() {
-          document.getElementById("code").innerHTML = oReq.responseText;          
+          document.getElementById("code").innerHTML =
+                  oReq.responseText.replace(/\n/g, '<br />');
         }
         oReq.send();
       })
