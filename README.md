@@ -1,2 +1,2 @@
 # yenici.github.io
-My GitHub homepage
+Repository for My Homework on GoFrontend Course

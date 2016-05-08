@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Прототипное наследование</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link rel="stylesheet" href="css/normalize.css" media="screen" charset="utf-8">
+    <script src="js/classes.js" charset="utf-8"></script>
+    <style media="screen">
+      .class {
+        background-color: #d0d0d0;
+        font-family: monospace;
+        font-size: 16px;
+      }
+      #code {
+        border: solid 1 px, #c0c0c0;
+        font-family: monospace;
+        font-size: 14px;
+        padding: 20px, 20px;
+        width: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Прототипное наследование</h1>
+    <ol>
+      <li>Создать класс <span class="class">Human</span>, у которого будут
+        свойства обычного человека: имя, возраст, пол, рост, вес. Используя
+        прототипное наследование создать дочерние классы
+        <span class="class">Worker</span> (дописать в них поля места работы,
+        зарплатой, методом "работать") и <span class="class">Student</span>
+        (дописать поля места учебы, стипендией, методом "смотреть сериалы")</li>
+      <li>Создать несколько экземпляров классов
+        <span class="class">Worker</span> и <span class="class">Student</span>,
+        вывести их в консоль. Убедиться что они имеют поля родительского класса
+        <span class="class">Human</span></li>
+    </ol>
+    <h2>Результаты работы скрипта выводятся в консоль.</h2>
+    <section id="code"></section>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+        var oReq = new XMLHttpRequest();
+        oReq.open("GET", "js/classes.js")
+        oReq.onload = function() {
+          document.getElementById("code").innerHTML = oReq.responseText;          
+        }
+        oReq.send();
+      })
+    </script>
+  </body>
+</html>
