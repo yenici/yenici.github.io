@@ -1,0 +1,35 @@
+#search__result {
+
+  margin: 10px auto;
+  width: 90%;
+}
+
+.search-item {
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.search-item__uri {
+  color: #008000;
+  font-size: 12px;
+}
+
+.search-item__snippet {
+  font-size: 12px;
+}
+
+.search__error {
+  border: 2px solid red;
+  color: red;
+  margin: 50px auto;
+  padding: 20px 20px;
+  width: 80%;
+}
+
+.search__error > span {
+  font-weight: bold;
+}
+
+.search__result > nav {
+  margin: 50px auto;
+}
