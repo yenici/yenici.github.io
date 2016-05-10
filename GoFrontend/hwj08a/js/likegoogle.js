@@ -66,7 +66,8 @@ function callbackGCS( response ) {
 
 }
 
-function search( query, s = 1 ) {
+function search( query, s ) {
+  if (s === undefined || (typeof s !== "number")) s = 1;
   // Request to Google Custom Search Engine
   var request = {
     uri: "https://www.googleapis.com/customsearch/v1?",
