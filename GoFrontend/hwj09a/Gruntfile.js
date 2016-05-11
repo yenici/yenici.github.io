@@ -10,19 +10,19 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'css',
             src: ['normalize.css'],
-            dest: 'production/css',
+            dest: 'build/css',
             filter: 'isFile'
           },
           {
             expand: true,
             cwd: 'js',
             src: ['lib/**'],
-            dest: 'production/js'
+            dest: 'build/js'
           },
           {
             expand: true,
             src: ['index.html'],
-            dest: 'production'
+            dest: 'build'
           }
         ]
       }
@@ -36,8 +36,8 @@ module.exports = function(grunt) {
       },
       js_and_css: {
         files: {
-          'production/js/likegoogle.js': ['js/*'],
-          'production/css/styles.css': ['css/styles_search.css', 'css/styles_result.css']
+          'build/js/likegoogle.js': ['js/*'],
+          'build/css/styles.css': ['css/styles_search.css', 'css/styles_result.css']
         }
       }
     },
@@ -46,8 +46,8 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'production/js/likegoogle.js',
-        dest: 'production/js/likegoogle.min.js'
+        src: 'build/js/likegoogle.js',
+        dest: 'build/js/likegoogle.min.js'
       }
     },
     imagemin: {
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'img',
           src: ['**/*.{png,jpg,gif}'],
-          dest: 'production/img'
+          dest: 'build/img'
         }]
       }
     },
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
         options: {
           spawn: false
         }
-      }
+      },
       styles: {
         files: ['css/*.css'],
         tasks: ['concat', 'copy'],
