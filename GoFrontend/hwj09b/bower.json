@@ -1,0 +1,25 @@
+{
+  "name": "jshomework09gulp",
+  "description": "JS Homework Lessons 17-18 with Gulp",
+  "main": "index.js",
+  "authors": [
+    "yenici"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gulp"
+  ],
+  "homepage": "http://yenici.github.io/GoFrontend/hwj09b/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "lodash": "^4.12.0",
+    "normalize-css": "normalize.css#^4.1.1"
+  }
+}
