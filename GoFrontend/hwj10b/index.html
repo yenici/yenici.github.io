@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Learning lodash library</title>
+    <script src="js/lodash.min.js" charset="utf-8"></script>
+    <script src="js/getdata.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+    <style>
+      p {
+        font-family: monospace;
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="task">
+      Скопировать себе в script.js data.json, сделать из него обычный
+      javascript-массив (распарсить). С помощью lodash получить несколько
+      массивов:
+      <ol>
+        <li>
+          Массив скиллов (поле skills) всех людей, не должно быть повторяющихся
+          скиллов, так же они должны быть отсортированы по алфавиту;
+          <pre class="prettyprint">
+            var data = getData();
+            var arr = _.sortBy(
+              _.uniq(
+                _.flatten(
+                  _.map(data, 'skills')
+                )
+              )
+            );
+          </pre>
+          <p id="task1"></p>
+        </li>
+        <li>
+          Массив имен (поле name) людей, отсортированных в зависимости от
+          количества их друзей (friends);
+          <pre class="prettyprint">
+            var data = getData();
+            var arr = _.map(
+              _.sortBy(data, ['friends', 'name']),
+              'name'
+            );
+          </pre>
+          <p id="task2"></p>
+        </li>
+        <li>
+          Массив всех друзей всех пользователей, не должно быть повторяющихся
+          людей.
+          <pre class="prettyprint">
+            var data = getData();
+            var arr = _.sortBy(
+              _.uniq(
+                _.map(
+                  _.flatten(
+                    _.map(data, 'friends')
+                  ),
+                  'name'
+                )
+              )
+            );
+          </pre>
+          <p id="task3"></p>
+        </li>
+      </ol>
+    </div>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  </body>
+</html>
