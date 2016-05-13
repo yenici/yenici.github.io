@@ -13,7 +13,7 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function() {
-  var data = getData('data/data.json');
+  var data = getData('./data/data.json');
 
   var arr1 = _.sortBy(
     _.uniq(

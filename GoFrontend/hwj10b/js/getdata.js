@@ -1,18 +1,18 @@
-function getData(pathToJson) {
-  var data = [];
-  var oReq = new XMLHttpRequest();
-  oReq.open('GET', pathToJson);
-  oReq.onload = function() {
-    data = JSON.parse(this.responseText);
-  }
-  oReq.onerror = function() {
-    console.error('Error:' + this.status + ' ' + this.statusText);
-  };
-  oReq.send();
-  return data;
-}
+// function getData(pathToJson) {
+//   var data = [];
+//   var oReq = new XMLHttpRequest();
+//   oReq.open('GET', pathToJson);
+//   oReq.onload = function() {
+//     data = JSON.parse(this.responseText);
+//   }
+//   oReq.onerror = function() {
+//     console.error('Error:' + this.status + ' ' + this.statusText);
+//   };
+//   oReq.send();
+//   return data;
+// }
 
-function getData1() {
+function getData() {
   return [
     {
       "guid": "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",

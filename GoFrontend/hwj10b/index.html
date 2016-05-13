@@ -22,7 +22,7 @@
         <li>
           Массив скиллов (поле skills) всех людей, не должно быть повторяющихся
           скиллов, так же они должны быть отсортированы по алфавиту;
-          <pre class="prettyprint">
+          <pre class="prettyprint linenums">
             var data = getData();
             var arr = _.sortBy(
               _.uniq(
@@ -37,7 +37,7 @@
         <li>
           Массив имен (поле name) людей, отсортированных в зависимости от
           количества их друзей (friends);
-          <pre class="prettyprint">
+          <pre class="prettyprint linenums">
             var data = getData();
             var arr = _.map(
               _.sortBy(data, ['friends', 'name']),
@@ -49,7 +49,7 @@
         <li>
           Массив всех друзей всех пользователей, не должно быть повторяющихся
           людей.
-          <pre class="prettyprint">
+          <pre class="prettyprint linenums">
             var data = getData();
             var arr = _.sortBy(
               _.uniq(
@@ -66,6 +66,6 @@
         </li>
       </ol>
     </div>
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang="></script>
   </body>
 </html>
