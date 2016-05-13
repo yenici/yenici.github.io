@@ -13,15 +13,6 @@
         font-family: monospace;
         font-size: 16px;
       }
-      #code {
-        background-color: #eee;
-        border: solid 1px #c0c0c0;
-        font-family: monospace;
-        font-size: 14px;
-        margin: 20px auto;
-        padding: 20px, 20px;
-        width: 90%;
-      }
     </style>
   </head>
   <body>
@@ -39,7 +30,7 @@
         <span class="class">Human</span></li>
     </ol>
     <h2>Результаты работы скрипта выводятся в консоль.</h2>
-    <section id="code">afeferferfererer</section>
+    <pre class="prettyprint" id="code"></pre>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function() {
         var oReq = new XMLHttpRequest();
@@ -51,5 +42,6 @@
         oReq.send();
       })
     </script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   </body>
 </html>
