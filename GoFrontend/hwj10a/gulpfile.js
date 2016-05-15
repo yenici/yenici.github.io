@@ -99,6 +99,7 @@ gulp.task('server', function() {
 gulp.task('watch', function() {
   gulp.watch(path.src.html, ['build:html']);
   gulp.watch(path.src.styles, ['build:styles']);
+  gulp.watch(path.src.js, ['build:js']);
   gulp.watch(path.src.img, ['build:img']);
 });
 

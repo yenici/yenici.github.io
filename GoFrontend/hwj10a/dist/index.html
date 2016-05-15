@@ -12,9 +12,6 @@
     <title>Build Home</title>
   </head>
   <body>
-      <!-- <div style="font-family: Ubuntu; font-weight: 300">This is Ubintu Light Font</div>
-      <div style="font-family: Ubuntu; font-weight: 500">This is Ubintu Medium Font</div>
-      <div style="font-family: 'Ubuntu Condensed'">This is Ubintu Condensed Font</div> -->
     <header>
       <div class="container">
         <div class="logo">Build Home<div>INDUSTRIAL THEME</div></div>
@@ -77,10 +74,38 @@
       </div>
     </section>
     <section class="news-banners">
-      <div class="container">
+      <div class="container clearfix">
+        <div class="news">
+          <h2>Latest News</h2>
+          <script id="news-template" type="text/template">
+            <% for (var i = 0; i < Math.min(news.length, 2); i++) { %>
+              <article class="news-item" style="background-image: url(<%= news[i].imageUrl %>);">
+                <div class="news-item__month"><%= news[i].month %></div>
+                <div class="news-item__day"><%= news[i].day %></div>
+                <header>
+                  <h3><a href="<%= news[i].newsUrl %>"><%= news[i].title %></h3></a>
+                  by <a href="<%= news[i].authorUrl %>"><%= news[i].author %></a> &nbsp;&nbsp;
+                  Comments (<a href="<%= news[i].commentsUrl %>"><%= news[i].comments %></a>)
+                </header>
+                <p><%= news[i].text %></p>
+              </article>
+            <% } %>
+          </script>
+        </div>
+        <div class="banners">
+          <h2>Banners Place</h2>
+          <script id="banners-template" type="text/template">
+            <% for (var i = 0; i < Math.min(banners.length, 4); i++) { %>
+              <div class="banner <%= (i == 0)?' banner--active':'' %>">
+                <div class="banner__bar"><h3><%= banners[i].title %></h3></div>
+                <p class="banner_text"><%= banners[i].text %></p>
+              </div>
+              <% } %>
+          </script>
+        </div>
       </div>
     </section>
-    <section class="logos">
+    <section class="logos" style="height: 100px; background-color: #fff;">
       <div class="container">
       </div>
     </section>

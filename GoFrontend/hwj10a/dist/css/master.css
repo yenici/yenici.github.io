@@ -515,6 +515,119 @@ section.services {
 .service-gutter {
   margin-right: 40px; }
 
+.news, .banners {
+  color: #000;
+  float: left;
+  font-family: Ubuntu;
+  margin-top: 39px; }
+  .news h2, .banners h2 {
+    display: block;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 20px 0 43px 0; }
+
+.news-banners {
+  background-color: #f7f7f7;
+  padding-bottom: 77px; }
+
+.news {
+  width: 600px; }
+
+.news-item {
+  background-repeat: no-repeat;
+  color: #8a8a8a;
+  font-size: 14px;
+  height: 150px;
+  padding-left: 184px;
+  position: relative;
+  margin-top: 30px; }
+  .news-item a {
+    color: #248cec; }
+  .news-item h3 {
+    font-size: 16px;
+    margin: 5px 0; }
+    .news-item h3 a {
+      color: #000;
+      text-decoration: none; }
+      .news-item h3 a:hover {
+        color: #248cec; }
+  .news-item p {
+    padding-top: 10px;
+    line-height: 19px; }
+
+.news-item__month, .news-item__day {
+  font-size: 18px;
+  height: 40px;
+  left: -17px;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  width: 40px;
+  z-index: 10; }
+
+.news-item__month {
+  background-color: #248cec;
+  color: #fff;
+  top: 12px; }
+
+.news-item__day {
+  background-color: #f4b60d;
+  color: #000;
+  top: 52px; }
+
+.banners {
+  width: 560px; }
+
+.banner__bar {
+  border: 1px #e8e8e8 solid;
+  color: #2a2d32;
+  cursor: pointer;
+  margin-bottom: 5px;
+  padding-left: 38px;
+  position: relative; }
+  .banner__bar:before {
+    content: "+";
+    font-size: 20px;
+    font-weight: 300;
+    left: 13px;
+    position: absolute;
+    top: 5px; }
+  .banner__bar h3 {
+    border-left: 2px #e8e8e8 solid;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 37px;
+    margin: 0 0;
+    padding-left: 12px; }
+
+.banner > p {
+  color: #8a8a8a;
+  display: none;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  height: 0px;
+  line-height: 20px;
+  margin-bottom: 35px;
+  overflow: hidden;
+  padding: 11px 0 3px 38px; }
+
+.banner--active .banner__bar {
+  background-color: #f4b60d;
+  border: 2px #f4b60d solid; }
+  .banner--active .banner__bar:before {
+    color: #fff;
+    content: "-";
+    left: 17px; }
+  .banner--active .banner__bar h3 {
+    border-left: 2px #f6c53d solid;
+    color: #fff;
+    font-weight: 500; }
+
+.banner--active p {
+  display: block;
+  height: 100px; }
+
 /******************************************************************************
 * clearfix
 ******************************************************************************/
