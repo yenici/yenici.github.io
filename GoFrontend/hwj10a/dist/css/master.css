@@ -411,7 +411,7 @@ body {
   .menu a:hover {
     background-color: #248cec; }
 
-.benefit-item, .benefit-item__number, .benefit-item__description, .benefit-empty {
+.benefit-item, .benefit-item__number, .benefit-item__description {
   float: left;
   font-family: Ubuntu; }
 
@@ -471,11 +471,49 @@ body {
     .benefit-item__link a:hover {
       color: #248cec; }
 
-.benefit-empty {
-  width: 40px; }
+.benefit-gutter {
+  margin-right: 40px; }
 
 section.services {
-  background-color: #2a2d32; }
+  background-color: #2a2d32;
+  color: #fff;
+  font-family: Ubuntu;
+  padding-bottom: 53px;
+  padding-top: 22px; }
+  section.services h2 {
+    font-size: 25px;
+    font-weight: 500;
+    margin: 20px 0 1px 0; }
+
+.service-item {
+  float: left;
+  margin-top: 51px; }
+  .service-item a {
+    background-image: url("../img/services.jpg");
+    display: block;
+    height: 260px;
+    width: 260px; }
+    .service-item a span {
+      background-color: transparent;
+      background-image: url("");
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      display: block;
+      height: 100%;
+      transition: background-color 0.7s;
+      width: 100%; }
+  .service-item:hover span {
+    background-color: rgba(36, 140, 236, 0.7);
+    background-image: url(../img/serviceshover.png); }
+  .service-item h3 {
+    font-size: 16px;
+    padding-top: 14px;
+    text-align: center; }
+  .service-item:hover h3 {
+    color: #f4b60d; }
+
+.service-gutter {
+  margin-right: 40px; }
 
 /******************************************************************************
 * clearfix

@@ -1,3 +1,55 @@
 section.services {
   background-color: #2a2d32;
+  color: #fff;
+  font-family: Ubuntu;
+  padding-bottom: 53px;
+  padding-top: 22px;
+  h2 {
+    font: {
+      size: 25px;
+      weight: 500;
+    };
+    margin: 20px 0 1px 0;
+  };
+}
+
+.service-item {
+  float: left;
+  margin-top: 51px;
+  a {
+    background-image: url("../img/services.jpg");
+    display: block;
+    height: 260px;
+    width: 260px;
+    span {
+      background: {
+        color: transparent;
+        image: url("");
+        position: 50% 50%;
+        repeat: no-repeat;
+      };
+      display: block;
+      height: 100%;
+      transition: background-color 0.7s;
+      width: 100%;
+    };
+  };
+  &:hover span {
+    background: {
+      color: rgba(36, 140, 236, 0.7);
+      image: url(../img/serviceshover.png);
+    };
+  };
+  h3 {
+    font-size: 16px;
+    padding-top: 14px;
+    text-align: center;
+  };
+  &:hover h3 {
+    color: #f4b60d;
+  }
+}
+
+.service-gutter {
+  margin-right: 40px;
 }

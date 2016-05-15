@@ -88,7 +88,6 @@
   }
 }
 
-.benefit-empty {
-  @extend %benefit-common;
-  width: 40px;
+.benefit-gutter {
+  margin-right: 40px;
 }

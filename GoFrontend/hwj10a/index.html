@@ -38,7 +38,11 @@
       <div class="container">
         <script id="benefit-template" type="text/template">
           <% for (var i = 0; i < 3; i++) { %>
+            <% if( i < 2 ) { %>
+            <div class="benefit-item benefit-gutter clearfix">
+            <% } else { %>
             <div class="benefit-item clearfix">
+            <% } %>
               <div class="benefit-item__number"><%= '0' + (i + 1) %></div>
               <div class="benefit-item__description">
                 <div class="benefit-item__icon" style="background-position: <%= (-32 * i) + 'px' %> 0px;"></div>
@@ -47,16 +51,29 @@
                 <div class="benefit-item__link"><a href="#">Read More</a></div>
               </div>
             </div>
-            <% if( i < 2 ) { %>
-            <div class="benefit-empty">&nbsp;</div>
-            <% } %>
           <% } %>
         </script>
       </div>
     </section>
     <section class="services">
-      <div class="container" style="height: 100px;">
-        &nbsp;
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="clearfix">
+          <script id="services-template" type="text/template">
+            <% for (var i = 0; i < 4; i++) { %>
+              <% if( i < 3 ) { %>
+            <div class="service-item service-gutter">
+              <% } else { %>
+            <div class="service-item">
+              <% } %>
+              <a href="#" style="background-position: <%= (-260 * i) + 'px' %> 0px;">
+                <span></span>
+              </a>
+              <h3><%= services[i] %></h3>
+            </div>
+            <% } %>
+          </script>
+        </div>
       </div>
     </section>
     <section class="news-banners">
