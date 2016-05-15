@@ -1,0 +1,13 @@
+body {
+  background-color: #fff;
+}
+
+.container {
+  margin: 0 auto;
+  width: $containerWidth;
+}
+
+@import "components/logo";
+@import "components/menu";
+@import "home-benefits";
+@import "home-services";

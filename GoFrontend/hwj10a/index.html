@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:600,500,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href="css/master.css" rel="stylesheet" media="screen" charset="utf-8">
+    <script src="js/lodash.min.js" charset="utf-8"></script>
+    <script src="js/home.js" charset="utf-8"></script>
+    <title>Build Home</title>
+  </head>
+  <body>
+      <!-- <div style="font-family: Ubuntu; font-weight: 300">This is Ubintu Light Font</div>
+      <div style="font-family: Ubuntu; font-weight: 500">This is Ubintu Medium Font</div>
+      <div style="font-family: 'Ubuntu Condensed'">This is Ubintu Condensed Font</div> -->
+    <header>
+      <div class="container">
+        <div class="logo">Build Home<div>INDUSTRIAL THEME</div></div>
+        <div class="social"></div>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">FEATURES</a></li>
+            <li><a href="#">SERVICES</a></li>
+            <li><a href="#">NEWS</a></li>
+            <li><a href="#">SHOP</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="slider">
+      <div class="container" style="background-image: url('../img/slider1.jpg'); height: 470px;">
+      </div>
+    </section>
+    <section class="benefits clearfix">
+      <div class="container">
+        <script id="benefit-template" type="text/template">
+          <% for (var i = 0; i < 3; i++) { %>
+            <div class="benefit-item clearfix">
+              <div class="benefit-item__number"><%= '0' + (i + 1) %></div>
+              <div class="benefit-item__description">
+                <div class="benefit-item__icon" style="background-position: <%= (-32 * i) + 'px' %> 0px;"></div>
+                <div class="benefit-item__title"><%= benefits[i].title %></div>
+                <div class="benefit-item__text"><%= benefits[i].text %></div>
+                <div class="benefit-item__link"><a href="#">Read More</a></div>
+              </div>
+            </div>
+            <% if( i < 2 ) { %>
+            <div class="benefit-empty">&nbsp;</div>
+            <% } %>
+          <% } %>
+        </script>
+      </div>
+    </section>
+    <section class="services">
+      <div class="container" style="height: 100px;">
+        &nbsp;
+      </div>
+    </section>
+    <section class="news-banners">
+      <div class="container">
+      </div>
+    </section>
+    <section class="logos">
+      <div class="container">
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+%benefit-common {
+  float: left;
+  font-family: Ubuntu;
+}
+
+.benefits {
+  background-color: #fff;
+  padding : {
+    bottom: 87px;
+    top: 55px;
+  };
+}
+
+.benefit-item {
+  @extend %benefit-common;
+  width: 360px;
+}
+
+.benefit-item__number {
+  @extend %benefit-common;
+  color: #2a2b2e;
+  font: {
+    size: 85px;
+    weight: 600;
+  };
+  width: 60px;
+}
+
+.benefit-item__description {
+  @extend %benefit-common;
+  // margin-top: 18px;
+  padding: {
+    left: 63px;
+    top: 18px;
+  };
+  width: 237px;
+}
+
+.benefit-item__icon {
+  background: url("../img/benefits.png");
+  height: 32px;
+  width: 32px;
+}
+
+.benefit-item__title {
+  color: #2a2b2e;
+  font: {
+    weight: 600;
+    size: 20px;
+  };
+  padding-top: 14px;
+}
+
+.benefit-item__text {
+  color: #8a8a8a;
+  font: {
+    family: Arial;
+    weight: 300;
+    size: 12px;
+  };
+  height: 75px;
+  line-height: 19px;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.benefit-item__link {
+  background: {
+    image: url("../img/benefit_arrow.png");
+    position: right;
+    repeat: no-repeat;
+  };
+  font: {
+    size: 12px;
+    weight: 600;
+  };
+  width: 81px;
+  &:hover {
+    background-image: url("../img/benefit_arrow_hover.png");
+  }
+  a {
+    color: #2a2b2e;
+    display: block;
+    text-decoration: none;
+    &:hover {
+      color: #248cec;
+    }
+  }
+}
+
+.benefit-empty {
+  @extend %benefit-common;
+  width: 40px;
+}

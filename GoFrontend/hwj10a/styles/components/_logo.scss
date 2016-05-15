@@ -1,0 +1,24 @@
+.logo {
+  background: {
+    image: url('../img/logo.png');
+    repeat: no-repeat;
+  };
+  color: #333;
+  font: {
+    family: Ubuntu;
+    size: 30px;
+    weight: 600;
+  };
+  height: 36px;
+  line-height: 22px;
+  margin: 37px 5px;
+  padding-left: 44px;
+  div {
+    font: {
+      size: 12px;
+      weight: 300;
+    };
+    letter-spacing: 3.5px;
+    line-height: 20px;
+  }
+}

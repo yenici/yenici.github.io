@@ -1,0 +1,28 @@
+.menu {
+  background-color: #2a2d32;
+  color: #fff;
+  font-family: "Ubuntu Condensed";
+  font-size: 14px;
+  height: 56px;
+  line-height: 56px;
+  margin-bottom: 39px;
+  ul {
+    list-style: none;
+    margin: 0 0;
+    padding: 0 0;
+  }
+  li {
+    float: left;
+  }
+  a {
+    border-right: 1px solid #181a1d;
+    color: #fff;
+    display: block;
+    padding: 0 40px;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: #248cec;
+    // color: #f4b60d;
+  }
+}
