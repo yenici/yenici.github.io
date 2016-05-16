@@ -26,3 +26,18 @@
     // color: #f4b60d;
   }
 }
+
+.search {
+  float: right;
+  margin-right: 7px;
+  margin-top: 1px;
+  input {
+    background: #35383c url("../img/search.png") 213px 13px no-repeat;
+    border: 1px solid #181a1d;
+    color: #a9a9a9;
+    font-size: 13px;
+    height: 30px;
+    padding: 6px 0 4px 10px;
+    width: 230px;
+  }
+}

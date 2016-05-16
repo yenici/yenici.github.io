@@ -97,3 +97,14 @@ footer .contacts {
     width: 18px;
   }
 }
+
+.contacts__copy {
+  color: #8a8a8a;
+  font: {
+    family: Arial;
+    size: 12px;
+    weight: 400;
+  };
+  float: right;
+  line-height: 60px;
+}
