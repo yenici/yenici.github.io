@@ -138,4 +138,98 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
 
+    /*
+    * Render Navigation Links in Footer
+    */
+    var navigation = [
+      {
+        item:"SOCIALS",
+        subitems: [
+          {
+            name: "Facebook",
+            url: "http://facebook.com"
+          },
+          {
+            name: "Flickr",
+            url: "http://flickr.com"
+          },
+          {
+            name: "Twitter",
+            url: "http://twitter.com"
+          },
+          {
+            name: "Vimeo",
+            url: "http://vimeo.com"
+          }
+        ]
+      },
+      {
+        item:"LINKS",
+        subitems: [
+          {
+            name: "How to Write a Blog",
+            url: "#"
+          },
+          {
+            name: "Create a Blog in 4 Steps",
+            url: "#"
+          },
+          {
+            name: "15 Tips to Increase Traffic",
+            url: "#"
+          },
+          {
+            name: "20 Blog Post Ideas",
+            url: "#"
+          }
+        ]
+      },
+      {
+        item:"BLOGROLL",
+        subitems: [
+          {
+            name: "Blogs Blog",
+            url: "#"
+          },
+          {
+            name: "Roll Up Roll Up",
+            url: "#"
+          },
+          {
+            name: "Blog Free",
+            url: "#"
+          },
+          {
+            name: "Wordpress Blog",
+            url: "#"
+          }
+        ]
+      },
+      {
+        item:"ABOUT US",
+        subitems: [
+          {
+            name: "Agriculture",
+            url: "#"
+          },
+          {
+            name: "Harvest",
+            url: "#"
+          },
+          {
+            name: "Company news",
+            url: "#"
+          },
+          {
+            name: "Investor relations",
+            url: "#"
+          }
+        ]
+      }
+    ];
+    lodashCompiledTemplate = _.template(document
+      .getElementById("footer-template").innerHTML, {variable: "navigation"});
+    element = document.querySelector("footer div.container");
+    element.innerHTML += lodashCompiledTemplate(navigation);
+
 });

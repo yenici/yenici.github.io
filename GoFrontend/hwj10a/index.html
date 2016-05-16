@@ -105,12 +105,39 @@
         </div>
       </div>
     </section>
-    <section class="logos" style="height: 100px; background-color: #fff;">
-      <div class="container">
+    <section class="logos">
+      <div class="container clearfix">
+        <a href="" class="logo-item__rbp"></a>
+        <a href="" class="logo-item__moto"></a>
+        <a href="" class="logo-item__crave"></a>
+        <a href="" class="logo-item__atx"></a>
+        <a href="" class="logo-item__cruiser"></a>
+        <a href="" class="logo-item__gear"></a>
       </div>
     </section>
     <footer>
-      <div class="container">
+      <nav class="footer-links">
+        <div class="container clearfix">
+          <script id="footer-template" type="text/template">
+            <% for (var i = 0; i < navigation.length; i++) { %>
+              <div class="footer-links__group<%= (i + 1 == navigation.length)?" footer-links__group--last":"" %>">
+                <h2><%= navigation[i].item %></h2>
+                <ul>
+                  <% for (var j = 0; j < navigation[i].subitems.length; j++) { %>
+                    <li><a<%= (j + 1 < navigation[i].subitems.length)?' class="group__link--underline"':'' %> href="<%= navigation[i].subitems[j].url %>"><%= navigation[i].subitems[j].name %></a></li>
+                  <% } %>
+                </ul>
+              </div>
+            <% } %>
+          </script>
+        </div>
+      </nav>
+      <div class="contacts">
+        <div class="container">
+          <a class="contacts__address" href="http://maps.google.com/maps?q=+Yevhena+Konovaltsia+St,+36,+Kyiv,+Ukraine,+01133">BuildHomeLtd. Street Name 123 23 45 Cityname</span>
+          <a class="contacts__phone" href="tel:+123900123456">+123 900 123 456</a>
+          <a class="contacts__email" href="mailto:info@buildhome.web">info@buildhome.web</a>
+        </div>
       </div>
     </footer>
   </body>
