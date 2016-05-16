@@ -1,0 +1,38 @@
+%logo {
+  display: block;
+  float: left;
+  height: 62px;
+  margin: 86px 21px 93px 21px;
+  width: 143px;
+}
+
+.logo-item__rbp {
+  @extend %logo;
+  background-image: url("../img/logoadv1.png");
+}
+
+.logo-item__moto {
+  @extend %logo;
+  background-image: url("../img/logoadv2.png");
+}
+
+.logo-item__crave {
+  @extend %logo;
+  background-image: url("../img/logoadv3.png");
+  width: 184px;
+}
+
+.logo-item__atx {
+  @extend %logo;
+  background-image: url("../img/logoadv4.png");
+}
+
+.logo-item__cruiser {
+  @extend %logo;
+  background-image: url("../img/logoadv5.png");
+}
+
+.logo-item__gear {
+  @extend %logo;
+  background-image: url("../img/logoadv6.png");
+}
