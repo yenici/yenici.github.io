@@ -6,16 +6,26 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:600,500,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href="css/owl.carousel.css" rel="stylesheet" media="screen" charset="utf-8">
     <link href="css/master.css" rel="stylesheet" media="screen" charset="utf-8">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script> -->
+    <script src="js/jquery.min.js" charset="utf-8"></script>
+    <script src="js/owl.carousel.min.js" charset="utf-8"></script>
     <script src="js/lodash.min.js" charset="utf-8"></script>
     <script src="js/home.js" charset="utf-8"></script>
     <title>Build Home</title>
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="logo">Build Home<div>INDUSTRIAL THEME</div></div>
-        <div class="social"></div>
+      <div class="container clearfix">
+        <a class="logo logo--left" href="/">Build Home <span>INDUSTRIAL THEME</span></a>
+        <ul class="socials socials--right">
+          <li><a class="socials__link--skype" href="http://skype.com"></a></li>
+          <li><a class="socials__link--linkedin" href="http://linkedin.com"></a></li>
+          <li><a class="socials__link--rss" href="#"></a></li>
+          <li><a class="socials__link--twitter" href="http://twitter.com"></a></li>
+          <li><a class="socials__link--fb" href="http://facebook.com"></a></li>
+        </ul>
       </div>
       <div class="container">
         <nav class="menu">
@@ -33,7 +43,12 @@
       </div>
     </header>
     <section class="slider">
-      <div class="container" style="background-image: url('../img/slider1.jpg'); height: 470px;">
+      <div class="container">
+        <div class="owl-carousel">
+          <img src="img/slider1.jpg" alt="Slider No. 1" />
+          <img src="img/slider2.jpg" alt="Slider No. 2" />
+          <img src="img/slider3.jpg" alt="Slider No. 3" />
+        </div>
       </div>
     </section>
     <section class="benefits clearfix">

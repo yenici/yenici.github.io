@@ -17,7 +17,9 @@ var path = {
     styles: "./styles/**/*.scss",
     js: "./js/**/*.js",
     jslibs: [
-      "./bower_components/lodash/dist/lodash.min.js"
+      "./bower_components/lodash/dist/lodash.min.js",
+      "./bower_components/jquery/dist/jquery.min.js",
+      "./bower_components/OwlCarousel/owl-carousel/owl.carousel.min.js"
     ],
     img: "./img/*"
   },
@@ -66,15 +68,23 @@ gulp.task('build:img', function() {
       }))
       .pipe(gulp.dest(path.dest.img))
       .pipe(connect.reload());
-      gulp.src(path.src.img + '*.png')
-          .pipe(imagemin({
-              progressive: true,
-              svgoPlugins: [{removeViewBox: false}],
-              use: [imageminPngquant()],
-              interlaced: true
-          }))
-          .pipe(gulp.dest(path.dest.img))
-          .pipe(connect.reload());
+  gulp.src(path.src.img + '.svg')
+      .pipe(imagemin({
+          progressive: true,
+          svgoPlugins: [{removeViewBox: false}],
+          interlaced: true
+      }))
+      .pipe(gulp.dest(path.dest.img))
+      .pipe(connect.reload());
+  gulp.src(path.src.img + '*.png')
+      .pipe(imagemin({
+          progressive: true,
+          svgoPlugins: [{removeViewBox: false}],
+          use: [imageminPngquant()],
+          interlaced: true
+      }))
+      .pipe(gulp.dest(path.dest.img))
+      .pipe(connect.reload());
 });
 
 gulp.task('build', [

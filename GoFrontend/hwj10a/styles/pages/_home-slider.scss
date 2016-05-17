@@ -1,0 +1,37 @@
+section.slider div.container {
+   overflow: hidden;
+}
+
+.owl-carousel {
+  height: 470px;
+}
+
+// Styling Pagination
+.owl-theme .owl-controls {
+  position: absolute;
+  bottom: -5px;
+  left: 537px;
+}
+.owl-theme .owl-controls .owl-page {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin: 17px 7px;
+  background: #2a2d32;
+  -webkit-box-shadow: inset 0px 0px 0px 11px rgba(255,255,255,1);
+  -moz-box-shadow: inset 0px 0px 0px 11px rgba(255,255,255,1);
+  box-shadow: inset 0px 0px 0px 11px rgba(255,255,255,1);
+  transition: box-shadow 0.2s;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span {
+  -webkit-box-shadow: inset 0px 0px 0px 3px rgba(255,255,255,1);
+  -moz-box-shadow: inset 0px 0px 0px 3px rgba(255,255,255,1);
+  box-shadow: inset 0px 0px 0px 3px rgba(255,255,255,1);
+}

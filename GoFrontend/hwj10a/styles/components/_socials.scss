@@ -1,0 +1,62 @@
+.socials {
+  margin-top: 47px;
+  list-style-type: none;
+  li {
+    float: right;
+    padding: 0 8px;
+    a {
+      background-size: auto 16px;
+      display: inline-block;
+      height: 16px;
+      opacity: 0.3;
+      width: 16px;
+    }
+  }
+}
+
+%socials__link--hover {
+  opacity: 1;
+}
+
+.socials__link--fb {
+  background: url("../img/social_facebook.svg");
+  &:hover {
+    @extend %socials__link--hover;
+  }
+}
+
+.socials__link--twitter {
+  background: url("../img/social_twitter.svg");
+  &:hover {
+    @extend %socials__link--hover;
+  }
+}
+
+.socials__link--rss {
+  background: url("../img/social_rss.svg");
+  &:hover {
+    @extend %socials__link--hover;
+  }
+}
+
+.socials__link--linkedin {
+  background: url("../img/social_linkedin.svg");
+  &:hover {
+    @extend %socials__link--hover;
+  }
+}
+
+.socials__link--skype {
+  background: url("../img/social_skype.svg");
+  &:hover {
+    @extend %socials__link--hover;
+  }
+}
+
+.socials--left {
+  float: left;
+}
+
+.socials--right {
+  float: right;
+}

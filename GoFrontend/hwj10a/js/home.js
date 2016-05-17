@@ -232,4 +232,19 @@ document.addEventListener("DOMContentLoaded", function() {
     element = document.querySelector("footer div.container");
     element.innerHTML += lodashCompiledTemplate(navigation);
 
+    /*
+    * Create Slider
+    */
+    $('.owl-carousel').owlCarousel({
+      singleItem: true,
+      itemsScaleUp: false,
+      slideSpeed: 200,
+      paginationSpeed: 800,
+      rewindSpeed: 1000,
+      autoPlay : true,
+      autoplayTimeout: 3000,
+      stopOnHover: false,
+      loop: true
+    });
+
 });

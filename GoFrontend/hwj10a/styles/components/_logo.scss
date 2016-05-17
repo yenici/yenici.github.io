@@ -1,9 +1,8 @@
 .logo {
-  background: {
-    image: url('../img/logo.png');
-    repeat: no-repeat;
-  };
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
   color: #333;
+  display: block;
   font: {
     family: Ubuntu;
     size: 30px;
@@ -13,12 +12,23 @@
   line-height: 22px;
   margin: 37px 5px;
   padding-left: 44px;
-  div {
+  text-decoration: none;
+  width: 165px;
+  span {
+    display: block;
     font: {
       size: 12px;
       weight: 300;
     };
     letter-spacing: 3.5px;
-    line-height: 20px;
+    line-height: 17px;
   }
+}
+
+.logo--left {
+  float: left;
+}
+
+.logo--right {
+  float: right;
 }
