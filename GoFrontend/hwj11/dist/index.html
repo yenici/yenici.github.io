@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JavaScript Модуль 22. Создание теста с использованием localStorage, шаблонизатора. Переход на JS6.</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="css/normalize.css" media="screen" charset="utf-8"> -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="css/master.css" media="screen" charset="utf-8">
+    <script src="js/script.js" charset="utf-8"></script>
+    <script src="js/lodash.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="test-wrapper">
+      <script type="text/template" id="test-template">
+        <div id="questions" class="tb_div">
+          <h1><%= test.name %></h1>
+          <ol>
+            <% for (var i = 0; i < test.questions.length; i++) { %>
+            <li class="tb_question"><%= test.questions[i].question %>
+              <ul>
+            <% var id, type; %>
+            <% for (var j = 0; j < test.questions[i].answers.length; j++) {%>
+                <li>
+            <%   id = 'q' + test.questions[i].id; %>
+            <%   type = test.questions[i].multichoise?'checkbox':'radio' %>
+                  <label for="<%= id + '_' + j %>" class="tb_answer">
+                    <input type="<%= type %>" name="<%= id %>" id="<%= id + '_' + j %>" value="<%= j %>"><%= test.questions[i].answers[j].text %>
+                  </label>
+                </li>
+            <% }; %>
+              </ul>
+            </li>
+            <% }; %>
+          </ol>
+          <input type="submit" value="Проверить мои результаты" class="pure-button pure-button-primary tb_submit">
+        </div>
+      </script>
+    </div>
+
+    <div id="modal">
+      <div>	<a href="" title="Close" class="modal__close">X</a>
+        <div class="modal__title">
+          <h2>Результат прохождения теста</h2>
+        </div>
+        <div class="modal__body"></div>
+        <script type="text/template" id="test-result">
+          <p>Правильных ответов <%= result.correct %> из <%= result.questions %> или <%= (result.correct / result.questions * 100)  %>%.</p>
+          <% if ((result.correct / result.questions) > 0.8) { %>
+            <h3>Тест пройден!</h3>
+            <% } else { %>
+              <h3>Тест не пройден. Попробуйте еще раз.</h3>
+              <% } %>
+            </script>
+        <div class="modal__footer">
+          <input type="submit" value="Продолжить" class="pure-button pure-button-primary tb_submit">
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', generateTestPage);
+    </script>
+  </body>
+</html>
