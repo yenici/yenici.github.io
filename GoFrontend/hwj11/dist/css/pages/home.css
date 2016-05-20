@@ -1,0 +1,32 @@
+.test-wrapper {
+  border: solid 2px #ccc;
+  border-radius: 10px;
+  margin: 30px auto;
+  padding: 20px 20px;
+  width: 90%; }
+
+.tb_div {
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 25px; }
+
+.tb_div > h1 {
+  text-align: center; }
+
+.tb_question {
+  font-size: 18px;
+  margin-bottom: 20px; }
+
+.tb_question > ul {
+  list-style-type: none;
+  padding-left: 0; }
+
+.tb_answer {
+  font-size: 16px; }
+
+.tb_answer > input {
+  margin-right: 10px; }
+
+.tb_submit {
+  box-shadow: 1px 1px 3px #000;
+  display: block;
+  margin: 0 auto; }

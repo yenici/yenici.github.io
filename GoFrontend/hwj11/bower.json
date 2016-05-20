@@ -1,0 +1,23 @@
+{
+  "name": "jshomework11",
+  "description": "JS Homework Lessons 20-21",
+  "main": "index.js",
+  "authors": [
+    "yenici"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gulp"
+  ],
+  "homepage": "http://yenici.github.io/GoFrontend/hwj11/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.12.0"
+  }
+}
