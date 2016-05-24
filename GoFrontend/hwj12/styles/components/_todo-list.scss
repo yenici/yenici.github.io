@@ -1,0 +1,108 @@
+#todo-list {
+  background-color: $todo-background-color;
+  color: $todo-text-color;
+  font: {
+    family: Roboto, sans-serif;
+    size: 20px;
+    weight: normal;
+  };
+  line-height: 30px;
+  width: $todo-width;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  };
+}
+
+.todo-list__input {
+  border: 2px solid $todo-border-color;
+  width: ($todo-width - 4px);
+  input {
+    display: block;
+    width: ($todo-width - 8px);
+  };
+}
+
+.todo-list__item {
+  display: block;
+  border: 1px solid $todo-border-color;
+  border-top: none;
+  padding: 0 10px;
+  &:hover .todo-item__controls * {
+    opacity: 1;
+  };
+}
+
+%todo-item__elements {
+  float: left;
+  margin: 0;
+  padding: 5px 5px;
+}
+
+.todo-item__done {
+  @extend %todo-item__elements;
+  border: 1px solid $todo-border-color;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 5px;
+  margin: 12px 0;
+  width: 5px;
+}
+
+.todo-item__done--checked {
+  @extend .todo-item__done;
+  background-image: url(../img/checkmark.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.todo-item__text {
+  @extend %todo-item__elements;
+  width: $todo-text-width;
+  overflow: hidden;
+  width: 590px;
+  input {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.5s;
+    width: 590px;
+    &[disabled] {
+      background-color: $todo-background-color;
+      border: none;
+    };
+  };
+}
+
+.todo-item__done--checked ~ .todo-item__text {
+  input {
+    //color: $todo-text-color-passive;
+    opacity: 0.5;
+    text-decoration: line-through;
+  };
+}
+
+.todo-item__controls {
+  @extend %todo-item__elements;
+  float: right;
+}
+
+%todo-item__control {
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  width: 20px;
+}
+
+.todo-item__control--edit {
+  @extend %todo-item__control;
+  background: url(../img/edit.svg);
+}
+
+.todo-item__control--delete {
+  @extend %todo-item__control;
+  background: url(../img/delete.svg);
+}
