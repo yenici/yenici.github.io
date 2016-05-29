@@ -1,0 +1,27 @@
+{
+  "name": "final_exam",
+  "version": "0.1.0",
+  "description": "GoIT Frontend on-line course. Final exam.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HTML",
+    "HTML5",
+    "CSS",
+    "Sass",
+    "JavaScript",
+    "Adaptive",
+    "Gulp"
+  ],
+  "author": "Dmytro Novikov",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-connect": "^4.0.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^2.3.1"
+  }
+}

@@ -1,0 +1,19 @@
+<section class="partners">
+  <h2>Meet a partner for your best holiday</h2>
+  <div class="partners__list clearfix"></div>
+  <script type="text/template" id="partners__template">
+    <% for (let i = 0; i < data.length; i++) { %>
+      <a class="person" href="<%= data[i].linkUrl %>">
+        <div class="person__photo" style="background-image: url(<%= data[i].imgUrl %>);">
+          <div class="person__activity--<%= data[i].activity %>"></div>
+        </div>
+        <div class="person__name"><%= data[i].name %></div>
+        <div class="person__description"><%= data[i].description %></div>
+      </a>
+    <% } %>
+  </script>
+  <a href="#" class="partners__find-btn">See other partners</a>
+
+<!-- ff4e50 -->
+
+</section>

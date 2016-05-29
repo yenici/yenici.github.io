@@ -1,0 +1,168 @@
+/******************************************************************************
+* 'Meet a partner for your best holiday' section
+******************************************************************************/
+.partners {
+  font-family: $font_main_bold;
+  margin: 0 auto 10px;
+  padding: 0;
+  width: $device_width_small;
+  @include mquery(medium) {
+    width: $device_width_medium;
+  }
+  @include mquery(large) {
+    width: $device_width_large;
+  }
+  h2 {
+    color: #333;
+    font-size: 22px;
+    margin:  24px 7px 14px 0px;
+    text-align: center;
+    @include mquery(medium) {
+      margin:  86px auto 0;
+    }
+  }
+}
+
+.partners__list {
+  @include mquery(medium) {
+    padding: 0px 0px 0px 150px;
+  }
+  @include mquery(large) {
+    padding: 0px 0px 0px 0px;
+  }
+}
+
+.person {
+  color: #333;
+  display: block;
+  text-decoration: none;
+  margin: 11px auto 28px;
+  width: 220px;
+  opacity: 0.8;
+  @include mquery(medium) {
+    float: left;
+    margin: {
+      bottom: 29px;
+      right: 35px;
+      top: 30px;
+    }
+  }
+  @include mquery(large) {
+    margin: {
+      bottom: 29px;
+      right: 23px;
+      top: 31px;
+    }
+    &:nth-child(2) {
+      margin-right: 19px;
+    }
+    &:nth-child(3) {
+      margin-right: 18px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.person__photo {
+  border-radius: 50%;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+  width: 120px;
+}
+
+%person__activity {
+  background: {
+    position: center;
+    repeat: no-repeat;
+  }
+  border: 4px solid #fff;
+  border-radius: 50%;
+  height: 32px;
+  left: 85px;
+  position: absolute;
+  top: 85px;
+  width: 32px;
+}
+
+.person__activity--study {
+  @extend %person__activity;
+  background: {
+    color: #ffa507;
+    image: url(../img/partner_study.png);
+  }
+}
+
+.person__activity--tv {
+  @extend %person__activity;
+  background: {
+    color: #ff4e50;
+    image: url(../img/partner_tv.png);
+  }
+}
+
+.person__activity--eat {
+  @extend %person__activity;
+  background: {
+    color: #1cd7ad;
+    image: url(../img/partner_eat.png);
+  }
+}
+
+.person__activity--play {
+  @extend %person__activity;
+  background: {
+    color: #4e73db;
+    image: url(../img/partner_play.png);
+  }
+}
+
+.person__name {
+  font-size: 14px;
+  margin-top: 19px;
+  text-align: center;
+}
+
+.person__description {
+  color: #666;
+  font-family: $font_main_light;
+  font-size: 14px;
+  margin-top: 13px;
+  text-align: center;
+  line-height: 16px;
+}
+
+.partners__find-btn {
+  @extend %promo__btn;
+  background-color: #fff;
+  border: 2px solid #ff4e50;
+  border-radius: 20px;
+  color: #ff4e50;
+  font: {
+    size: 14px;
+    family: $font_main_bold;
+  }
+  line-height: 34px;
+  padding-top: 2px;
+  margin: 0 auto;
+  width: 276px;
+  @include mquery(medium) {
+    margin: 10px auto 0;
+    width: 190px;
+    // left: 274px;
+    // top: 426px;
+    // width: 224px;
+  }
+  // @include mquery(large) {
+  //   left: 359px;
+  // }
+  &:hover {
+    background-color: #ff4e50;
+    color: #fff;
+  }
+}

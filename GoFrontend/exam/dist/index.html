@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>URLAUBSGLÜCK - Home</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="/css/main.css" media="screen" charset="utf-8">
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <header class="promo">
+      <div class="promo__container">
+        <a class="promo__logo" href="/">URLAUBSGLÜCK</a>
+        <div class="promo__login-block clearfix">
+          <a class="login-block__btn" href="#">Log in</a>
+          <a class="login-block__btn" href="#">Sign up</a>
+        </div>
+        <h1 class="promo__slogan">SHARE YOUR<br>HOLIDAY DREAMS</h1>
+        <h2 class="promo__subslogan">And find the perfect partner to fulfill it</h2>
+        <a href="" class="promo__find-btn">Find your holiday partner</a>
+      </div>
+    </header>
+    <section class="howitworks">
+      <h2>How Urlaubsglück works?</h2>
+      <div class="howitworks__slider-block clearfix">
+        <!-- TEMPLATE - Begin -->
+        <script type="text/template" id="howitworks__template">
+          <div class="swiper-container" id="<%= data.id %>">
+            <div class="swiper-wrapper">
+            <% for (let i = 0; i < data.slides.length; i++) { %>
+              <div class="swiper-slide" style="background-image:url(<%= data.slides[i].imgURL %>)">
+                <a class="swiper-slide__button<%= data.slides[i].classMod %>" href="#"><%= data.slides[i].caption %></a>
+                <h3 class="swiper-slide__title<%= data.slides[i].classMod %>"><%= data.slides[i].title %></h3>
+                <p class="swiper-slide__text<%= data.slides[i].classMod %>"><%= data.slides[i].text %></p>
+              </div>
+            <% } %>
+            </div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+          </div>
+        </script>
+        <!-- TEMPLATE - End -->
+      </div>
+    </section>
+    <section class="partners">
+      <h2>Meet a partner for your best holiday</h2>
+      <div class="partners__list clearfix"></div>
+      <script type="text/template" id="partners__template">
+        <% for (let i = 0; i < data.length; i++) { %>
+          <a class="person" href="<%= data[i].linkUrl %>">
+            <div class="person__photo" style="background-image: url(<%= data[i].imgUrl %>);">
+              <div class="person__activity--<%= data[i].activity %>"></div>
+            </div>
+            <div class="person__name"><%= data[i].name %></div>
+            <div class="person__description"><%= data[i].description %></div>
+          </a>
+        <% } %>
+      </script>
+      <a href="#" class="partners__find-btn">See other partners</a>
+    
+    <!-- ff4e50 -->
+    
+    </section>
+    <section class="ideas">
+      
+    </section>
+
+    <!-- <div style="background-color: #f00; height: 540px; opacity: 0.3;"></div> -->
+    <div style="background-color: #f00; height: 33px; opacity: 0.5"></div>
+  </body>
+</html>

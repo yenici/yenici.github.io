@@ -1,0 +1,157 @@
+/******************************************************************************
+* 'How it works' section
+******************************************************************************/
+.howitworks {
+  font-family: $font_main_bold;
+  margin: 0 auto;
+  padding: 0;
+  width: $device_width_small;
+  @include mquery(medium) {
+    width: $device_width_medium;
+  }
+  @include mquery(large) {
+    width: $device_width_large;
+  }
+  h2 {
+    color: #333;
+    font-size: 22px;
+    margin:  34px 0 14px 0;
+    text-align: center;
+    @include mquery(medium) {
+      margin:  94px 0 34px 11px;
+    }
+    @include mquery(large) {
+      margin-left: 0;
+    }
+  }
+}
+
+.swiper-container {
+  border-radius: 5px;
+  height: 240px;
+  margin-bottom: 10px;
+  width: 300px;
+  @include mquery(medium) {
+    float: left;
+    height: 400px;
+    width: 236px;
+    margin: 0 8px 10px 12px;
+  }
+  @include mquery(large) {
+    margin: 0px 20px 10px 0px;
+    width: 300px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.swiper-slide {
+  color: #fff;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.swiper-button-prev, .swiper-button-next {
+    top: 15%;
+    @include mquery(medium) {
+      top: 16.5%;
+    }
+    @include mquery(large) {
+      top: 45%;
+    }
+}
+
+.swiper-slide__button {
+  background-color: #ff4e50;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 10px;
+  height: 20px;
+  left: 22px;
+  letter-spacing: 2px;
+  line-height: 21px;
+  opacity: 0.8;
+  position: absolute;
+  text: {
+    align: center;
+    decoration: none;
+  }
+  top: 70px;
+  width: 70px;
+  @include mquery(medium) {
+    top: 210px;
+  }
+  @include mquery(large) {
+    top: 228px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.swiper-slide__button--bottom {
+  @extend .swiper-slide__button;
+  top: 101px;
+  @include mquery(medium) {
+    top: 258px;
+  }
+};
+
+.swiper-slide__title {
+  font: {
+    family: $font_main_bold;
+    size: 24px;
+    weight: bold;
+  }
+  left: 19px;
+  position: absolute;
+  top: 82px;
+  @include mquery(medium) {
+    top: 222px;
+  }
+  @include mquery(large) {
+    top: 239px;
+  }
+}
+
+.swiper-slide__title--bottom {
+  @extend .swiper-slide__title;
+  top: 111px;
+  @include mquery(medium) {
+    top: 268px;
+  }
+}
+
+.swiper-slide__text {
+  font: {
+    family: $font_main_light;
+    size: 14px;
+  }
+  left: 20px;
+  line-height: 17px;
+  position: absolute;
+  top: 159px;
+  width: 260px;
+  @include mquery(medium) {
+    top: 299px;
+    width: 220px;
+  }
+  @include mquery(large) {
+    top: 318px;
+    width: 260px;
+  }
+}
+
+.swiper-slide__text--bottom {
+  @extend .swiper-slide__text;
+  @include mquery(medium) {
+    top: 318px;
+    width: 200px;
+  }
+  @include mquery(large) {
+    width: 260px;
+  }
+}
