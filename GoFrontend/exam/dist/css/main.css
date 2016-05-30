@@ -406,11 +406,11 @@ textarea {
   @media screen and (max-width: 320px) {
     .promo {
       background-image: url("../img/promo_background_s.jpg"); } }
-  @media screen and (min-width: 321px) and (max-width: 768px) {
+  @media screen and (min-width: 321px) and (max-width: 767px) {
     .promo {
       background-image: url("../img/promo_background_l.jpg");
       background-size: auto 540px; } }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 768px) {
     .promo {
       background-image: url("../img/promo_background_l.jpg"); } }
 
@@ -519,6 +519,7 @@ textarea {
   line-height: 40px;
   opacity: 0.8;
   position: absolute;
+  transition: opacity 0.5s;
   top: 362px;
   width: 280px; }
   @media screen and (min-width: 768px) {
@@ -608,6 +609,7 @@ textarea {
   line-height: 21px;
   opacity: 0.8;
   position: absolute;
+  transition: opacity 0.5s;
   text-align: center;
   text-decoration: none;
   top: 70px;
@@ -710,7 +712,8 @@ textarea {
   text-decoration: none;
   margin: 11px auto 28px;
   width: 220px;
-  opacity: 0.8; }
+  opacity: 0.75;
+  transition: opacity 0.5s; }
   @media screen and (min-width: 768px) {
     .person {
       float: left;
@@ -800,31 +803,159 @@ textarea {
 /******************************************************************************
 * 'Discover holiday activity ideas' section
 ******************************************************************************/
-/******************************************************************************
-  * body::after PixelPerfect solution
-  ******************************************************************************/
-body::after {
-  background-position: center;
-  background-repeat: no-repeat;
-  content: "";
-  opacity: 0.4;
-  position: absolute;
-  top: 0; }
-  @media screen and (max-width: 767px) {
-    body::after {
-      background-image: url("../psd/psd_s.jpg");
-      height: 3905px;
-      left: 0;
-      width: 320px; } }
-  @media screen and (min-width: 768px) and (max-width: 939px) {
-    body::after {
-      background-image: url("../psd/psd_m.jpg");
-      height: 3658px;
-      left: 3px;
+.ideas {
+  font-family: MontserratBold;
+  margin: 0 auto 10px;
+  padding: 0;
+  width: 320px; }
+  @media screen and (min-width: 768px) {
+    .ideas {
       width: 768px; } }
   @media screen and (min-width: 940px) {
-    body::after {
-      background-image: url("../psd/psd_l.jpg");
-      height: 3398px;
-      left: -44px;
-      width: 1440px; } }
+    .ideas {
+      width: 940px; } }
+
+.ideas__title--top, .ideas__title--bottom {
+  color: #333;
+  font-size: 22px;
+  text-align: center; }
+
+.ideas__title--top {
+  margin: 34px auto 12px; }
+  @media screen and (min-width: 768px) {
+    .ideas__title--top {
+      margin: 96px auto 34px; } }
+  @media screen and (min-width: 940px) {
+    .ideas__title--top {
+      margin-bottom: 35px; } }
+
+.grid {
+  margin: 0 auto;
+  width: 300px; }
+  @media screen and (min-width: 768px) {
+    .grid {
+      padding: 0 14px;
+      width: 768px; } }
+  @media screen and (min-width: 940px) {
+    .grid {
+      padding: 0 0;
+      width: 940px; } }
+
+.grid-item {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  height: 120px;
+  margin-bottom: 10px;
+  width: 300px; }
+  @media screen and (min-width: 768px) {
+    .grid-item {
+      float: left;
+      height: 310px;
+      margin-bottom: 20px;
+      width: 235px; } }
+  @media screen and (min-width: 940px) {
+    .grid-item {
+      width: 300px; } }
+  .grid-item a {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    display: table;
+    height: 100%;
+    text-decoration: none;
+    width: 100%; }
+    .grid-item a:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
+    .grid-item a span {
+      color: #fff;
+      display: table-cell;
+      font-size: 22px;
+      text-align: center;
+      vertical-align: middle; }
+      .grid-item a span::first-letter {
+        text-transform: uppercase; }
+
+@media screen and (min-width: 768px) {
+  .grid-item--width2 {
+    width: 490px; } }
+
+@media screen and (min-width: 940px) {
+  .grid-item--width2 {
+    width: 620px; } }
+
+.ideas__title--bottom {
+  margin: 26px auto 0px; }
+  @media screen and (min-width: 768px) {
+    .ideas__title--bottom {
+      margin: 74px auto 29px; } }
+  @media screen and (min-width: 940px) {
+    .ideas__title--bottom {
+      margin-bottom: 31px; } }
+
+.ideas__question {
+  color: #333;
+  font-family: RobotoLight;
+  font-size: 18px;
+  margin: 8px 0;
+  text-align: center; }
+
+.ideas__search {
+  font-style: RobotoLight;
+  font-size: 14px;
+  margin: 16px auto 41px; }
+  @media screen and (min-width: 768px) {
+    .ideas__search {
+      margin: 37px auto 100px;
+      width: 408px; } }
+  .ideas__search input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    font-size: 14px;
+    line-height: 38px;
+    margin: 0 auto 10px;
+    padding: 0px 10px;
+    width: 260px; }
+    @media screen and (min-width: 768px) {
+      .ideas__search input[type="text"] {
+        float: left;
+        margin: 0 auto;
+        width: 220px; } }
+    @media screen and (min-width: 768px) {
+      .ideas__search input[type="text"] {
+        width: 218px; } }
+  .ideas__search input[type="button"] {
+    background-color: #ff4e50;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    color: #fff;
+    font-style: MontserratBold;
+    font-size: 14px;
+    line-height: 38px;
+    margin: 0 auto;
+    opacity: 0.8;
+    padding: 0 0;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.5s;
+    width: 276px; }
+    @media screen and (min-width: 768px) {
+      .ideas__search input[type="button"] {
+        float: right;
+        margin-top: 1px;
+        width: 156px; } }
+    @media screen and (min-width: 940px) {
+      .ideas__search input[type="button"] {
+        margin-top: 0px;
+        width: 158px; } }
+    .ideas__search input[type="button"]:hover {
+      opacity: 1; }
+
+/******************************************************************************
+* Footer
+******************************************************************************/
+footer {
+  background-color: #fff;
+  border-top: 4px solid #ff4e50; }

@@ -11,12 +11,18 @@
     background-image: url("../img/promo_background_s.jpg");
   };
   @media screen and (min-width : $device_width_small + 1px)
-                and (max-width : $device_width_medium) {
+                and (max-width : $device_width_medium - 1px) {
     // background-image: url("../img/promo_background_m.jpg");
     background-image: url("../img/promo_background_l.jpg");
     background-size: auto 540px;
   };
-  @media screen and (min-width : $device_width_medium + 1px) {
+
+  // @media screen and (min-width : $device_width_medium)
+  //               and (max-width : $device_width_medium) {
+  //   background-image: url("../img/promo_background_m.jpg");
+  // };
+
+  @media screen and (min-width : $device_width_medium) {
     background-image: url("../img/promo_background_l.jpg");
   };
 }
@@ -139,6 +145,7 @@
   line-height: 40px;
   opacity: 0.8;
   position: absolute;
+  transition: opacity 0.5s;
   top: 362px;
   width: 280px;
   @include mquery(medium) {

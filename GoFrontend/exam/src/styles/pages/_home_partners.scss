@@ -38,7 +38,8 @@
   text-decoration: none;
   margin: 11px auto 28px;
   width: 220px;
-  opacity: 0.8;
+  opacity: 0.75;
+  transition: opacity 0.5s;
   @include mquery(medium) {
     float: left;
     margin: {
@@ -154,13 +155,7 @@
   @include mquery(medium) {
     margin: 10px auto 0;
     width: 190px;
-    // left: 274px;
-    // top: 426px;
-    // width: 224px;
   }
-  // @include mquery(large) {
-  //   left: 359px;
-  // }
   &:hover {
     background-color: #ff4e50;
     color: #fff;

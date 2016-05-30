@@ -1,3 +1,6 @@
+<!--************************************************************************
+* 'How it works' section
+*************************************************************************-->
 <section class="howitworks">
   <h2>How Urlaubsglück works?</h2>
   <div class="howitworks__slider-block clearfix">
@@ -5,7 +8,7 @@
     <script type="text/template" id="howitworks__template">
       <div class="swiper-container" id="<%= data.id %>">
         <div class="swiper-wrapper">
-        <% for (let i = 0; i < data.slides.length; i++) { %>
+        <% for (var i = 0; i < data.slides.length; i++) { %>
           <div class="swiper-slide" style="background-image:url(<%= data.slides[i].imgURL %>)">
             <a class="swiper-slide__button<%= data.slides[i].classMod %>" href="#"><%= data.slides[i].caption %></a>
             <h3 class="swiper-slide__title<%= data.slides[i].classMod %>"><%= data.slides[i].title %></h3>

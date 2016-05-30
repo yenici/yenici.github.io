@@ -1,3 +1,220 @@
 /******************************************************************************
 * 'Discover holiday activity ideas' section
 ******************************************************************************/
+.ideas {
+  font-family: $font_main_bold;
+  margin: 0 auto 10px;
+  padding: 0;
+  width: $device_width_small;
+  @include mquery(medium) {
+    width: $device_width_medium;
+  }
+  @include mquery(large) {
+    width: $device_width_large;
+  }
+  h2 {
+  }
+}
+
+%ideas__title {
+  color: #333;
+  font-size: 22px;
+  text-align: center;
+}
+
+.ideas__title--top {
+  @extend %ideas__title;
+  margin: 34px auto 12px;
+  @include mquery(medium) {
+    margin: 96px auto 34px;
+  }
+  @include mquery(large) {
+    margin-bottom: 35px;
+  }
+}
+
+.grid {
+  margin: 0 auto;
+  width: 300px;
+  @include mquery(medium) {
+    padding: 0 14px;
+    width: $device_width_medium;
+  }
+  @include mquery(large) {
+    padding: 0 0;
+    width: $device_width_large;
+  }
+}
+
+$grid-item-height-s: 120px;
+$grid-item-height-m: 310px;
+$grid-item-height-l: 298px;
+
+$grid-item-width-s: 300px;
+$grid-item-width-m: 235px;
+$grid-item-width-l: 300px;
+
+.grid-item {
+  background: {
+    position: center;
+    size: cover;
+    repeat: no-repeat;
+  }
+  border-radius: 5px;
+  height: $grid-item-height-s;
+  margin-bottom: 10px;
+  width: $grid-item-width-s;
+  @include mquery(medium) {
+    float: left;
+    height: $grid-item-height-m;
+    margin-bottom: 20px;
+    width: $grid-item-width-m;
+  }
+  @include mquery(large) {
+    width: $grid-item-width-l;
+  }
+  a {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    display: table;
+    height: 100%;
+    text-decoration: none;
+    width: 100%;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    span {
+      color: #fff;
+      display: table-cell;
+      font-size: 22px;
+      text-align: center;
+      vertical-align: middle;
+      &::first-letter{
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.grid-item--width2 {
+  @include mquery(medium) {
+    width: $grid-item-width-m * 2 + 20px;
+  }
+  @include mquery(large) {
+    width: $grid-item-width-l * 2 + 20px;
+  }
+}
+
+.ideas__title--bottom {
+  @extend %ideas__title;
+  margin: 26px auto 0px;
+  @include mquery(medium) {
+    margin:  74px auto 29px;
+  }
+  @include mquery(large) {
+    margin-bottom: 31px;
+  }
+}
+
+.ideas__question {
+  color: #333;
+  font: {
+    family: $font_main_light;
+    size: 18px;
+  }
+  margin: 8px 0;
+  text-align: center;
+}
+
+.ideas__search {
+  font-style: $font_main_light;
+  font-size: 14px;
+  margin: 16px auto 41px;
+  @include mquery(medium) {
+    margin: 37px auto 100px;
+    width: 408px;
+  }
+  input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    font-size: 14px;
+    line-height: 38px;
+    margin: 0 auto 10px;
+    padding: 0px 10px;
+    width: 260px;
+    @include mquery(medium) {
+      float: left;
+      margin: 0 auto;
+      width: 220px;
+    }
+    @include mquery(medium) {
+      width: 218px;
+    }
+  }
+  input[type="button"] {
+    background-color: #ff4e50;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    color: #fff;
+    font: {
+      style: $font_main_bold;
+      size: 14px;
+    }
+    line-height: 38px;
+    margin: 0 auto;
+    opacity: 0.8;
+    padding: 0 0;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.5s;
+    width: 276px;
+    @include mquery(medium) {
+      float: right;
+      margin-top: 1px;
+      width: 156px;
+    }
+    @include mquery(large) {
+      margin-top: 0px;
+      width: 158px;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// .promo__find-btn {
+//   @extend %promo__btn;
+//   background-color: #ff4e50;
+//   border-radius: 20px;
+//   color: #fff;
+//   font-size: 14px;
+//   left: 19px;
+//   line-height: 40px;
+//   opacity: 0.8;
+//   position: absolute;
+//   transition: opacity 0.5s;
+//   top: 362px;
+//   width: 280px;
+//   @include mquery(medium) {
+//     left: 274px;
+//     top: 426px;
+//     width: 224px;
+//   }
+//   @include mquery(large) {
+//     left: 359px;
+//   }
+//   &:hover {
+//     opacity: 1;
+//   }
+// }
+//
+// %promo__btn {
+//   display: block;
+//   text: {
+//     align: center;
+//     decoration: none;
+//   }
+// }

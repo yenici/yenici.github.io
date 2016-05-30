@@ -1,8 +1,12 @@
+<!--************************************************************************
+* 'Meet a partner for your best holiday' section
+*************************************************************************-->
 <section class="partners">
   <h2>Meet a partner for your best holiday</h2>
   <div class="partners__list clearfix"></div>
+  <!-- TEMPLATE - Begin -->
   <script type="text/template" id="partners__template">
-    <% for (let i = 0; i < data.length; i++) { %>
+    <% for (var i = 0; i < data.length; i++) { %>
       <a class="person" href="<%= data[i].linkUrl %>">
         <div class="person__photo" style="background-image: url(<%= data[i].imgUrl %>);">
           <div class="person__activity--<%= data[i].activity %>"></div>
@@ -12,8 +16,6 @@
       </a>
     <% } %>
   </script>
+  <!-- TEMPLATE - End -->
   <a href="#" class="partners__find-btn">See other partners</a>
-
-<!-- ff4e50 -->
-
 </section>

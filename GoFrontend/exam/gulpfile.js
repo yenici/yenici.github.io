@@ -13,6 +13,11 @@ var gulp = require('gulp'),
     rigger = require('gulp-rigger'),
     sass = require('gulp-sass');
 
+var httpServer = {
+  host: '192.68.0.2',
+  port: 8080,
+  root: './dist'
+}
 var path = {
   src: {
     html: "./src/html/*.html",
@@ -109,9 +114,9 @@ gulp.task('clean', function (cb) {
 
 gulp.task('server', function() {
   connect.server({
-    root: './dist',
-    host: '192.168.0.2',
-    port: 8080,
+    root: httpServer.root,
+    host: httpServer.host,
+    port: httpServer.port,
     livereload: true,
     debug: true
   });
