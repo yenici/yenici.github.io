@@ -8,13 +8,17 @@
     <link rel="icon" type="image/png" href="img/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
     <link rel="stylesheet" href="css/main.css" media="screen">
-    <!--[if lt IE 9]>
-        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
     <script src="https://npmcdn.com/masonry-layout@3.3.2/dist/masonry.pkgd.min.js"></script>
+    <script src="js/lib/tmpl.js"></script>
     <script src="js/main.js"></script>
+    <!-- Emulating document.addEventListener('DOMContentLoaded', function() {...}); for IE8 -->
+    <script src="https://js.cx/script/jquery.documentReady.js"></script>
+    <script type="text/javascript">$(mainScript);</script>
+    <!--[if lt IE 9]>
+      <script src="js/lib/respond.min.js"></script>
+      <script src="js/lib/html5shiv.min.js"></script>
+    <![endif]-->
   </head>
   <body>
     //= blocks/header.html
@@ -22,6 +26,5 @@
     //= blocks/home_partners.html
     //= blocks/home_ideas.html
     //= blocks/footer.html
-    <!-- <div style="background-color: #f00; height: 33px; width: 768px; opacity: 0.5"></div> -->
   </body>
 </html>

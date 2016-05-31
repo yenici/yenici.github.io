@@ -12,8 +12,6 @@
   @include mquery(large) {
     width: $device_width_large;
   }
-  h2 {
-  }
 }
 
 %ideas__title {
@@ -184,37 +182,3 @@ $grid-item-width-l: 300px;
     }
   }
 }
-
-// .promo__find-btn {
-//   @extend %promo__btn;
-//   background-color: #ff4e50;
-//   border-radius: 20px;
-//   color: #fff;
-//   font-size: 14px;
-//   left: 19px;
-//   line-height: 40px;
-//   opacity: 0.8;
-//   position: absolute;
-//   transition: opacity 0.5s;
-//   top: 362px;
-//   width: 280px;
-//   @include mquery(medium) {
-//     left: 274px;
-//     top: 426px;
-//     width: 224px;
-//   }
-//   @include mquery(large) {
-//     left: 359px;
-//   }
-//   &:hover {
-//     opacity: 1;
-//   }
-// }
-//
-// %promo__btn {
-//   display: block;
-//   text: {
-//     align: center;
-//     decoration: none;
-//   }
-// }

@@ -1,7 +1,6 @@
 'use strict';
 
 // var gulp = require('gulp'),
-//     cleanCSS = require('gulp-clean-css'),
 //     del = require('del'),
 //     imagemin = require('gulp-imagemin'),
 //     imageminPngquant = require('imagemin-pngquant'),
@@ -9,6 +8,7 @@
 //     uglify = require('gulp-uglify');
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
+    cleanCSS = require('gulp-clean-css'),
     connect = require('gulp-connect'),
     rigger = require('gulp-rigger'),
     sass = require('gulp-sass');
@@ -23,7 +23,7 @@ var path = {
     html: "./src/html/*.html",
     styles: "./src/styles/**/*.scss",
     fonts: "./src/fonts/*",
-    js: "./src/js/**/*.js",
+    js: "./src/js/",
     img: "./src/img/*"
   },
   dist: {
@@ -52,7 +52,7 @@ gulp.task('build:styles', function() {
 			cascade: false
 		}))
     // .pipe(sourcemaps.init())
-    // .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
     // .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.dist.styles))
     .pipe(connect.reload());
@@ -64,7 +64,10 @@ gulp.task('build:fonts', function() {
 });
 
 gulp.task('build:js', function() {
-  gulp.src(path.src.js)
+  gulp.src(path.src.js + 'lib/*.js')
+    .pipe(gulp.dest(path.dist.js + 'lib/'))
+    .pipe(connect.reload());
+  gulp.src(path.src.js + '*.js')
       // .pipe(sourcemaps.init())
       // .pipe(uglify())
       // .pipe(sourcemaps.write())
@@ -128,7 +131,7 @@ gulp.task('watch', function() {
   gulp.watch('./src/html/**/*.html', ['build:html']);
   gulp.watch(path.src.styles, ['build:styles']);
   gulp.watch(path.src.fonts, ['build:fonts']);
-  gulp.watch(path.src.js, ['build:js']);
+  gulp.watch(path.src.js + '**/*.js', ['build:js']);
   gulp.watch(path.src.img, ['build:img']);
 });
 

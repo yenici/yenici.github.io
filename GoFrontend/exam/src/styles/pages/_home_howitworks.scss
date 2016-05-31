@@ -68,7 +68,10 @@
   color: #fff;
   cursor: pointer;
   display: block;
-  font-size: 10px;
+  font: {
+    font-family: $font_main_regular;
+    size: 10px;
+  }
   height: 20px;
   left: 22px;
   letter-spacing: 2px;
