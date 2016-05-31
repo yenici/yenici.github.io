@@ -1,0 +1,1525 @@
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('../fonts/leaguegothic-regular-webfont.eot');
+    src: url('../fonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/leaguegothic-regular-webfont.woff2') format('woff2'),
+         url('../fonts/leaguegothic-regular-webfont.woff') format('woff'),
+         url('../fonts/leaguegothic-regular-webfont.ttf') format('truetype'),
+         url('../fonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LeagueGothicCnRg';
+    src: url('../fonts/leaguegothic-condensedregular-webfont.eot');
+    src: url('../fonts/leaguegothic-condensedregular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/leaguegothic-condensedregular-webfont.woff2') format('woff2'),
+         url('../fonts/leaguegothic-condensedregular-webfont.woff') format('woff'),
+         url('../fonts/leaguegothic-condensedregular-webfont.ttf') format('truetype'),
+         url('../fonts/leaguegothic-condensedregular-webfont.svg#league_gothicCnRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans-regular-webfont.eot');
+    src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-regular-webfont.woff') format('woff'),
+         url('../fonts/opensans-regular-webfont.ttf') format('truetype'),
+         url('../fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans-extrabold-webfont.eot');
+    src: url('../fonts/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans-extrabold-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-extrabold-webfont.woff') format('woff'),
+         url('../fonts/opensans-extrabold-webfont.ttf') format('truetype'),
+         url('../fonts/opensans-extrabold-webfont.svg#open_sansbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+* This part contains logo, menu, slider and provides a background
+*
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.site-top {
+    background: url("../img/top-background.jpg") center;
+    background-size: cover;
+    padding-bottom: 168px;
+    position: relative;
+}
+
+/*******************************************************************************
+* This is a container that encapsultes all the elements
+*******************************************************************************/
+.container {
+    color: #fff;
+    font-family: 'LeagueGothicRegular', sans-serif;
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+}
+
+/*******************************************************************************
+* PINGBULLER Logo
+*******************************************************************************/
+.brandname {
+    color: #fff;
+    display: block;
+    font-size: 49px;
+    float: left;
+    letter-spacing: -0.9px;
+    margin-top: 65px;
+    /* The rihght margin is set for pushing top menue to the right border*/
+    margin-right: 175px;
+    text-decoration: none;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.brandname__end {
+    color: #33263a;
+    /*
+    *  Gradient font color works only on Webkit browsers.
+    */
+    background: -webkit-linear-gradient(#745083, #33263a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* End of gradient color */
+    text-shadow: none;
+}
+
+/******************************************************************************
+* Top Hrizontal Menu
+******************************************************************************/
+.menu {
+    float: right;
+    margin: 74px 0 0 0px;
+    padding: 0;
+}
+
+.menu__item {
+    display: block;
+    float: left;
+    margin-left: 52px;
+}
+
+.menu__item:first-child {
+    margin-left: 0px;
+}
+
+.menu__link {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.menu__link:hover {
+    border-bottom: solid 2px #edbfff;
+}
+
+/******************************************************************************
+* Top Vertical Menu
+******************************************************************************/
+.menu--selected {
+    display: none;
+    margin: 18px auto 0 auto;
+    padding: 0;
+    width: 246px;
+}
+
+.menu__item--selected {
+    color: #fff;
+    /*border-bottom: 2px solid #503d57;*/
+    /*border-image: url("../img/menu_border.png") round;
+    border-image: linear-gradient(#35273d, #503d57);*/
+    display: block;
+    font-size: 24px;
+    line-height: 38px;
+    margin-left: 0px;
+    position: relative;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.menu--selected .menu__item--selected:hover .menu--vertical {
+    display: block;
+}
+
+.menu--vertical {
+    background-color: #36293e;
+    border: 1px solid #051116;
+    border-radius: 10px;
+    opacity: 0.9;
+    width: 244px;
+    margin: 0px auto;
+    padding: 0;
+    position: absolute;
+    /*left: 116px;*/
+    top: -1px;
+    z-index: 1;
+}
+
+.menu__item--vertical {
+    border-bottom: 2px solid #503d57;
+    /*border-image: url("../img/menu_border.png") round;
+    border-image: linear-gradient(#35273d, #503d57);*/
+    display: block;
+    line-height: 42px;
+    margin-left: 0px;
+    text-align: center;
+}
+
+.menu__item--vertical:last-child {
+    border-bottom: 0px;
+}
+
+.menu__item--vertical:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid #fff;
+}
+
+.menu__item--vertical:first-child:hover {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.menu__item--vertical:last-child:hover {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.menu__link--vertical {
+    display: block;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+    padding: 0%;
+}
+
+.menu__link--vertical:hover {
+    border-bottom: 0px;
+    /*border-bottom: 2px solid #edbfff;*/
+}
+
+/******************************************************************************
+* Slider
+******************************************************************************/
+.slider-background {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 400px;
+    margin-top: 164px;
+    position: relative;
+}
+
+.slider-arrrows {
+    background-image: url("../img/arrows.png");
+    background-size: auto;
+    cursor: pointer;
+    height: 31px;
+    position: absolute;
+    top: 50%;
+    width: 20px;
+}
+
+.slider-arrrows--left {
+    background-position: 0 0;
+    left: 0px;
+}
+
+.slider-arrrows--right {
+    background-position: -21px 0;
+    right: 0px;
+}
+
+.slider-text {
+    float: left;
+    margin-top: 27px;
+    margin-left: 40px;
+    width: 500px;
+}
+
+.slider-text-title {
+    font-size: 60px;
+    letter-spacing: -0.6px;
+    margin: 50px 0px 0px 0px;
+    text-shadow: 0 2px #868686;
+}
+
+.slider-text-slogan {
+    color: #edbfff;
+    font-size: 32px;
+    font-weight: normal;
+    letter-spacing: 0.3px;
+    text-shadow: 0 2px #868686;
+}
+
+.slider-text-description {
+    color: white;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 24px;
+    padding-top: 7px;
+    text-shadow: 0 1px #868686;
+}
+
+/* Phone image */
+.slider-img {
+    display: block;
+    float: right;
+    height: 400px;
+    margin-top: -17px;
+    text-align: center;
+    position: relative;
+    width: 412px;
+}
+
+/* Play button */
+.slider-img-play {
+    background-image: url("../img/phone_play.png");
+    border-radius: 50%; /* This div surrounds the play button */
+    cursor: pointer;
+    height: 76px;
+    left: 50%;
+    position: absolute;
+    top: 37%;
+    width: 76px;
+}
+
+/* Dots below the slider */
+.slider-dots {
+    bottom: 59px;
+    /* Next 2 lines should center the dots */
+    left: 50%;
+    margin-left: -40px;
+    /* Next 2 lines should be used to match the mockup on 960px */
+    /*left: 70%;
+    margin-left: -37px;*/
+    position: absolute;
+}
+
+.slider-single-dot {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: block;
+    float: left;
+    height: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+    width: 16px;
+}
+
+.slider-single-dot:first-child {
+    margin-left: 0px;
+}
+
+.slider-single-dot--active {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 4px solid rgba(0, 0, 0, 0.9);
+    height: 8px;
+    width: 8px;
+}
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+* This section provides information about the company
+*
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.about-company {
+    border-bottom: solid 1px #000;
+    border-top: solid 1px #000;
+    background-image: linear-gradient(#745083, #322539);
+    /* 960px - 342px with 2 lines */
+    /* 768px - 343px with 2 lines */
+    height: 342px;
+}
+
+.about-company-col {
+    float: left;
+    margin-top: 75px;
+    margin-right: 30px;
+    position: relative;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+    width: 300px;
+}
+
+.about-company-col:last-child {
+    margin-right: 0;
+}
+
+.about-company-col__wranch::before {
+    /*or spanner outside of North America*/
+    background-image: url("../img/about_co_ico.png");
+    background-position: 0 0;
+    content: '';
+    height: 32px;
+    position: absolute;
+    width: 32px;
+    top: 7px;
+    left: 8px;
+}
+
+.about-company-col__speach-bubble::before {
+    background-image: url("../img/about_co_ico.png");
+    background-position: -32px 0;
+    content: '';
+    height: 32px;
+    position: absolute;
+    width: 32px;
+    top: 7px;
+    left: 8px;
+}
+
+.about-company-col__note::before {
+    background-image: url("../img/about_co_ico.png");
+    background-position: -64px 0;
+    content: '';
+    height: 32px;
+    position: absolute;
+    width: 32px;
+    top: 7px;
+    left: 8px;
+}
+
+.about-company-col__title {
+    font-size: 30px;
+    font-weight: normal;
+    padding-left: 64px;
+}
+
+.about-company-col__text {
+    display: block;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    height: 120px;
+    line-height: 24px;
+    margin-top: 10px;
+    overflow: hidden;
+    padding-left: 64px;
+}
+
+.about-company-col__link {
+    color: white;
+    float: right;
+    font-size: 18px;
+    margin-right: 21px;
+    margin-top: 18px;
+    text-decoration: none;
+    /*transition: 200ms ease;*/
+}
+
+.about-company-col__link:hover {
+    text-shadow: 0 0 8px #fff, 0 0 8px #000;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+* This section contains recent updates
+*
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.recent-updates {
+    background-color: #f9f9f9;
+    height: 484px;
+}
+
+.recent-updates__left-block {
+    color: #000;
+    float: left;
+    width: 50%;
+}
+
+/* A block with "PINGBULLER STARTS HERE" headline */
+.left-block__starts-here {
+    background-color: #fff;
+    border: 1px solid #efefef;
+    height: 271px;
+    left: 24px;
+    top: 98px;
+    position: absolute;
+    width: 425px;
+}
+
+.left-block__starts-here:after {
+    /*bottom: -20px;*/
+    border: 10px solid transparent;
+    border-right: 10px solid #fff;
+    border-top: 10px solid #fff;
+    content: '';
+    /*left: 366px;*/
+    left: 86%;
+    position: absolute;
+    top: 100%;
+}
+
+/* A text block inside the block with "PINGBULLER STARTS HERE" headline */
+.starts-here__text {
+    margin: 29px 26px 10px 38px;
+    overflow: hidden;
+}
+
+.starts-here__text::before {
+    background-image: url("../img/recent-updates_photo.png");
+    background-position: 0 0;
+    content: '';
+    height: 50px;
+    position: absolute;
+    width: 50px;
+    top: 18px;
+    left: -25px;
+}
+
+.starts-here__header {
+    height: 30px;
+    font-size: 30px;
+    color: #454545;
+}
+
+.starts-here__quotation {
+    color: #454545;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 16px;
+    height: 165px;
+    line-height: 24px;
+    padding-top: 10px;
+}
+
+.starts-here__header--violet {
+    color: #edbfff;
+}
+
+/* Dots below the slider */
+.slider-dots--left-block {
+    bottom: -42px;
+    /* Next 2 lines should center the dots */
+    left: 50%;
+    margin-left: -42px;
+    position: absolute;
+}
+
+.slider-single-dot--left-block {
+    background-color: #fff;
+    border: solid 1px #eee;
+    margin-left: 4px;
+}
+
+.slider-single-dot--starts-here:first-child {
+    margin-left: 0px;
+}
+
+.slider-single-dot--starts-here--active {
+    background-image: linear-gradient(#a1a1a1, #464646);
+    border: 3px solid #fff;
+    height: 13px;
+    width: 13px;
+}
+
+.recent-updates__right-block {
+    color: #000;
+    float: right;
+    width: 50%;
+}
+
+.right-block__updates {
+    margin: 127px 0 0 30px;
+    position: absolute;
+}
+
+.blog-post {
+    background-image: url("../img/img-post-1.png");
+    background-repeat: no-repeat;
+    height: 49px;
+    margin-top: 16px;
+    padding-left: 67px;
+    padding-top: 3px;
+}
+
+.blog-post--p2 {
+    background-image: url("../img/img-post-2.png");
+}
+
+.blog-post--p3 {
+    background-image: url("../img/img-post-3.png");
+    margin-top: 12px;
+}
+
+.blog-post__title {
+    height: 16px;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.blog-post__text {
+    color: #454545;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 16px;
+    line-height: 34px;
+    letter-spacing: -0.4px;
+    overflow: hidden;
+}
+
+/* READ MORE HERE link */
+.blog-post__link {
+    color: #000;
+    display: block;
+    float: right;
+    font-size: 18px;
+    margin: 19px 4px;
+    text-decoration: none;
+}
+
+.blog-post__link--posts {
+    display: none;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+* This section contains companies' logo
+*
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.co-logo {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #e6e6e6;
+}
+
+.co-logo__wrapper {
+    padding: 25px 65px;
+}
+
+.co-logo__brand-wrapper {
+    margin: 0 auto;
+    padding: 0 30px;
+    display: inline-block;
+}
+
+.co-logo__brand {
+    background-image: url("../img/logos.png");
+    content: '';
+    display: block;
+    height: 65px;
+}
+
+.co-logo__brand--1 {
+    background-position: 0 0;
+    width: 70px;
+}
+
+.co-logo__brand--2 {
+    background-position: -134px 0;
+    width: 73px;
+}
+
+.co-logo__brand--3 {
+    background-position: -270px 0;
+    width: 66px;
+}
+
+.co-logo__brand--4 {
+    background-position: -409px 0;
+    width: 52px;
+}
+
+.co-logo__brand--5 {
+    background-position: -528px 0;
+    width: 103px;
+}
+
+.co-logo__brand--6 {
+    background-position: -696px 0;
+    width: 79px;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+* This section contains recent comments and news categories
+*
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.news {
+    background-color: #ececec;
+    height: 396px;
+    border-top: solid 1px rgb(236, 236, 236);
+}
+
+/* Hiding two Categories columns */
+
+.news article:nth-child(3) {
+    display: none;
+}
+
+.news article:nth-child(4) {
+    display: none;
+}
+
+.news__column {
+    box-sizing: border-box;
+    float: left;
+    margin-top: 94px;
+    width: 33.33%;
+}
+
+.news__column--left {
+    padding-right: 4%;
+}
+
+.news__column--center {
+    margin-top: 96px;
+    padding: 0 1.9%;
+}
+
+.news__column--right {
+    margin-top: 96px;
+    padding-left: 4%;
+}
+
+/* Brandname PIGBULLER */
+.brandname--article {
+    color: #454545;
+    float: none;
+    font-size: 48px;
+    margin: 0 0;
+    text-shadow: 1px 1px 0px rgb(195, 195, 195);
+}
+
+.brandname__end--article{
+    color: rgb(185, 185, 185);
+}
+
+/* Copyrihgt below the brandname */
+.news-article__copyright {
+    color: #c5c5c5;
+    font-family: "Georgia";
+    font-size: 16px;
+    font-style: italic;
+    height: 16px;
+    margin: 14px 0 12px;
+    overflow: hidden;
+}
+
+/* The headline of the article */
+.news-article__headline {
+    color: #454545;
+    height: 30px;
+    font-size: 30px;
+}
+
+/* The text of the article */
+.news-article__text {
+    color: #787878;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 16px;
+    height: 120px;
+    line-height: 24px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+/* The text of the article in the central column*/
+.news-article__text--center {
+    height: 170px;
+    margin: 9px 5px 0px 1px;
+}
+
+.news-article__text--right {
+    height: 170px;
+    margin: 9px 5px 0px 1px;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+* The footer of the page
+*
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+footer {
+    background: url("../img/bottom-background.jpg") center;
+    background-size: cover;
+    height: 114px;
+}
+
+.menu--footer {
+    float: left;
+    margin: 46px 0 0 0px;
+}
+
+.menu__item--footer {
+    margin-left: 43px;
+}
+
+.menu__link--footer {
+    font-size: 20px;
+}
+
+.footer__design {
+    float: right;
+    font-family: 'OpenSans', sans-serif;
+    font-weight: 100;
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    margin: 54px 0 0 0;
+}
+
+.footer__design > a {
+    color: #fff;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.footer__design > a:hover {
+    text-shadow: 0 0 8px #fff, 0 0 8px #000;
+}
+
+/******************************************************************************
+* clearfix
+******************************************************************************/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/******************************************************************************
+*
+*    R E S O L U T I O N:
+*
+*    between 768px and 959px
+*
+******************************************************************************/
+@media screen and (max-width: 959px) {
+
+    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    *
+    * BUG REPORT
+    *
+    * Environment:
+    *    Windows 10
+    *    Chrome Version 49.0.2623.87 m
+    *
+    * The style is not applied for the menu class if the widh is greater than
+    * 942 pixels.
+    *
+    * Screenshot
+    *    http://dmytronovikov.github.io/GoFrontend/hw08/bugs/Bug-001.png
+    *
+    *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This part contains logo, menu, slider and provides a background
+    * (768px - 959px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .site-top {
+        padding-bottom: 155px;
+    }
+
+    .container {
+        padding: 0 20px 0 20px;
+        width: 728px;
+    }
+
+    /* Move the Top Menu to the next line */
+    .menu {
+        float: left;
+        margin-top: 29px;
+    }
+
+    /* Change the parameters of the slider */
+    .slider-background {
+        margin-top: 77px;
+    }
+
+    .slider-text {
+        height: 240px;
+        margin-left: 0px;
+        margin-top: 47px;
+        overflow: hidden;
+        padding-left: 24px;
+        width: 290px;
+    }
+
+    .slider-text-title {
+        font-size: 48px;
+    }
+
+    .slider-text-slogan {
+        font-size: 24px;
+        margin-top: 9px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .slider-text-description {
+        font-size: 16px;
+        font-weight: 100;
+        line-height: 26px;
+    }
+
+    .slider-img {
+        margin-top: -23px;
+        width: 325px;
+    }
+
+    .slider-dots {
+        bottom: 101px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section provides information about the company
+    * (768px - 959px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .about-company-col {
+        width: 243px;
+        margin-right: 0px;
+    }
+
+    .about-company-col__speach-bubble {
+        width: 242px;
+    }
+
+    .about-company-col__title {
+        font-size: 24px;
+        /*padding-left: 64px;*/
+    }
+
+    .about-company-col__text {
+        height: 140px;
+        margin-top: 5px;
+    }
+
+    .about-company-col__link {
+        margin-right: 45px;
+        margin-top: 10px;
+    }
+
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    *
+    * This section contains recent updates
+    * (768px - 959px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    /* A block with "PINGBULLER STARTS HERE" headline */
+    .left-block__starts-here {
+        left: 44px;
+        width: 312px;
+    }
+
+    /* A text block inside the block with "PINGBULLER STARTS HERE" headline */
+    .starts-here__text {
+        margin: 28px 26px 10px 38px;
+    }
+
+    .starts-here__header {
+        font-size: 24px;
+    }
+
+    .starts-here__quotation {
+        height: 150px;
+        letter-spacing: -0.4px;
+        padding-top: 26px;
+    }
+
+    .starts-here__header--violet {
+        display: block;
+    }
+
+    /* Dots below the slider */
+    .slider-dots--left-block {
+        bottom: -42px;
+    }
+
+    .right-block__updates {
+        margin: 127px 0 0 30px;
+    }
+
+    .starts-here__header--right {
+        font-size: 30px;
+    }
+
+    .blog-post--p3 {
+        margin-top: 14px;
+    }
+
+    .blog-post__text {
+        height: 34px;
+        overflow: hidden;
+        width: 250px;
+    }
+
+    /* READ MORE HERE link */
+    .blog-post__link {
+        display: none;
+    }
+
+    .blog-post__link--posts {
+        color: #000;
+        display: block;
+        float: right;
+        font-size: 18px;
+        margin: 16px -4px;
+        text-decoration: none;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section contains companies' logo
+    * (768px - 959px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+    .co-logo__wrapper {
+        padding: 25px 2px;
+    }
+
+    .co-logo__brand-wrapper {
+        margin: 0 auto;
+        padding: 0 26px;
+        display: inline-block;
+    }
+
+    .co-logo__brand-wrapper:first-child {
+        padding-left: 0;
+    }
+
+    .co-logo__brand-wrapper:last-child {
+        padding-right: 0;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section contains recent comments and news categories
+    * (768px - 959px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+    /* Hide PigbullER and Comments columns and display two Categories columns */
+    .news article:nth-child(1) {
+        display: none;
+    }
+
+    .news article:nth-child(2) {
+        display: none;
+    }
+
+    .news article:nth-child(3) {
+        display: block;
+    }
+
+    .news article:nth-child(4) {
+        display: block;
+    }
+
+    .news-article__headline {
+        height: 24px;
+        font-size:24px;
+    }
+
+    .news__column {
+        margin-top: 100px;
+    }
+
+    .news__column--left {
+        padding-right: 4%;
+    }
+
+    .news__column--center {
+        margin-top: 100px;
+        padding: 0 3.3%;
+    }
+
+    .news__column--right {
+        margin-top: 100px;
+        padding-left: 6%;
+    }
+
+    .news-article__text {
+        height: 170px;
+        margin-top: 10px;
+    }
+
+    .news-article__text--center {
+        margin: 10px 5px 0px 1px;
+    }
+
+    .news-article__text--right {
+        margin: 10px 5px 0px 1px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * The footer of the page
+    * (768px - 959px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    footer {
+        height: 201px;
+    }
+
+    .footer__design {
+        margin: 103px 2px 0 0;
+    }
+
+}
+
+/******************************************************************************
+*
+*    R E S O L U T I O N:
+*
+*    between 480px and 767px
+*
+******************************************************************************/
+@media screen and (max-width: 767px) {
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This part contains logo, menu, slider and provides a background
+    * (480px - 767px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .site-top {
+        padding-bottom: 100px;
+    }
+
+    .container {
+        /*padding: 0 20px 0 20px;*/
+        padding-top: 1px;
+        margin-top: -1px;
+        width: 440px;
+    }
+
+    /* Center PINGBULLER Logo */
+    .brandname {
+        float: none;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    /* Replace horizontal menu vith vertical one */
+    .menu {
+        display: none;
+    }
+
+    .menu--selected {
+        display: block;
+    }
+
+    .menu--vertical {
+        display: none;
+    }
+
+    /* Change the parameters of the slider */
+    .slider-background {
+        height: 246px;
+        margin-top: 33px;
+    }
+
+    .slider-text {
+        height: 170px;
+        margin-top: 43px;
+        padding-left: 21px;
+        width: 205px;
+    }
+
+    .slider-text-title {
+        font-size: 36px;
+    }
+
+    .slider-text-slogan {
+        font-size: 18px;
+        letter-spacing: -0.1px;
+        margin-top: 2px;
+    }
+
+    /* Hiding description of the slider */
+    .slider-text-description {
+        display: none;
+    }
+
+    .slider-img {
+        height: 225px;
+        margin-top: -8px;
+        width: 210px;
+    }
+
+    .slider-img > img {
+        height: auto;
+        width: 191px;
+    }
+
+    .slider-img-play {
+        background-size: cover;
+        cursor: pointer;
+        height: 53px;
+        left: 50%;
+        top: 46%;
+        width: 53px;
+    }
+
+    .slider-dots {
+        bottom: 60px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section provides information about the company
+    * (480px - 767px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .about-company {
+        /* 480px - 599px with 2 lines */
+        /* 320px - 599px with 2 lines */
+        height: 599px;
+    }
+
+    .about-company-col {
+        margin-top: 77px;
+        width: 440px;
+    }
+
+    .about-company-col__wranch::before {
+        top: 2px;
+        left: 11px;
+    }
+
+    .about-company-col__speach-bubble::before {
+        top: 2px;
+        left: 11px;
+    }
+
+    .about-company-col__speach-bubble {
+        margin-top: 25px;
+    }
+
+    .about-company-col__note::before {
+        top: 2px;
+        left: 11px;
+    }
+
+    .about-company-col__note {
+        margin-top: 29px;
+    }
+
+    .about-company-col__text {
+        height: 70px;
+    }
+
+    .about-company-col__link {
+        margin-right: 5px;
+        margin-top: 15px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    *
+    * This section contains recent updates
+    * (480px - 767px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .recent-updates {
+        height: 785px;
+    }
+
+    .recent-updates__left-block {
+        width: 100%;
+    }
+
+    .recent-updates__right-block {
+        width: 100%;
+    }
+
+    .left-block__starts-here {
+        top: 69px;
+        width: 416px;
+    }
+
+    .left-block__starts-here:after {
+        display: none;
+    }
+
+    .starts-here__text {
+        margin: 26px 26px 10px 38px;
+    }
+
+    .starts-here__header {
+        font-size: 30px;
+    }
+
+    .starts-here__header--violet {
+        display: inline;
+    }
+
+    .starts-here__quotation {
+        height: 170px;
+        padding-top: 14px;
+    }
+
+    .slider-dots {
+        bottom: -42px;
+        margin-left: -48px;
+    }
+
+    .right-block__updates {
+        margin: 429px 0 0 64px;
+    }
+
+    .blog-post__link--posts {
+        margin-right: -13px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section contains companies' logo
+    * (480px - 767px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .co-logo__wrapper {
+        padding: 37px 0px 15px;
+    }
+
+    .co-logo__brand-wrapper {
+        padding-bottom: 22px;
+    }
+
+    .co-logo__brand-wrapper:first-child {
+        padding-left: 64px;
+    }
+
+    .co-logo__brand-wrapper:nth-child(4) {
+        padding-left: 50px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section contains recent comments and news categories
+    * (480px - 767px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .news {
+        height: 668px;
+    }
+
+    .news__column {
+        width: 100%;
+    }
+
+    .news__column {
+        margin-top: 79px;
+    }
+
+    .news__column--left {
+        padding-right: 0;
+    }
+
+    .news__column--center {
+        margin-top: 51px;
+        padding: 0 0;
+    }
+
+    .news__column--right {
+        margin-top: 54px;
+        padding: 0 0;
+    }
+
+    .news-article__text {
+        height: 100px;
+    }
+
+    .news-article__text--center {
+        margin: 10px 0 0 0;
+    }
+
+    .news-article__text--right {
+        margin: 10px 0 0 0;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * The footer of the page
+    * (480px - 767px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .menu--footer {
+        margin: 45px 0 0 3px;
+    }
+
+    .menu__item--footer {
+        margin-left: 25px;
+    }
+
+    .footer__design {
+        margin: 37px 152px 0 0;
+    }
+
+}
+
+
+/******************************************************************************
+*
+*    R E S O L U T I O N:
+*
+*    less then 480px
+*
+******************************************************************************/
+@media screen and (max-width: 479px) {
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This part contains logo, menu, slider and provides a background
+    * (up to 480px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .site-top {
+        padding-bottom: 68px;
+    }
+
+    .container {
+        /*padding: 0 20px 0 20px;*/
+        width: 280px;
+    }
+
+    /* Change the parameters of the slider */
+    .slider-background {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .slider-text {
+        padding-left:45px;
+    }
+
+    .slider-img {
+        display: none;
+    }
+
+    .slider-dots {
+        bottom: 68px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section provides information about the company
+    * (up to 480px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+    .about-company-col {
+        margin-top: 70px;
+        width: 280px;
+    }
+
+    .about-company-col__speach-bubble {
+        margin-top: 25px;
+    }
+
+    .about-company-col__note {
+        margin-top: 41px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    *
+    * This section contains recent updates
+    * (up to 480px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .recent-updates {
+        height: 785px;
+    }
+
+    .left-block__starts-here {
+        width: 256px;
+    }
+
+    .starts-here__text {
+        margin: 24px 34px 10px 35px;
+    }
+
+    .starts-here__header {
+        font-size: 24px;
+    }
+
+    .starts-here__header--violet {
+        display: block;
+    }
+
+    .starts-here__quotation {
+        /*height: 170px;*/
+        padding-top: 22px;
+    }
+
+    .slider-dots {
+        bottom: -42px;
+        margin-left: -32px;
+    }
+
+    .right-block__updates {
+        margin: 429px 0 0 0;
+    }
+
+    .starts-here__header--right {
+        font-size: 30px;
+    }
+
+    .blog-post__title {
+        overflow: hidden;
+        width: 215px;
+    }
+
+    .blog-post__link--posts {
+        margin-right: 42px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section contains companies' logo
+    * (up to 480px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .co-logo__wrapper {
+        padding: 52px 0px 15px;
+    }
+
+    .co-logo__brand-wrapper {
+        padding-bottom: 57px;
+    }
+
+    .co-logo__brand-wrapper:first-child {
+        padding-left: 43px;
+    }
+
+    .co-logo__brand-wrapper:nth-child(3) {
+        /*padding-bottom: 40px;*/
+        padding-left: 51px;
+        padding-right: 10px;
+    }
+
+    .co-logo__brand-wrapper:nth-child(3),
+    .co-logo__brand-wrapper:nth-child(4) {
+        padding-bottom: 36px;
+    }
+
+    .co-logo__brand-wrapper:nth-child(5) {
+        padding-left: 23px;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * This section contains recent comments and news categories
+    * (up to 480px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+    /* Hide the section */
+    .news {
+        display: none;
+    }
+
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    * The footer of the page
+    * (up to 480px)
+    *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    .menu--footer {
+        display: none;
+    }
+
+    .footer__design {
+        margin: 41px 73px 0 0;
+    }
+
+}
