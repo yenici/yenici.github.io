@@ -3,7 +3,7 @@
 *************************************************************************-->
 <section class="ideas">
   <h2 class="ideas__title--top">Discover holiday activity ideas</h2>
-  <div class="grid clearfix"></div>
+  <div class="grid clearfix" data-masonry='{ "itemSelector": ".grid-item", "gutter": 20 }'></div>
   <!-- TEMPLATE - Begin -->
   <script type="text/template" id="ideas__template">
     <% for (var i = 0; i < images.length; i++) { %>
@@ -19,7 +19,7 @@
     <% } %>
   </script>
   <!-- TEMPLATE - End -->
-  <h2 class="ideas__title--bottom" id="FindPartner">Discover holiday activity ideas</h2>
+  <h2 class="ideas__title--bottom">Discover holiday activity ideas</h2>
   <p class="ideas__question">Hi! What are your holiday interests?</p>
   <div class="ideas__search clearfix">
     <input type="text" name="searchinput" value="" placeholder="Enter your interests">

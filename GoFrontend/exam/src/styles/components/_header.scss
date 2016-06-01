@@ -3,27 +3,15 @@
 ******************************************************************************/
 .promo {
   background: {
-    position: top center;
+    image: url(../img/promo_background.jpg);
+    position: center;
     repeat: no-repeat;
+    size: cover;
   };
-  padding: 0;
-  @media screen and (max-width : $device_width_small) {
-    background-image: url("../img/promo_background_s.jpg");
-  };
-  @media screen and (min-width : $device_width_small + 1px)
-                and (max-width : $device_width_medium - 1px) {
-    // background-image: url("../img/promo_background_m.jpg");
-    background-image: url("../img/promo_background_l.jpg");
-    background-size: auto 540px;
-  };
-
-  // @media screen and (min-width : $device_width_medium)
-  //               and (max-width : $device_width_medium) {
-  //   background-image: url("../img/promo_background_m.jpg");
-  // };
-
-  @media screen and (min-width : $device_width_medium) {
-    background-image: url("../img/promo_background_l.jpg");
+  height: 540px;
+  padding: 0 0;
+  @include mquery(medium) {
+    height: 700px;
   };
 }
 

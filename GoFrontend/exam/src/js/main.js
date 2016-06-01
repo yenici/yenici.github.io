@@ -64,23 +64,21 @@ function mainScript() {
   element.innerHTML += tmpl('partners__template', {data: partners}) || '';
 
   function getPartnersData() {
-    return JSON.parse("[{\"linkUrl\":\"#\",\"imgUrl\":\"img/partner1.png\",\"name\":\"Bradley Hunter\",\"description\":\"Based in Chicago. I love playing tennis and loud music.\",\"activity\":\"tv\"},{\"linkUrl\":\"#\",\"imgUrl\":\"img/partner2.png\",\"name\":\"Heather Walker\",\"description\":\"I'm a happy person that loves cats and climbing on mountains.\",\"activity\":\"eat\"},{\"linkUrl\":\"#\",\"imgUrl\":\"img/partner3.png\",\"name\":\"Lucas Marsha\",\"description\":\"I get my inspiration from nature and objects around me. I have a passion to colours, typography and skateboards.\",\"activity\":\"study\"},{\"linkUrl\":\"#\",\"imgUrl\":\"img/partner4.png\",\"name\":\"Bradley Hunter\",\"description\":\"Based in Chicago. I love playing tennis and loud music.\",\"activity\":\"play\"}]");
+    return JSON.parse('[{"linkUrl":"https://www.google.com.ua/#q=Bradley+Hunter","imgUrl":"img/partner1.png","name":"Bradley Hunter","description":"Based in Chicago. I love playing tennis and loud music.","activity":"tv"},{"linkUrl":"https://www.google.com.ua/#q=Heather+Walker","imgUrl":"img/partner2.png","name":"Heather Walker","description":"I\'m a happy person that loves cats and climbing on mountains.","activity":"eat"},{"linkUrl":"https://www.google.com.ua/#q=Lucas+Marsha","imgUrl":"img/partner3.png","name":"Lucas Marsha","description":"I get my inspiration from nature and objects around me. I have a passion to colours, typography and skateboards.","activity":"study"},{"linkUrl":"https://www.google.com.ua/#q=Bradley+Hunter","imgUrl":"img/partner4.png","name":"Bradley Hunter","description":"Based in Chicago. I love playing tennis and loud music.","activity":"play"}]');
   }
 
   /****************************************************************************
   * Scripts for 'Discover holiday activity ideas' section
   ****************************************************************************/
-  updateMasonry();
+  updateMasonry(true);
   document.querySelector('.ideas__search > input[type="button"]')
     .addEventListener('click', updateMasonry);
   document.querySelector('.ideas__search > input[type="text"]')
     .addEventListener("keypress", function(event) {
-      if (event.keyCode == 13) {
-        updateMasonry();
-      }
+      if (event.keyCode == 13) updateMasonry();
     });
 
-  function updateMasonry() {
+  function updateMasonry(init) {
     var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
     var oReq = new XHR();
     // oReq =(function() {
@@ -134,7 +132,9 @@ function mainScript() {
           itemSelector: '.grid-item',
           gutter: 20
         });
-        document.querySelector('.ideas').scrollIntoView();
+        if (!init) {
+          document.querySelector('.ideas').scrollIntoView();
+        }
       }
     }
     oReq.send();
