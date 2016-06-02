@@ -16,7 +16,7 @@
 }
 
 .promo__container {
-  color: #fff;
+  color: $color_text_main;
   font-family: $font_main_bold;
   height: 540px;
   margin: 0 auto;
@@ -49,30 +49,33 @@
 .login-block__btn {
   @extend %promo__btn;
   border: {
-    color: rgba(255, 255, 255, 0);
+    color: $color_login_border_ie;
+    color: $color_login_border_hidden;
     radius: 20px;
     style: solid;
     width: 2px;
   }
-  color: #fff;
+  color: $color_text_main;
   float: left;
   font-size: 14px;
   line-height: 32px;
   width: 86px;
   &:hover {
-    border-color: rgba(255, 255, 255, 1);
+    border-color: $color_login_border;
   }
 }
 
 .promo__logo {
-  color: #fff;
+  color: $color_text_main;
   display: block;
   font-size: 20px;
   left: 70px;
   letter-spacing: 1px;
   position: absolute;
-  text-align: center;
-  text-decoration: none;
+  text: {
+    align: center;
+    decoration: none;
+  }
   top: 170px;
   @include mquery(medium) {
     left: 51px;
@@ -125,9 +128,9 @@
 
 .promo__find-btn {
   @extend %promo__btn;
-  background-color: #ff4e50;
+  background-color: $color_controls;
   border-radius: 20px;
-  color: #fff;
+  color: $color_text_main;
   font-size: 14px;
   left: 19px;
   line-height: 40px;

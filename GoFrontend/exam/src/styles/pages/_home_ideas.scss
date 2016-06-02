@@ -15,7 +15,7 @@
 }
 
 %ideas__title {
-  color: #333;
+  color: $color_text_title;
   font-size: 22px;
   text-align: center;
 }
@@ -72,17 +72,17 @@ $grid-item-width-l: 300px;
     width: $grid-item-width-l;
   }
   a {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: $color_grid_fade;
     border-radius: 5px;
     display: table;
     height: 100%;
     text-decoration: none;
     width: 100%;
     &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: $color_grid_fade_hover;
     }
     span {
-      color: #fff;
+      color: $color_text_main;
       display: table-cell;
       font-size: 22px;
       text-align: center;
@@ -115,7 +115,7 @@ $grid-item-width-l: 300px;
 }
 
 .ideas__question {
-  color: #333;
+  color: $color_text_title;
   font: {
     family: $font_main_light;
     size: 18px;
@@ -129,33 +129,35 @@ $grid-item-width-l: 300px;
   font-size: 14px;
   margin: 16px auto 41px;
   @include mquery(medium) {
-    margin: 37px auto 100px;
+    margin: 36px auto 100px;
     width: 408px;
   }
   input[type="text"] {
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
     display: block;
     font-size: 14px;
-    line-height: 38px;
-    margin: 0 auto 10px;
-    padding: 0px 10px;
-    width: 260px;
+    font-family: $font_main_light;
+    height: 37px;
+    line-height: 37px;
+    margin: 0 auto 9px;
+    padding: 0px 14px;
+    width: 249px;
     @include mquery(medium) {
       float: left;
       margin: 0 auto;
       width: 220px;
     }
     @include mquery(medium) {
-      width: 218px;
+      width: 209px;
     }
   }
-  input[type="button"] {
-    background-color: #ff4e50;
+  input[type="submit"] {
+    background-color: $color_controls;
     border: none;
     border-radius: 20px;
     display: block;
-    color: #fff;
+    color: $color_text_main;
     font: {
       style: $font_main_bold;
       size: 14px;
@@ -170,11 +172,11 @@ $grid-item-width-l: 300px;
     width: 276px;
     @include mquery(medium) {
       float: right;
-      margin-top: 1px;
+      margin-top: 2px;
       width: 156px;
     }
     @include mquery(large) {
-      margin-top: 0px;
+      margin-top: 1px;
       width: 158px;
     }
     &:hover {

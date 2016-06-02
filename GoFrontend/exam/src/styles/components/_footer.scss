@@ -2,8 +2,8 @@
 * Footer
 ******************************************************************************/
 footer {
-  background-color: #fff;
-  border-top: 4px solid #ff4e50;
+  background-color: $color_background_main;
+  border-top: 4px solid $color_controls;
 }
 
 .footer-container {
@@ -30,7 +30,7 @@ footer {
     padding: 19px 0;
   }
   a {
-    color: #ff4e50;
+    color: $color_controls;
     font: {
       family: $font_main_bold;
       size: 16px;
@@ -59,7 +59,7 @@ nav {
   @extend %footer-menus;
   margin: 0 0;
   > li {
-    color: #333;
+    color: $color_text_title;
     display: block;
     font: {
       family: $font_main_bold;
@@ -79,7 +79,7 @@ nav {
       margin-right: 93px;
     }
     a {
-      color: #333;
+      color: $color_text_title;
       font: {
         family: $font_main_bold;
         size: 14px;
@@ -106,7 +106,7 @@ nav {
       margin: 0 0 5px 0;
     }
     a {
-      color: #666;
+      color: $color_text_subtitle;
       font: {
         family: $font_main_light;
         size: 14px;
@@ -134,13 +134,20 @@ nav {
     padding: 6px 0;
   }
   a {
+    background-image: url(../img/areto_logo.png);
     display: block;
+    height: 24px;
     text-decoration: none;
+    width: 110px;
+    transition: background-position 0.5s;
+    &:hover {
+      background-position: 110px -24px;
+    }
   }
 }
 
 .footer-designed__title {
-  color: #ccc;
+  color: $color_designed;
   font: {
     family: $font_main_bold;
     size: 10px;

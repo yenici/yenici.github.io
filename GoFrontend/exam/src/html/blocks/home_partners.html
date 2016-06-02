@@ -7,9 +7,11 @@
   <!-- TEMPLATE - Begin -->
   <script type="text/template" id="partners__template">
     <% for (var i = 0; i < data.length; i++) { %>
-      <a class="person" href="<%= data[i].linkUrl %>">
+      <a class="person<%= (i > 0)?(' person--ie8-' + i):'' %>" href="<%= data[i].linkUrl %>">
         <div class="person__photo" style="background-image: url(<%= data[i].imgUrl %>);">
-          <div class="person__activity--<%= data[i].activity %>"></div>
+          <div class="person__activity-wrapper--<%= data[i].activity %>">
+            <div class="person__activity-img--<%= data[i].activity %>"></div>
+          </div>
         </div>
         <div class="person__name"><%= data[i].name %></div>
         <div class="person__description"><%= data[i].description %></div>

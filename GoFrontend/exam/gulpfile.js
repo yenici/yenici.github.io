@@ -1,17 +1,16 @@
 'use strict';
 
-// var gulp = require('gulp'),
-//     del = require('del'),
-//     imagemin = require('gulp-imagemin'),
-//     imageminPngquant = require('imagemin-pngquant'),
-//     sourcemaps = require('gulp-sourcemaps'),
-//     uglify = require('gulp-uglify');
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css'),
     connect = require('gulp-connect'),
+    imagemin = require('gulp-imagemin'),
+    imageminPngquant = require('imagemin-pngquant'),
     rigger = require('gulp-rigger'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    spritesmith = require('gulp.spritesmith'),
+    uglify = require('gulp-uglify');
 
 var httpServer = {
   host: '192.68.0.2',
@@ -20,11 +19,11 @@ var httpServer = {
 }
 var path = {
   src: {
-    html: "./src/html/*.html",
-    styles: "./src/styles/**/*.scss",
+    html: "./src/html/",
+    styles: "./src/styles/",
     fonts: "./src/fonts/*",
     js: "./src/js/",
-    img: "./src/img/*"
+    img: "./src/img/"
   },
   dist: {
     html: "./dist/",
@@ -38,14 +37,14 @@ var path = {
 
 
 gulp.task('build:html', function() {
-  gulp.src(path.src.html)
+  gulp.src(path.src.html + '*.html')
     .pipe(rigger())
     .pipe(gulp.dest(path.dist.html))
     .pipe(connect.reload());
 });
 
 gulp.task('build:styles', function() {
-  gulp.src(path.src.styles)
+  gulp.src(path.src.styles + '**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
 			browsers: ['last 2 versions', 'ie >= 8'],
@@ -69,37 +68,50 @@ gulp.task('build:js', function() {
     .pipe(connect.reload());
   gulp.src(path.src.js + '*.js')
       // .pipe(sourcemaps.init())
-      // .pipe(uglify())
+      .pipe(uglify())
       // .pipe(sourcemaps.write())
       .pipe(gulp.dest(path.dist.js))
       .pipe(connect.reload());
 });
 
 gulp.task('build:img', function() {
-  gulp.src(path.src.img + '.jpg')
+  gulp.src(path.src.img + '*.jpg')
+      .pipe(imagemin({
+          interlaced: true,
+          progressive: true
+      }))
+      .pipe(gulp.dest(path.dist.img))
+      .pipe(connect.reload());
+  // gulp.src(path.src.img + '.svg')
   //     .pipe(imagemin({
   //         progressive: true,
   //         svgoPlugins: [{removeViewBox: false}],
   //         interlaced: true
   //     }))
-      .pipe(gulp.dest(path.dist.img))
-      .pipe(connect.reload());
-  gulp.src(path.src.img + '.svg')
-  //     .pipe(imagemin({
-  //         progressive: true,
-  //         svgoPlugins: [{removeViewBox: false}],
-  //         interlaced: true
-  //     }))
-      .pipe(gulp.dest(path.dist.img))
-      .pipe(connect.reload());
+  //     .pipe(gulp.dest(path.dist.img))
+  //     .pipe(connect.reload());
   gulp.src(path.src.img + '*.png')
-  //     .pipe(imagemin({
-  //         progressive: true,
-  //         svgoPlugins: [{removeViewBox: false}],
-  //         use: [imageminPngquant()],
-  //         interlaced: true
-  //     }))
+      .pipe(imagemin({
+          interlaced: true,
+          progressive: true,
+          use: [imageminPngquant()]
+      }))
       .pipe(gulp.dest(path.dist.img))
+      .pipe(connect.reload());
+});
+
+gulp.task('build:sprite', function() {
+  var spriteData = gulp.src(path.src.img + 'sprite/*.png')
+    .pipe(spritesmith({
+      algorithm: 'left-right',
+      cssFormat: 'scss_maps',
+      cssName: '_sprite.scss',
+      imgName: 'sprite.png',
+      imgPath: '../img/sprite.png'
+    }));
+    spriteData.img.pipe(gulp.dest(path.src.img))
+      .pipe(connect.reload());
+    spriteData.css.pipe(gulp.dest(path.src.styles + 'components/'))
       .pipe(connect.reload());
 });
 
@@ -126,10 +138,8 @@ gulp.task('server', function() {
 });
 
 gulp.task('watch', function() {
-  // gulp.watch(path.src.html, ['build:html']);
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  gulp.watch('./src/html/**/*.html', ['build:html']);
-  gulp.watch(path.src.styles, ['build:styles']);
+  gulp.watch(path.src.html + '**/*.html', ['build:html']);
+  gulp.watch(path.src.styles + '**/*.scss', ['build:styles']);
   gulp.watch(path.src.fonts, ['build:fonts']);
   gulp.watch(path.src.js + '**/*.js', ['build:js']);
   gulp.watch(path.src.img, ['build:img']);

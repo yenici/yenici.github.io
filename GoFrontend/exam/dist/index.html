@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> -->
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URLAUBSGLÜCK - Home</title>
     <link rel="icon" type="image/png" href="img/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
@@ -18,6 +18,13 @@
     <!--[if lt IE 9]>
       <script src="js/lib/respond.min.js"></script>
       <script src="js/lib/html5shiv.min.js"></script>
+      <script>
+        if(typeof String.prototype.trim !== 'function') {
+          String.prototype.trim = function() {
+            return this.replace(/^\s+|\s+$/g, '');
+          }
+        }
+      </script>
     <![endif]-->
   </head>
   <body>
@@ -41,25 +48,24 @@
     *************************************************************************-->
     <section class="howitworks">
       <h2>How Urlaubsglück works?</h2>
-      <div class="howitworks__slider-block clearfix">
-        <!-- TEMPLATE - Begin -->
-        <script type="text/template" id="howitworks__template">
-          <div class="swiper-container" id="<%= data.id %>">
-            <div class="swiper-wrapper">
-            <% for (var i = 0; i < data.slides.length; i++) { %>
-              <div class="swiper-slide" style="background-image:url(<%= data.slides[i].imgURL %>)">
-                <a class="swiper-slide__button<%= data.slides[i].classMod %>" href="#"><%= data.slides[i].caption %></a>
-                <h3 class="swiper-slide__title<%= data.slides[i].classMod %>"><%= data.slides[i].title %></h3>
-                <p class="swiper-slide__text<%= data.slides[i].classMod %>"><%= data.slides[i].text %></p>
-              </div>
-            <% } %>
+      <div class="howitworks__slider-block clearfix"></div>
+      <!-- TEMPLATE - Begin -->
+      <script type="text/template" id="howitworks__template">
+        <div class="swiper-container" id="<%= data.id %>">
+          <div class="swiper-wrapper">
+          <% for (var i = 0; i < data.slides.length; i++) { %>
+            <div class="swiper-slide" style="background-image:url(<%= data.slides[i].imgURL %>)">
+              <a class="swiper-slide__button<%= data.slides[i].classMod %>" href="#"><%= data.slides[i].caption %></a>
+              <h3 class="swiper-slide__title<%= data.slides[i].classMod %>"><%= data.slides[i].title %></h3>
+              <p class="swiper-slide__text<%= data.slides[i].classMod %>"><%= data.slides[i].text %></p>
             </div>
-            <div class="swiper-button-prev swiper-button-white"></div>
-            <div class="swiper-button-next swiper-button-white"></div>
+          <% } %>
           </div>
-        </script>
-        <!-- TEMPLATE - End -->
-      </div>
+          <div class="swiper-button-prev swiper-button-white"></div>
+          <div class="swiper-button-next swiper-button-white"></div>
+        </div>
+      </script>
+      <!-- TEMPLATE - End -->
     </section>
     <!--************************************************************************
     * 'Meet a partner for your best holiday' section
@@ -70,9 +76,11 @@
       <!-- TEMPLATE - Begin -->
       <script type="text/template" id="partners__template">
         <% for (var i = 0; i < data.length; i++) { %>
-          <a class="person" href="<%= data[i].linkUrl %>">
+          <a class="person<%= (i > 0)?(' person--ie8-' + i):'' %>" href="<%= data[i].linkUrl %>">
             <div class="person__photo" style="background-image: url(<%= data[i].imgUrl %>);">
-              <div class="person__activity--<%= data[i].activity %>"></div>
+              <div class="person__activity-wrapper--<%= data[i].activity %>">
+                <div class="person__activity-img--<%= data[i].activity %>"></div>
+              </div>
             </div>
             <div class="person__name"><%= data[i].name %></div>
             <div class="person__description"><%= data[i].description %></div>
@@ -105,10 +113,10 @@
       <!-- TEMPLATE - End -->
       <h2 class="ideas__title--bottom">Discover holiday activity ideas</h2>
       <p class="ideas__question">Hi! What are your holiday interests?</p>
-      <div class="ideas__search clearfix">
+      <form class="ideas__search clearfix" action="">
         <input type="text" name="searchinput" value="" placeholder="Enter your interests">
-        <input type="button" name="searchbtn" value="Search partners">
-      </div>
+        <input type="submit" name="searchbtn" value="Search partners">
+      </form>
     </section>
     <!--************************************************************************
     * Footer
@@ -130,10 +138,9 @@
           </ul>
         </nav>
         <div class="footer-disigned">
-          <a href="">
             <p class="footer-designed__title">Designed by</p>
-            <img src="img/areto_logo.png">
-          </a>
+            <a href="">
+            </a>
         </div>
       </div>
     </footer>
