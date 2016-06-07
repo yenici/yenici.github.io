@@ -34,7 +34,7 @@ function mainScript() {
           prevButton: '.swiper-button-prev',
           spaceBetween: 0
         });
-      } catch(e) {};
+      } catch(e) {}
     }
   }
 
@@ -70,20 +70,24 @@ function mainScript() {
 
   function updateMasonry(event) {
     if (event) {
-      event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+      if (event.preventDefault) {
+        event.preventDefault();
+      } else {
+        event.returnValue = false;
+      }
     }
     var oReq;
-    var url = 'https://pixabay.com/api/?'
-      + 'key=2660080-f094061c77f6ce6ff6f3628df'
-      + '&q=<%%>'
-      + '&lang=en'
-      + '&per_page=7';
+    var url = 'https://pixabay.com/api/?' +
+      'key=2660080-f094061c77f6ce6ff6f3628df' +
+      '&q=<%%>' +
+      '&lang=en' +
+      '&per_page=7';
     if("onload" in new XMLHttpRequest()) {
       oReq = new XMLHttpRequest();
     } else {
       // IE9-
       oReq = new XDomainRequest();
-      url = url.replace(/https:/, 'http:')
+      url = url.replace(/https:/, 'http:');
     }
     var query =
       document.querySelector('.ideas__search > input[type="text"]').value || '';
@@ -94,7 +98,7 @@ function mainScript() {
       var response;
       try {
         response = JSON.parse(oReq.responseText);
-      } catch(e) {};
+      } catch(e) {}
       for (var i = 0; i < Math.min(7, response.hits.length); i++) {
         images.push({
           tags: response.hits[i].tags,
@@ -105,7 +109,7 @@ function mainScript() {
         });
       }
       if (images.length < 7) {
-        for (var i = images.length; i < 7; i++ ) {
+        for (i = images.length; i < 7; i++ ) {
           images.push({
             tags: '',
             webformatHeight: 0,
@@ -124,7 +128,7 @@ function mainScript() {
       if (event) {
         document.querySelector('.ideas').scrollIntoView();
       }
-    }
+    };
     oReq.send();
   }
 
