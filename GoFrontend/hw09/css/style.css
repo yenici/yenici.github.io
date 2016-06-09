@@ -312,6 +312,7 @@
 }
 
 .slider-single-dot {
+    background-color: rgb(36, 37, 40); /* IE8 fix */
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 50%;
     display: block;
@@ -327,7 +328,9 @@
 }
 
 .slider-single-dot--active {
+    background-color: rgb(23, 23, 23); /* IE8 fix */
     background-color: rgba(255, 255, 255, 0.9);
+    border: 4px solid  rgb(241, 241, 242); /* IE8 fix */
     border: 4px solid rgba(0, 0, 0, 0.9);
     height: 8px;
     width: 8px;
@@ -345,6 +348,7 @@
 .about-company {
     border-bottom: solid 1px #000;
     border-top: solid 1px #000;
+    background-color: #745083; /* IE8+ fix */
     background-image: linear-gradient(#745083, #322539);
     /* 960px - 342px with 2 lines */
     /* 768px - 343px with 2 lines */
@@ -360,8 +364,13 @@
     width: 300px;
 }
 
-.about-company-col:last-child {
+/*.about-company-col:last-child {
     margin-right: 0;
+}*/
+
+/* IE8+ fix */
+.about-company-col--last-child {
+  margin-right: 0;
 }
 
 .about-company-col__wranch::before {
@@ -668,11 +677,13 @@
 
 /* Hiding two Categories columns */
 
-.news article:nth-child(3) {
+/*.news article:nth-child(3) {*/
+.news__column--child3 {
     display: none;
 }
 
-.news article:nth-child(4) {
+/*.news article:nth-child(4) {*/
+.news__column--child4 {
     display: none;
 }
 
@@ -1014,19 +1025,23 @@ footer {
     *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
     /* Hide PigbullER and Comments columns and display two Categories columns */
-    .news article:nth-child(1) {
+    /*.news article:nth-child(1) {*/
+    .news__column--child1 { /* IE 8+ fix */
         display: none;
     }
 
-    .news article:nth-child(2) {
+    /*.news article:nth-child(2) {*/
+    .news__column--child2 { /* IE 8+ fix */
         display: none;
     }
 
-    .news article:nth-child(3) {
+    /*.news article:nth-child(3) {*/
+    .news__column--child3 { /* IE 8+ fix */
         display: block;
     }
 
-    .news article:nth-child(4) {
+    /*.news article:nth-child(4) {*/
+    .news__column--child4 { /* IE 8+ fix */
         display: block;
     }
 
