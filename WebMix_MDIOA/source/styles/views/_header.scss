@@ -1,6 +1,7 @@
 /******************************************************************************
 * SASS file for header.html
 ******************************************************************************/
+$ms-menu-z-index: 10;
 $ms-nav-panel-height: 48px;
 $ms-menu-item-lg-height: 54px;
 $ms-menu-submenu-width: 260px;
@@ -42,6 +43,7 @@ $ms-col-menu-lev4-bg: #ccc;
   list-style: none;
   margin: 0;
   padding-left: 0;
+  z-index: $ms-menu-z-index;
   @include mediaQuery(md) {}
   @include mediaQuery(lg) {}
   &.level1 {
@@ -55,7 +57,6 @@ $ms-col-menu-lev4-bg: #ccc;
         position: relative;
       }
     }
-
   }
   &.level2 {
     background-color: $ms-col-menu-lev2-bg;
