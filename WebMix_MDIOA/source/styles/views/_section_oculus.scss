@@ -1,3 +1,77 @@
 /******************************************************************************
 * SASS file for section_oculus.html
 ******************************************************************************/
+$oc-col-bg: #282828;
+$oc-col-title: #a4a5a6;
+$oc-col-subtitle: #fff;
+
+.oc-wrapper {
+  background-color: $oc-col-bg;
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.oc-proposition {
+  display: block;
+  flex: 1 100%;
+  @include mediaQuery(md) { flex: 1 33%; }
+  height: 300px;
+  overflow: hidden;
+  a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.oc-proposition__image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+  transition: transform 0.3s, opacity 0.3s;
+  height: 100%;
+  width: 100%;
+  &--valkyrie { background-image: url(../images/oculus1-eve-valkyrie.jpg); }
+  &--luckys { background-image: url(../images/oculus2-luckys-tale.jpg); }
+  &--touch { background-image: url(../images/oculus3-touch.jpg); }
+  a:hover & {
+    transform: scale(1.1);
+    opacity: 0.9; }
+}
+
+.oc-proposition__text-area {
+  box-sizing: border-box;
+  font: {
+    family: "Oculus Sans", "Arial", "Helvetica", sans-serif;
+    weight: 600;
+  }
+  padding: 0 32px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.oc-proposition-text__title {
+  color: $oc-col-title;
+  font-size: 12px;
+  letter-spacing: 2px;
+  line-height: 15px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.oc-proposition-text__subtitle {
+  color: $oc-col-subtitle;
+  font-size: 22px;
+  line-height: 28px;
+  margin: 0;
+}
