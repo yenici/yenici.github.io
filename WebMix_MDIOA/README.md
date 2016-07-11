@@ -1,5 +1,6 @@
-<b><u>Ciklum JavaScript Internship (August, 2016)</u></b>
+<h1>>Ciklum JavaScript Internship (August, 2016)</h1>
 <b>Задание:<b>
+
 Вам необходимо создать страницу с частей (секции с уже существующих веб-страниц):
 <ul>
   <li>Microsoft: используйте навигационную панель</li>
