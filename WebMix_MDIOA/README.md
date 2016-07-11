@@ -1,5 +1,5 @@
-<h1>>Ciklum JavaScript Internship (August, 2016)</h1>
-<b>Задание:<b>
+<h1>Ciklum JavaScript Internship (August, 2016)</h1>
+<h2>Задание:</h2>
 
 Вам необходимо создать страницу с частей (секции с уже существующих веб-страниц):
 <ul>
