@@ -4,6 +4,7 @@
 $oc-col-bg: #282828;
 $oc-col-title: #a4a5a6;
 $oc-col-subtitle: #fff;
+$oc-section-height: 300px;
 
 .oc-wrapper {
   background-color: $oc-col-bg;
@@ -17,16 +18,15 @@ $oc-col-subtitle: #fff;
 .oc-proposition {
   display: block;
   flex: 1 100%;
-  @include mediaQuery(md) { flex: 1 33%; }
-  height: 300px;
+  @include mediaQuery(md) { flex: 1 33.3333333%; }
+  height: $oc-section-height;
   overflow: hidden;
   a {
-    color: white;
-    text-decoration: none;
     display: block;
+    height: $oc-section-height;
     position: relative;
+    text-decoration: none;
     width: 100%;
-    height: 100%;
   }
 }
 
@@ -36,20 +36,21 @@ $oc-col-subtitle: #fff;
   background-size: cover;
   opacity: 0.3;
   transition: transform 0.3s, opacity 0.3s;
-  height: 100%;
+  height: $oc-section-height;
   width: 100%;
   &--valkyrie { background-image: url(../images/oculus1-eve-valkyrie.jpg); }
   &--luckys { background-image: url(../images/oculus2-luckys-tale.jpg); }
   &--touch { background-image: url(../images/oculus3-touch.jpg); }
   a:hover & {
     transform: scale(1.1);
-    opacity: 0.9; }
+    opacity: 0.9;
+  }
 }
 
 .oc-proposition__text-area {
   box-sizing: border-box;
   font: {
-    family: "Oculus Sans", "Arial", "Helvetica", sans-serif;
+    family: "Arial", "Helvetica", sans-serif;
     weight: 600;
   }
   padding: 0 32px;
