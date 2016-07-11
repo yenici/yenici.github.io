@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <!-- bower:css -->
+    <link rel="stylesheet" href="styles/normalize.min.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="styles/main.min.css" media="screen" />
+    <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- ****************************   Header   *************************** -->
+    <header class="ms-nav-panel">
+      <a class="ms-nav-panel__logo" href="http://www.microsoft.com"><img src="images/ms_logo.png" alt="Microsoft Logo" height="23px" /></a>
+      <!-- &#9776; -->
+      <menu id="ms-menu"></menu>
+    
+    <!--   <nav class="ms-menu">
+        <ul>
+          <li>Store
+            <ul>
+              <li><a href="http://www.microsoftstore.com/store/msusa/en_US/home">Store home</a></li>
+              <li>Devices
+                <ul>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/All-Surface/categoryID.69403400">Microsoft Surface</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/All-PCs-tablets/categoryID.69404700">PCs &amp; tablets</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/categoryID.69405400">Xbox</a></li>
+                  <li><a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Virtual-and-Augmented-Reality/categoryID.594470000?icid=en_US_Store_UH_devices_vr">Virtual reality</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/All-accessories/categoryID.69407900">Accessories</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/All-Windows-Phone/categoryID.69406200">Windows phone</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/categoryID.69889600">Microsoft Band</a></li>
+                </ul>
+              </li>
+              <li>Software
+                <ul>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/All-Office/categoryID.69403900">Office</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/categoryID.70036700">Windows</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/All-additional-software/categoryID.69407400">Additional software</a></li>
+                </ul>
+              </li>
+              <li>Apps
+                <ul>
+                  <li><a href="https://www.microsoft.com/en-us/store/apps">All apps</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/store/apps/windows">Windows apps</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/store/apps/windows-phone">Windows phone apps</a></li>
+                </ul>
+              </li>
+              <li>Games
+                <ul>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/Xbox-One-games/categoryID.69405600">Xbox One games</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/Xbox-360-games/categoryID.69405800">Xbox 360 games</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/list/PC-games/categoryID.62688000?icid=en_US_Store_UH_games_PC">PC games</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/store/games/windows">Windows games</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/store/games/windows-phone">Windows phone games</a></li>
+                </ul>
+              </li>
+              <li>Entertainment
+                <ul>
+                  <li><a href="https://www.microsoft.com/en-us/store/entertainment">All Entertainment</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/store/movies-and-tv">Movies &amp; TV</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/store/music">Music</a></li>
+                </ul>
+              </li>
+              <li>Business &amp; Education
+                <ul>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/Business/categoryID.69408700">Business Store</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/edu">Education Store</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/Developer/categoryID.69418300?icid=en_US_Store_UH_BusEd_Dev">Developer</a></li>
+                </ul>
+              </li>
+              <li>Sale
+                <ul>
+                  <li><a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Back-to-school-essentials/categoryID.67998200?icid=en_US_Store_UH_sale_gm_bts">Back-to-school essentials</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/Sale/categoryID.69403000">Sale</a></li>
+                </ul>
+              </li>
+              <li><a href="http://www.microsoft.com/en-us/store/locations/find-a-store?icid=L_navAB_FindAStore">Find a store</a></li>
+              <li><a href="https://www.microsoft.com/en-us/store/gift-cards">Gift cards</a></li>
+            </ul>
+          </li>
+          <li>Products
+            <ul>
+              <li>Software &amp; services
+                <ul>
+                  <li><a href="//www.microsoft.com/en-us/windows">Windows</a></li>
+                  <li><a href="https://products.office.com/en-us/home">Office</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/download/default.aspx">Free downloads &amp; security</a></li>
+                  <li><a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Internet Explorer</a></li>
+                  <li><a href="http://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a></li>
+                  <li><a href="http://www.skype.com/en/">Skype</a></li>
+                  <li><a href="http://www.onenote.com/">OneNote</a></li>
+                  <li><a href="https://onedrive.live.com/about/en-us/">OneDrive</a></li>
+                  <li><a href="http://www.microsoft.com/microsoft-health/en-us">Microsoft Health</a></li>
+                  <li><a href="http://www.msn.com/?ocid=HEA000">MSN</a></li>
+                  <li><a href="http://www.bing.com">Bing</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/groove">Microsoft Groove</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/movies-and-tv">Microsoft Movies &amp; TV</a></li>
+                </ul>
+              </li>
+              <li>Devices &amp; Xbox
+                <ul>
+                  <li><a href="https://www.microsoft.com/devices/en-us">All Microsoft devices</a></li>
+                  <li><a href="http://www.microsoft.com/surface/en-us">Microsoft Surface</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/cat/Computers/categoryID.62684600">All Windows PCs &amp; tablets</a></li>
+                  <li><a href="https://www.microsoft.com/accessories/en-us">PC accessories</a></li>
+                  <li><a href="http://www.xbox.com">Xbox &amp; games</a></li>
+                  <li><a href="http://www.microsoft.com/Microsoft-Band/en-us">Microsoft Band</a></li>
+                  <li><a href="http://www.microsoft.com/en-us/mobile/">Microsoft Lumia</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/windows/phones">All Windows phones</a></li>
+                  <li><a href="http://www.microsoft.com/microsoft-hololens/en-us">Microsoft HoloLens</a></li>
+                </ul>
+              </li>
+              <li>For business
+                <ul>
+                  <li><a href="http://www.microsoft.com/en-us/server-cloud/">Cloud Platform</a></li>
+                  <li><a href="http://azure.microsoft.com/">Microsoft Azure</a></li>
+                  <li><a href="http://www.microsoft.com/en-us/dynamics/default.aspx">Microsoft Dynamics</a></li>
+                  <li><a href="http://www.microsoft.com/en-us/windows/business/default.aspx">Windows for business</a></li>
+                  <li><a href="https://products.office.com/en-us/business/office">Office for business</a></li>
+                  <li><a href="https://products.office.com/en-us/skype-for-business">Skype for business</a></li>
+                  <li><a href="http://www.microsoft.com/surface/en-us/business/overview">Surface for business</a></li>
+                  <li><a href="http://www.microsoft.com/enterprise">Enterprise solutions</a></li>
+                  <li><a href="http://www.microsoft.com/en-us/business/">Small business solutions</a></li>
+                  <li><a href="https://pinpoint.microsoft.com">Find a solutions provider</a></li>
+                  <li><a href="https://www.microsoft.com/en-us/licensing/default.aspx">Volume Licensing</a></li>
+                </ul>
+              </li>
+              <li>For developers &amp; IT pros
+                <ul>
+                  <li><a href="https://dev.windows.com/en-us">Develop Windows apps</a></li>
+                  <li><a href="http://azure.microsoft.com/">Microsoft Azure</a></li>
+                  <li><a href="http://msdn.microsoft.com/en-us/">MSDN</a></li>
+                  <li><a href="http://technet.microsoft.com/en-us/">TechNet</a></li>
+                  <li><a href="http://www.visualstudio.com/">Visual Studio</a></li>
+                </ul>
+              </li>
+              <li>For students &amp; educators
+                <ul>
+                  <li><a href="http://www.microsoft.com/en-us/education/products/office/default.aspx">Office for students</a></li>
+                  <li><a href="http://www.microsoft.com/en-us/education/products/onenote/default.aspx">OneNote in classroom</a></li>
+                  <li><a href="http://www.microsoftstore.com/store/msusa/en_US/edu">Shop PCs &amp; tablets perfect for students</a></li>
+                  <li><a href="http://www.microsoft.com/en-us/education">Microsoft in Education</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="https://support.microsoft.com/en-us">Support</a></li>
+        </ul>
+      </nav> -->
+    </header>
+    
+    <script id="ms-header-template" type="text/template">
+      <ul class="ms-menu level1">
+      <% for(var i = 0; i < data.length; i++) { %>
+        <li>
+          <a class="ms-menu__item level1<%= (data[i].children.length > 0)?' with-submenu':'' %>" href="<%= data[i].link %>"><%= data[i].name %></a>
+          <% if(data[i].children.length > 0) { %>
+            <ul class="ms-menu level2">
+            <% for(var j = 0; j < data[i].children.length; j++) { %>
+              <li>
+                <a class="ms-menu__item level2<%= (data[i].children[j].children.length > 0)?' with-submenu':'' %>" href="<%= data[i].children[j].link %>"><%= data[i].children[j].name %></a>
+                <% if(data[i].children[j].children.length > 0) { %>
+                  <ul class="ms-menu level3">
+                  <% for(var k = 0; k < data[i].children[j].children.length; k++) { %>
+                    <li>
+                      <a class="ms-menu__item level3" href="<%= data[i].children[j].children[k].link %>"><%= data[i].children[j].children[k].name %></a>
+                    </li>
+                  <% } %>
+                  </ul>
+                <% } %>
+              </li>
+            <% } %>
+          </ul>
+          <% } %>
+        </li>
+      <% } %>
+      </ul>
+    </script>
+    <!-- ***********************   DropBox Section   *********************** -->
+    <section id="db_section">
+    
+    </section>
+    <!-- ***********************   InVision Section   ********************** -->
+    <section>
+    
+    </section>
+    <!-- ************************   Oculus Section   *********************** -->
+    <section>
+      <!-- https://www3.oculus.com/en-us/rift/#eve-valkyrie -->
+      <!-- https://www3.oculus.com/en-us/rift/#luckys-tale -->
+      <!-- https://www3.oculus.com/en-us/blog/over-30-full-games-launching-with-oculus-touch-this-year/ -->
+    </section>
+    <!-- ****************************   Footer   *************************** -->
+    <section>
+    
+    </section>
+
+    <!-- bower:js -->
+    <!-- endbower -->
+    <script src="scripts/main.min.js" charset="utf-8"></script>
+  </body>
+</html>

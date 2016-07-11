@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/******************************************************************************
+* clearfix
+******************************************************************************/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/******************************************************************************
+* SASS variables
+******************************************************************************/
+/******************************************************************************
+* SASS mixins
+******************************************************************************/
+/******************************************************************************
+* SASS file for fonts
+******************************************************************************/
+/******************************************************************************
+* SASS file for header.html
+******************************************************************************/
+.ms-nav-panel {
+  background-color: #fff;
+  height: 48px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row; }
+  .ms-nav-panel__logo {
+    display: block;
+    margin: 0 1em;
+    padding-top: 12px;
+    vertical-align: middle; }
+
+/*-----------------------------------------------------------------------------
+  Menu Block
+-----------------------------------------------------------------------------*/
+#ms-menu {
+  color: #2F2F2F;
+  font-family: "Segoe UI","wf_segoe-ui_normal","Arial",sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  margin: 0;
+  padding: 0; }
+
+.ms-menu {
+  list-style: none;
+  margin: 0;
+  padding-left: 0; }
+  .ms-menu.level1 {
+    background-color: #f1f1f1;
+    max-width: 768px; }
+    @media screen and (min-width: 1100px) {
+      .ms-menu.level1 {
+        background-color: #fff;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+        .ms-menu.level1 > li {
+          position: relative; } }
+  .ms-menu.level2 {
+    background-color: #e5e5e5;
+    display: none; }
+    @media screen and (min-width: 1100px) {
+      .ms-menu.level2 {
+        background-color: #f1f1f1;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        border-left: 1px solid rgba(0, 0, 0, 0.05);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        left: 0;
+        position: absolute;
+        top: 100%;
+        width: 260px; } }
+  .ms-menu.level3 {
+    background-color: #d9d9d9;
+    display: none; }
+    @media screen and (min-width: 1100px) {
+      .ms-menu.level3 {
+        background-color: #e5e5e5;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        left: 100%;
+        position: absolute;
+        top: 0;
+        width: 260px; } }
+
+.ms-menu.level2.active,
+.ms-menu.level3.active {
+  display: block; }
+
+.ms-menu__item {
+  color: inherit;
+  display: block;
+  line-height: 48px;
+  position: relative;
+  text-decoration: none;
+  padding: 0 1em; }
+  @media screen and (min-width: 768px) {
+    .ms-menu__item {
+      padding: 0 1.5em; } }
+  @media screen and (min-width: 768px) {
+    .ms-menu__item.level2, .ms-menu__item.level3 {
+      line-height: 54px; } }
+  @media screen and (min-width: 768px) {
+    .ms-menu__item.with-submenu {
+      padding-right: 2.5em; } }
+  .ms-menu__item:hover {
+    text-decoration: underline; }
+    .ms-menu__item:hover.with-submenu {
+      text-decoration: none; }
+  .ms-menu__item:hover.level1 {
+    background-color: #e5e5e5; }
+    @media screen and (min-width: 1100px) {
+      .ms-menu__item:hover.level1 {
+        background-color: #f1f1f1; } }
+  .ms-menu__item:hover.level2 {
+    background-color: #d9d9d9; }
+    @media screen and (min-width: 1100px) {
+      .ms-menu__item:hover.level2 {
+        background-color: #e5e5e5; } }
+  .ms-menu__item:hover.level3 {
+    background-color: #ccc; }
+    @media screen and (min-width: 1100px) {
+      .ms-menu__item:hover.level3 {
+        background-color: #d9d9d9; } }
+
+@media screen and (min-width: 1100px) {
+  .ms-menu__item.level1.active {
+    background-color: #f1f1f1; }
+  .ms-menu__item.level2.active {
+    background-color: #e5e5e5; } }
+
+.with-submenu:after {
+  content: "˅";
+  line-height: 48px;
+  font-size: 0.8em;
+  position: absolute;
+  left: 100%;
+  margin-left: -2em; }
+  @media screen and (min-width: 768px) {
+    .with-submenu:after {
+      margin-left: -2.5em; } }
+
+@media screen and (min-width: 1100px) {
+  .level2.with-submenu:after {
+    content: ">"; } }
+
+/******************************************************************************
+* SASS file for section_db.html
+******************************************************************************/
+#db_section {
+  background-color: #f5f3f4;
+  height: 500px; }
+
+/******************************************************************************
+* SASS file for section_in.html
+******************************************************************************/
+/******************************************************************************
+* SASS file for section_oculus.html
+******************************************************************************/
+/******************************************************************************
+* SASS file for footer_.html
+******************************************************************************/
