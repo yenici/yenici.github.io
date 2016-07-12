@@ -139,14 +139,25 @@ $ms-col-menu-lev4-bg: #ccc;
 }
 
 .with-submenu:after {
-  content: "˅";
-  line-height: $ms-nav-panel-height;
-  font-size: 0.8em;
-  position: absolute;
+  content: "\f347";
+  // content: "˅";
+  font: {
+    family: Dashicons;
+    size: 0.6em;
+  }
   left: 100%;
+  line-height: $ms-nav-panel-height + 5px;
   margin-left: -2em;
+  position: absolute;
   @include mediaQuery(md) { margin-left: -2.5em; }
 }
 @include mediaQuery(lg) {
-  .level2.with-submenu:after { content: ">"; }
+  .level2.with-submenu:after {
+    content: "\f345";
+    // content: ">";
+    font: {
+      family: Dashicons;
+      size: 0.6em;
+    }
+  }
 }

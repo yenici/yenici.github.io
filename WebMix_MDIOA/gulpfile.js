@@ -36,6 +36,7 @@ var path = {
   source: {
     views: 'source/views/',
     styles: 'source/styles/',
+    fonts: 'source/styles/fonts/',
     images: 'source/images/',
     scripts: 'source/scripts/'
   },
@@ -43,6 +44,7 @@ var path = {
     dist: 'dist/',
     views: 'dist/',
     styles: 'dist/styles/',
+    fonts: 'dist/fonts/',
     images: 'dist/images/',
     scripts: 'dist/scripts/'
   },
@@ -69,7 +71,7 @@ gulp.task('build:html', function() {
 });
 
 // S t y l e s
-gulp.task('build:styles', ['build:sprites'], function() {
+gulp.task('build:styles', ['build:sprites', 'build:fonts'], function() {
   return gulp.src(path.source.styles + '**/*.scss')
     .pipe(sass().on('error', sass.logError), {
       outputStyle: 'expanded',
@@ -90,6 +92,13 @@ gulp.task('build:styles', ['build:sprites'], function() {
     // .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.dist.styles))
     .pipe(connect.reload());
+});
+
+// F o n t s
+gulp.task('build:fonts', function() {
+  return gulp.src(path.source.fonts + '*')
+  .pipe(gulp.dest(path.dist.fonts))
+  .pipe(connect.reload());
 });
 
 // S c r i p t s

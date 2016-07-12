@@ -1,0 +1,13 @@
+/******************************************************************************
+* SASS file for fonts
+******************************************************************************/
+@font-face {
+    font-family: 'Dashicons';
+    src: url('../fonts/dashicons.eot');
+    src: url('../fonts/dashicons.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dashicons.ttf') format('ttf'),
+         url('../fonts/dashicons.svg') format('svg'),
+         url('../fonts/dashicons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
