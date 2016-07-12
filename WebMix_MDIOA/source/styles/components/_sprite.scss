@@ -7,23 +7,47 @@ SCSS variables are information about icon's compiled state, stored under its ori
 
 At the bottom of this section, we provide information about the spritesheet itself
 */
-$me: (
-  name: 'me',
+$in-letter: (
+  name: 'in_letter',
   x: 0px,
   y: 0px,
   offset-x: 0px,
   offset-y: 0px,
-  width: 40px,
-  height: 40px,
-  total-width: 40px,
-  total-height: 40px,
-  image: 'sprites.png'
+  width: 24px,
+  height: 24px,
+  total-width: 72px,
+  total-height: 24px,
+  image: '../images/sprites.png'
+);
+$in-lock: (
+  name: 'in_lock',
+  x: 24px,
+  y: 0px,
+  offset-x: -24px,
+  offset-y: 0px,
+  width: 24px,
+  height: 24px,
+  total-width: 72px,
+  total-height: 24px,
+  image: '../images/sprites.png'
+);
+$in-person: (
+  name: 'in_person',
+  x: 48px,
+  y: 0px,
+  offset-x: -48px,
+  offset-y: 0px,
+  width: 24px,
+  height: 24px,
+  total-width: 72px,
+  total-height: 24px,
+  image: '../images/sprites.png'
 );
 $spritesheet: (
-  width: 40px,
-  height: 40px,
-  image: 'sprites.png',
-  sprites: ($me, )
+  width: 72px,
+  height: 24px,
+  image: '../images/sprites.png',
+  sprites: ($in-letter, $in-lock, $in-person, )
 );
 
 /*

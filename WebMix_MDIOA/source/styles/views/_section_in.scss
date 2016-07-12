@@ -1,3 +1,128 @@
 /******************************************************************************
 * SASS file for section_in.html
 ******************************************************************************/
+$in-col-bg: #323a45;
+$in-col-title: #fff;
+$in-col-input: #8a959e;
+$in-col-placeholder: #8a959e;
+$in-col-btn-bg: #ff3366;
+$in-col-btn-bg-hover: #f42156;
+$in-col-btn-text: #fff;
+$in-col-agreement: #747c83;
+
+#invision {
+  background-color: $in-col-bg;
+  font-family: "Open Sans", sans-serif;
+  padding: 145px 0;
+}
+
+.registration {
+  margin: 0 auto;
+  padding: 0 1em;
+  text-align: center;
+}
+
+.registration__title {
+  color: $in-col-title;
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0 0 45px 0;
+  padding: 0;
+  strong {
+    font-weight: 700;
+  }
+}
+
+.registration-form {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  @include mediaQuery(lg) { flex-direction: row; }
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 0 21px 0;
+  padding: 0;
+  &__btn {
+    background-color: $in-col-btn-bg;
+    border-radius: 5px;
+    border: 0;
+    color: $in-col-btn-text;
+    cursor: pointer;
+    font: {
+      family: sans-serif;
+      size: 15px;
+      weight: 700;
+    }
+    height: 62px;
+    margin: 10px;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+    &:hover {
+      background-color: $in-col-btn-bg-hover;
+    }
+  }
+}
+
+%input-icon {
+  content: "";
+  left: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.registration-form__input {
+  border-radius: 3px;
+  border: 0;
+  position: relative;
+  &--name::before {
+    @extend %input-icon;
+    @include sprite($in-person);
+  }
+  &--email {
+    margin: 10px 0;
+    @include mediaQuery(lg) { margin: 0 10px; }
+    &::before {
+      @extend %input-icon;
+      @include sprite($in-letter);
+    }
+  }
+  &--password::before {
+    @extend %input-icon;
+    @include sprite($in-lock);
+  }
+  input {
+    border: 0;
+    border-radius: 3px;
+    color: $in-col-input;
+    font: {
+      size: 18px;
+      weight: 400;
+    }
+    line-height: 1em;
+    outline: 0;
+    padding: 1em 1em 1em 44px;
+    &::placeholder { color: $in-col-placeholder; opacity: 1; transition: opacity 0.3s; }
+    &:focus::placeholder { opacity: 0.7; }
+    &.error {
+      box-shadow: 0 0 0 2px $in-col-btn-bg;
+    }
+  }
+}
+
+.registration__agreement {
+  color: $in-col-agreement;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.8em;
+  margin: 0 auto;
+  a {
+    color: $in-col-agreement;
+    text-decoration: underline;
+    &:hover {
+      color: $in-col-title;
+    }
+  }
+}

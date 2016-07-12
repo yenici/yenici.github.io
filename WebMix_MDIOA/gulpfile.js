@@ -69,7 +69,7 @@ gulp.task('build:html', function() {
 });
 
 // S t y l e s
-gulp.task('build:styles', function() {
+gulp.task('build:styles', ['build:sprites'], function() {
   return gulp.src(path.source.styles + '**/*.scss')
     .pipe(sass().on('error', sass.logError), {
       outputStyle: 'expanded',
@@ -133,7 +133,7 @@ gulp.task('build:bower', function() {
 });
 
 // I m a g e s
-gulp.task('build:images', ['build:sprites'],  function() {
+gulp.task('build:images',  function() {
   const imagefilter = filter([
     path.source.images + '*.jpg',
     path.source.images + '*.png',
@@ -158,11 +158,10 @@ gulp.task('build:sprites', function() {
       cssFormat: 'scss_maps',
       cssName: '_sprite.scss',
       imgName: 'sprites.png',
-      imgPath: 'sprites.png'
+      imgPath: '../images/sprites.png'
     }));
-    spriteData.img.pipe(gulp.dest(path.source.images));
+    spriteData.img.pipe(gulp.dest(path.dist.images));
     spriteData.css.pipe(gulp.dest(path.source.styles + 'components/'));
-    return true;
 });
 
 gulp.task('build', function(callback) {
@@ -186,6 +185,7 @@ gulp.task('server', function() {
 gulp.task('watch', function() {
   gulp.watch(path.source.views + '**/*.html', ['build:html']);
   gulp.watch(path.source.styles + '**/*.scss', ['build:styles']);
+  gulp.watch(path.source.images + 'sprites/', ['build:styles']);
   gulp.watch(path.source.scripts + '**/*.js', ['build:scripts']);
   gulp.watch(path.source.images, ['build:images']);
 });

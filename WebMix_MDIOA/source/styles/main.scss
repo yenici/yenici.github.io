@@ -4,7 +4,10 @@ $DEVELOPMENT:  false;
 @import "helpers/clearfix";
 @import "helpers/variables";
 @import "helpers/mixins";
+
 @import "fonts/fonts";
+
+@import "components/sprite";
 
 @import "views/header";
 @import "views/section_db";
