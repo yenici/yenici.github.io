@@ -13,7 +13,8 @@ $in-col-agreement: #747c83;
 #invision {
   background-color: $in-col-bg;
   font-family: "Open Sans", sans-serif;
-  padding: 145px 0;
+  padding: 45px 0;
+  @include mediaQuery(lg) { padding: 145px 0; }
 }
 
 .registration {

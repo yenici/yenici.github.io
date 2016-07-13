@@ -49,6 +49,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
+  document.getElementById('ms-menu').addEventListener( 'mouseover', e => {
+    if (~e.target.className.indexOf('ms-menu__item level2 with-submenu')) {
+      console.log('Open submenu...');
+      console.log(e.target);
+    }
+  });
 
   /*-- **************************   Section_In   ************************* --*/
   const validator = {

@@ -1,3 +1,120 @@
 /******************************************************************************
 * SASS file for footer_.html
 ******************************************************************************/
+$ap-col-bg-main: #f2f2f2;
+$ap-col-menu-item: #333;
+$ap-col-icon-open: #aaa;
+$ap-col-menu-item-border: #e3e3e3;
+$ap-col-menu-subitem: #666;
+
+$ap-max-submenu-height: 11 * 30px;
+
+#apple {
+  background-color: $ap-col-bg-main;
+  font-family: "Myriad Set Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.ap-navigation {
+  color: $ap-col-menu-subitem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 980px;
+  padding: 32px 16px 0;
+  @include mediaQuery(md) {
+    flex-direction: row;
+    padding: 32px 22px 0;
+  }
+}
+
+.ap-navigation__column {
+  @include mediaQuery(md) {
+    display: block;
+    flex: 1 20%;
+  }
+}
+
+.ap-navigation__menu-block {
+  border-bottom: solid 1px $ap-col-menu-item-border;
+  @include mediaQuery(md) {
+    border-bottom: none;
+  }
+}
+
+.ap-navigation__button {
+  background-color: $ap-col-bg-main;
+  border: none;
+  color: $ap-col-menu-item;
+  cursor: pointer;
+  display: block;
+  font: {
+    size: 14px;
+    weight: 400;
+  }
+  line-height: 39px;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  @include mediaQuery(md) {
+    cursor: default;
+    display: inline-block;
+    font: {
+      size: 12px;
+      weight: 600;
+    }
+    line-height: 20px;
+  }
+  &::after {
+    color: $ap-col-icon-open;
+    content: "\02795";
+    @include mediaQuery(md) { content: ""; }
+    font-size: 12px;
+    font-weight: 200;
+    position: absolute;
+    left: 100%;
+    margin-left: -1em;
+    transition: transform 0.3s ease-out;
+  }
+  &.active::after {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease-out;
+  }
+}
+
+.ap-navigation__menu {
+  display: none;
+  @include mediaQuery(md) { display: block; }
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+  &--btm-padding {
+    @include mediaQuery(md) {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.ap-navigation__menu-item {
+   a {
+     color: $ap-col-menu-subitem;
+     display: block;
+     @include mediaQuery(md) { display: inline; }
+     font: {
+       size: 12px;
+       weight: 400;
+     }
+     line-height: 30px;
+     padding: 0 14px;
+     text-decoration: none;
+     @include mediaQuery(md) {
+       line-height: 20px;
+       padding: 0;
+     }
+     &:hover {
+       font-weight: 600;
+     }
+   }
+ }
