@@ -76,12 +76,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   };
+  const NAME_MIN_LENGTH = 5;
+  const PASSWORD_MIN_LENGTH = 6;
   document.getElementById("registration-form__input--name").addEventListener('keyup', e => {
-    validator.toggleError(e.target, validator.checkTextField(e.target, 7));
+    validator.toggleError(e.target, validator.checkTextField(e.target, NAME_MIN_LENGTH));
   });
 
   document.getElementById("registration-form__input--email").addEventListener('keyup', e => {
-    validator.toggleError(e.target, validator.checkEmail(e.target));
+    validator.toggleError(e.target, validator.checkEmail(e.target, PASSWORD_MIN_LENGTH));
   });
 
   document.getElementById("registration-form__input--password").addEventListener('keyup', e => {
@@ -94,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let element = document.getElementById("registration-form__input--name");
     validator.toggleError(
       element,
-      (status = validator.checkTextField(element, 7))
+      (status = validator.checkTextField(element, NAME_MIN_LENGTH))
     );
     element = document.getElementById("registration-form__input--email");
     validator.toggleError(
@@ -105,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     element = document.getElementById("registration-form__input--password");
     validator.toggleError(
       element,
-      (checkResult = validator.checkTextField(element))
+      (checkResult = validator.checkTextField(element, PASSWORD_MIN_LENGTH))
     );
     if (!checkResult) { status = false; }
     if (!status) { e.preventDefault(); }
