@@ -7,47 +7,59 @@ SCSS variables are information about icon's compiled state, stored under its ori
 
 At the bottom of this section, we provide information about the spritesheet itself
 */
-$in-letter: (
-  name: 'in_letter',
+$ap-usa: (
+  name: 'ap_usa',
   x: 0px,
   y: 0px,
   offset-x: 0px,
   offset-y: 0px,
+  width: 16px,
+  height: 16px,
+  total-width: 88px,
+  total-height: 24px,
+  image: '../images/sprites.png'
+);
+$in-letter: (
+  name: 'in_letter',
+  x: 16px,
+  y: 0px,
+  offset-x: -16px,
+  offset-y: 0px,
   width: 24px,
   height: 24px,
-  total-width: 72px,
+  total-width: 88px,
   total-height: 24px,
   image: '../images/sprites.png'
 );
 $in-lock: (
   name: 'in_lock',
-  x: 24px,
+  x: 40px,
   y: 0px,
-  offset-x: -24px,
+  offset-x: -40px,
   offset-y: 0px,
   width: 24px,
   height: 24px,
-  total-width: 72px,
+  total-width: 88px,
   total-height: 24px,
   image: '../images/sprites.png'
 );
 $in-person: (
   name: 'in_person',
-  x: 48px,
+  x: 64px,
   y: 0px,
-  offset-x: -48px,
+  offset-x: -64px,
   offset-y: 0px,
   width: 24px,
   height: 24px,
-  total-width: 72px,
+  total-width: 88px,
   total-height: 24px,
   image: '../images/sprites.png'
 );
 $spritesheet: (
-  width: 72px,
+  width: 88px,
   height: 24px,
   image: '../images/sprites.png',
-  sprites: ($in-letter, $in-lock, $in-person, )
+  sprites: ($ap-usa, $in-letter, $in-lock, $in-person, )
 );
 
 /*

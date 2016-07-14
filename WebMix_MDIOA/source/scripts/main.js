@@ -111,6 +111,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!status) { e.preventDefault(); }
   });
 
+  /*-- ************************   Section_Apple   ************************ --*/
+  document.querySelector('nav.ap-navigation').addEventListener('click', e => {
+    if ( ~e.target.className.indexOf('ap-navigation__button')
+          && ~window.getComputedStyle(e.target, ':after').getPropertyValue('content').indexOf('+') ) {
+      toggleClass(e.target, 'active');
+    }
+  });
+
+  function toggleClass(element, toggledClass) {
+    if (~element.className.indexOf(toggledClass.trim())) {
+      element.className = element.className.replace(' ' + toggledClass.trim(), '');
+    } else {
+      element.className += (' ' +  toggledClass.trim());
+    }
+  }
+
 });
 
 function getMsMenu() {
