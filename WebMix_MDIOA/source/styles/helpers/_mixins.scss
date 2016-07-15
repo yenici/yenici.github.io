@@ -3,13 +3,19 @@
 ******************************************************************************/
 
 @mixin mediaQuery($size) {
-  @if $size == md {
-    @media screen and (min-width : $device_md) {
+  @if $size == sm {
+    @media screen and (min-width : $device_sm) {
       @content;
     }
   } @else {
-    @media screen and (min-width : $device_lg) {
-      @content;
+    @if $size == md {
+      @media screen and (min-width : $device_md) {
+        @content;
+      }
+    } @else {
+      @media screen and (min-width : $device_lg) {
+        @content;
+      }
     }
   }
 }

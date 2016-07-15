@@ -181,8 +181,46 @@
       </ul>
     </script>
     <!-- ***********************   DropBox Section   *********************** -->
-    <section id="db_section">
-    
+    <section id="dropbox">
+      <div class="db-carousel__wrapper">
+        <div class="db-carousel__monitor">
+          <div id="db-carousel__screen" class="db-carousel__screen db-carousel__screen--together">
+            <ul class="db-carousel__screen-film clearfix">
+              <li class="db-carousel__screen-image active"><img src="images/db-together.png" alt="Scale business growth" /></li>
+              <li class="db-carousel__screen-image"><img src="images/db-performance.png" alt="Simplify management tools" /></li>
+              <li class="db-carousel__screen-image"><img src="images/db-safe.png" alt="Trusted security" /></li>
+            </ul>
+          </div>
+        </div><!--
+        --><div class="db-carousel__description">
+          <ul id="dp-carousel__text" class="dp-carousel__text clearfix">
+            <li class="dp-carousel__text-item active">
+              <h2>The best way to work together</h2>
+              <p>The Dropbox experience loved by over 500 million users, with powerful collaboration and anytime anywhere access to your files.
+                <a href="https://www.dropbox.com/business/tour/online-backup" class="">Learn more</a>
+              </p>
+            </li>
+            <li class="dp-carousel__text-item">
+              <h2>Enterprise-ready performance and controls</h2>
+              <p>Keep your company’s data where it belongs with extensive security and administration features.
+                <a href="https://www.dropbox.com/business/tour/administrative-tools" class="">Learn more</a>
+              </p>
+            </li>
+            <li class="dp-carousel__text-item">
+              <h2>Safe, secure, and reliable</h2>
+              <p>Organizations like Hyatt, News Corp, and National Geographic trust us to meet their security, compliance, and privacy needs.
+                <a href="https://www.dropbox.com/business/trust" class="">Learn more</a>
+              </p>
+            </li>
+          </ul>
+          <div id="db-carousel__paginator" class="db-carousel__paginator">
+            <button class="db-carousel__paginator-btn active" type="button" name="paginator" data-pg="0"></button>
+            <button class="db-carousel__paginator-btn" type="button" name="paginator" data-pg="1"></button>
+            <button class="db-carousel__paginator-btn" type="button" name="paginator" data-pg="2"></button>
+          </div>
+        </div><!--
+        --><a id="db-carousel__navigation-arrow" class="db-carousel__navigation" href="javascript:void(0)"><img src="images/dp-arrow.svg" alt="Next slide"  /></a>
+      </div>
     </section>
     <!-- ***********************   InVision Section   ********************** -->
     <section id="invision">
@@ -190,13 +228,13 @@
         <h2 class="registration__title">Join over 2 million designers already using InVision. Get InVision <strong>free</strong> forever!</h2>
         <form class="registration-form" action="https://projects.invisionapp.com/d/signup/process" method="post">
           <div class="registration-form__input registration-form__input--name">
-            <input id="registration-form__input--name" type="text" name="name" value="" autocomplete="off" spellcheck="false" placeholder="Your Name" title="A minimum user name length is 5 symbols" />
+            <input id="registration-form__input--name" type="text" name="name" value="" autocomplete="off" spellcheck="false" placeholder="Your Name" title="Minimum length is 5 symbols" />
           </div>
           <div class="registration-form__input registration-form__input--email">
             <input id="registration-form__input--email" type="email" name="email" value="" autocomplete="off" spellcheck="false" placeholder="Email Address" />
           </div>
           <div class="registration-form__input registration-form__input--password">
-            <input id="registration-form__input--password" type="password" name="password" value="" autocomplete="off" spellcheck="false" placeholder="Create a Password" title="A minimum password length is 6 symbols" />
+            <input id="registration-form__input--password" type="password" name="password" value="" autocomplete="off" spellcheck="false" placeholder="Create a Password" title="Minimum length is 6 symbols" />
           </div>
           <button  id="registration-form__input--submit" class="registration-form__btn" type="submit">Get Started — Free Forever!</button>
         </form>
