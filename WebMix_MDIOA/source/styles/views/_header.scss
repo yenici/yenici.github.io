@@ -193,46 +193,53 @@ $ms-col-menu-lev4-bg: #ccc;
 /*-----------------------------------------------------------------------------
   Menu Block
 -----------------------------------------------------------------------------*/
+.ms-block-content {
+  overflow: hidden;
+}
+
 #ms-menu__wrapper {
+  background-color: $ms-col-menu-lev1-bg;
+  clear: both;
   color: $ms-col-menu-item-text;
   font: {
-    family: "Segoe UI","wf_segoe-ui_normal","Arial",sans-serif;
+    fontfamily: "Segoe UI","wf_segoe-ui_normal","Arial",sans-serif;
     size: 1em;
     weight: normal;
   }
   height: calc(100% - 48px);
   margin: 0;
+  overflow: auto;
   padding: 0;
+  position: absolute;
+  right: 0;
+  top: $ms-nav-panel-height;
   transition: width .3s ease-out;
   width: 0;
+  z-index: $ms-menu-z-index;
   @include mediaQuery(lg) {
+    clear: none;
     float: left;
     height: auto;
     margin: 0 0 0 18px;
+    overflow: visible;
+    position: static;
+    width: auto;
   }
   &.hidden {
     display: none;
     @include mediaQuery(lg) { display: block; }
   }
   &.active {
-    // max-width: 0;
-    // width: 0;
-    background-color: $ms-col-menu-lev1-bg;
-    clear: both;
     display: block;
-    position: absolute;
-    top: $ms-nav-panel-height;
     width: 100%;
-    z-index: $ms-menu-z-index;
     @include mediaQuery(sm) {
-      // margin-top: $ms-nav-panel-height;
-      max-width: $ms-menu-width-when-ham;
-      right: 0;
-      // width: 80%;
+      width: $ms-menu-width-when-ham;
     }
     @include mediaQuery(lg) {
       clear: none;
+      // overflow: visible;
       position: static;
+      // width: auto;
     }
   }
 }
@@ -246,9 +253,6 @@ $ms-col-menu-lev4-bg: #ccc;
   @include mediaQuery(lg) {}
   &.level1 {
     background-color: $ms-col-menu-lev1-bg;
-    //////////////////////////////////////////////////////////////////////////////////////
-    max-width: $device-sm;
-    //////////////////////////////////////////////////////////////////////////////////////
     @include mediaQuery(lg) {
       background-color: $ms-col-bg;
       display: flex;
@@ -337,6 +341,7 @@ $ms-col-menu-lev4-bg: #ccc;
   }
   // #Block end
   &--signin {
+    white-space: nowrap;
     @include mediaQuery(sm) { display: none; }
   }
 }

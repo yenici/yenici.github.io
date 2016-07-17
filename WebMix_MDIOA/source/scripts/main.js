@@ -9,50 +9,88 @@ document.addEventListener('DOMContentLoaded', function() {
   );
   document.getElementById('ms-menu__wrapper')
     .insertAdjacentHTML('beforeend', lodashCompiledTemplate(getMsMenu()));
-  document.getElementById('ms-menu__wrapper').addEventListener( 'click', e => {
-    if (e.target.classList.contains('ms-menu__item')) {
-      let subMenu = e.target.nextElementSibling;  // Looking for a submenu
-      let parent = e.target.parentElement.parentElement; // UL.ms-menu < LI < (A.ms-menu__item)
-      // Close all siblings and descendants
-      let isActive = e.target.classList.contains('active');
-      let activeElements;
-      while((activeElements = parent.getElementsByClassName('active')).length > 0) {
-        if (activeElements[0].getAttribute('data-height')) { // Restore original height
-          activeElements[0].style.height = activeElements[0].getAttribute('data-height') + 'px';
-        }
-        activeElements[0].className = activeElements[0].className.replace(' active', '');
+
+  window.onresize = function cleanMenu() {
+    let menuElement = document.getElementById('ms-menu__wrapper');
+    // Clean heights
+    let nodeList = menuElement.getElementsByTagName('*');
+    let iterator = 0;
+    let node;
+    while ((node = nodeList[iterator++])) {
+      if (node.getAttribute('style')) {
+        node.removeAttribute('data-height');
+        node.removeAttribute('style');
       }
-      // Remove / set active status
-      if (isActive) {
-        if (parent.getAttribute('data-height')) { // Restore original height
-          parent.style.height = parent.getAttribute('data-height') + 'px';
+    }
+  };
+
+  function performMenuAction(e) {
+    const needHeightControl = isMenuHorisontal();
+    let subMenu = e.target.nextElementSibling;  // Looking for a submenu
+    let parent = e.target.parentElement.parentElement; // UL.ms-menu < LI < (A.ms-menu__item)
+    // Close all siblings and descendants
+    let isActive = e.target.classList.contains('active');
+    let activeElements;
+    while((activeElements = parent.getElementsByClassName('active')).length > 0) {
+      if (activeElements[0].getAttribute('data-height')) { // Restore original height
+        if (needHeightControl) {
+          activeElements[0].style.height = activeElements[0].getAttribute('data-height') + 'px';
+        } else {
+          activeElements[0].style.height = 'auto';
         }
-      } else {
-        e.target.className += ' active';
-        if (subMenu) {
-          subMenu.className += ' active';
-          if (subMenu.classList.contains('level3')) {
-            let parentHeight;
-            if (!parent.getAttribute('data-height')) {
-              parentHeight = parent.offsetHeight;
-              parent.setAttribute('data-height', parentHeight); // Store original height for the 2nd level ms-menu
-            } else {
-              parentHeight = parent.getAttribute('data-height');
-            }
-            if (parentHeight > subMenu.offsetHeight) {
-              subMenu.style.height = parentHeight + 'px';
-            } else {
-              parent.style.height = subMenu.offsetHeight + 'px';
-            }
+      }
+      activeElements[0].className = activeElements[0].className.replace(' active', '');
+    }
+    // Remove / set active status
+    if (isActive) {
+      if (parent.getAttribute('data-height')) { // Restore original height
+        if (needHeightControl) {
+          parent.style.height = parent.getAttribute('data-height') + 'px';
+        } else {
+          parent.style.height = 'auto';
+        }
+      }
+    } else {
+      e.target.className += ' active';
+      if (subMenu) {
+        subMenu.className += ' active';
+        if (needHeightControl && subMenu.classList.contains('level3')) {
+          let parentHeight;
+          if (!parent.getAttribute('data-height')) {
+            parentHeight = parent.offsetHeight;
+            parent.setAttribute('data-height', parentHeight); // Store original height for the 2nd level ms-menu
+          } else {
+            parentHeight = parent.getAttribute('data-height');
+          }
+          if (parentHeight > subMenu.offsetHeight) {
+            subMenu.style.height = parentHeight + 'px';
+          } else {
+            parent.style.height = subMenu.offsetHeight + 'px';
           }
         }
       }
     }
+  }
+  function isMenuHorisontal() {
+    return  window.getComputedStyle(document.getElementById('ms-menu__wrapper'))
+                  .getPropertyValue('position') !== 'absolute';
+  }
+
+  document.getElementById('ms-menu__wrapper').addEventListener( 'click', e => {
+    if (isMenuHorisontal()) {
+      if (e.target.className.indexOf('ms-menu__item level2 with-submenu') === -1) {
+        performMenuAction(e);
+      }
+    } else {
+      performMenuAction(e);
+    }
   });
+
   document.getElementById('ms-menu__wrapper').addEventListener( 'mouseover', e => {
-    if (e.target.classList.contains('ms-menu__item level2 with-submenu')) {
-      console.log('Open submenu...');
-      console.log(e.target);
+    if (e.target.className.indexOf('ms-menu__item level2 with-submenu') >= 0) {
+      if (isMenuHorisontal() && !e.target.classList.contains('active') ) {
+        performMenuAction(e);
+      }
     }
   });
   document.getElementById('ms-toggle-search').addEventListener('click', e => {
@@ -60,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleClass(document.getElementById('ms-search-form'), 'active');
   });
   document.getElementById('ms-nav__toggle-menu').addEventListener('click', e => {
+    toggleClass(document.getElementsByTagName('html')[0], 'ms-block-content');
     toggleClass(e.target, 'active');
     toggleClass(document.getElementById('ms-menu__wrapper'), 'active');
     setTimeout(() => toggleClass(document.getElementById('ms-menu__wrapper'), 'hidden'), 300);
@@ -186,16 +225,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  function toggleClass(element, toggledClass) {
-    toggledClass = toggledClass.trim();
-    if (element.classList.contains(toggledClass)) {
-      element.classList.remove(toggledClass);
-    } else {
-      element.classList.add(toggledClass);
-    }
-  }
-
 });
+
+
+function toggleClass(element, toggledClass) {
+  toggledClass = toggledClass.trim();
+  if (element.classList.contains(toggledClass)) {
+    element.classList.remove(toggledClass);
+  } else {
+    element.classList.add(toggledClass);
+  }
+}
 
 function getMsMenu() {
   return(

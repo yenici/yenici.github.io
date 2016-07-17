@@ -110,7 +110,7 @@ gulp.task('build:scripts', function() {
       presets: ['es2015']
     }))
     // .pipe(sourcemaps.init())
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))
