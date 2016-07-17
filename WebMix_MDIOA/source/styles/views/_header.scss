@@ -304,7 +304,7 @@ $ms-col-menu-lev4-bg: #ccc;
   position: relative;
   text-decoration: none;
   padding: 0 1em;
-  transition: background-color .3s ease-out .2s;
+  transition: background-color .2s ease-out .1s;
   @include mediaQuery(md) {
     padding: 0 1.5em;
   }
