@@ -15,51 +15,75 @@ $ap-usa: (
   offset-y: 0px,
   width: 16px,
   height: 16px,
-  total-width: 88px,
+  total-width: 128px,
   total-height: 24px,
   image: '../images/sprites.png'
 );
 $in-letter: (
   name: 'in_letter',
-  x: 16px,
+  x: 56px,
   y: 0px,
-  offset-x: -16px,
+  offset-x: -56px,
   offset-y: 0px,
   width: 24px,
   height: 24px,
-  total-width: 88px,
+  total-width: 128px,
   total-height: 24px,
   image: '../images/sprites.png'
 );
 $in-lock: (
   name: 'in_lock',
-  x: 40px,
+  x: 80px,
   y: 0px,
-  offset-x: -40px,
+  offset-x: -80px,
   offset-y: 0px,
   width: 24px,
   height: 24px,
-  total-width: 88px,
+  total-width: 128px,
   total-height: 24px,
   image: '../images/sprites.png'
 );
 $in-person: (
   name: 'in_person',
-  x: 64px,
+  x: 104px,
   y: 0px,
-  offset-x: -64px,
+  offset-x: -104px,
   offset-y: 0px,
   width: 24px,
   height: 24px,
-  total-width: 88px,
+  total-width: 128px,
+  total-height: 24px,
+  image: '../images/sprites.png'
+);
+$ms-cart-hovered: (
+  name: 'ms-cart-hovered',
+  x: 16px,
+  y: 0px,
+  offset-x: -16px,
+  offset-y: 0px,
+  width: 20px,
+  height: 20px,
+  total-width: 128px,
+  total-height: 24px,
+  image: '../images/sprites.png'
+);
+$ms-cart: (
+  name: 'ms-cart',
+  x: 36px,
+  y: 0px,
+  offset-x: -36px,
+  offset-y: 0px,
+  width: 20px,
+  height: 20px,
+  total-width: 128px,
   total-height: 24px,
   image: '../images/sprites.png'
 );
 $spritesheet: (
-  width: 88px,
+  width: 128px,
   height: 24px,
   image: '../images/sprites.png',
-  sprites: ($ap-usa, $in-letter, $in-lock, $in-person, )
+  sprites: ($ap-usa, $in-letter, $in-lock, $in-person, $ms-cart-hovered, $ms-cart, )
 );
 
 /*

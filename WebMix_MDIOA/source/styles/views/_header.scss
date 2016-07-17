@@ -4,39 +4,237 @@
 $ms-menu-z-index: 10;
 $ms-nav-panel-height: 48px;
 $ms-menu-item-lg-height: 54px;
+$ms-menu-width-when-ham: 350px;
 $ms-menu-submenu-width: 260px;
 
 $ms-col-bg: #fff;
 $ms-col-menu-item-text: #2F2F2F;
+
+$ms-col-search-border: #a9a9a9;
+
+$ms-col-signin: #505050;
+$ms-col-link-hovered: #0078d7;
 
 $ms-col-menu-lev1-bg: #f1f1f1;
 $ms-col-menu-lev2-bg: #e5e5e5;
 $ms-col-menu-lev3-bg: #d9d9d9;
 $ms-col-menu-lev4-bg: #ccc;
 
-.ms-nav-panel {
+.ms-nav {
   background-color: $ms-col-bg;
-  height: $ms-nav-panel-height;
-  display: flex;
-  flex-direction: row;
+  // border-bottom: solid 1px $ms-col-search-border;
+  &__wrapper {
+    align-items: center;
+    margin: 0 auto;
+    @include mediaQuery(md) {
+      max-width: 1200px;
+      width: 90%;
+    }
+  }
   &__logo {
     display: block;
-    margin: 0 1em;
-    padding-top: 12px;
-    vertical-align: middle;
+    float: left;
+    margin-top: 12px;
+    padding-left: 10px;
+    @include mediaQuery(md) { padding-left: 0; }
+  }
+}
+
+.ms-nav__signin {
+  display: none;
+  @include mediaQuery(sm) { display: block; }
+  float: right;
+  a {
+    color: $ms-col-signin;
+    display: block;
+    font-size: 12px;
+    line-height: $ms-nav-panel-height;
+    padding: 0 11px;
+    text-decoration: none;
+    &:hover {
+      background-color: $ms-col-menu-lev1-bg;
+      color: $ms-col-link-hovered;
+      text-decoration: none;
+    }
+  }
+}
+
+.ms-nav__hamburger {
+  background-color: $ms-col-bg;
+  background-image: url(../images/ms-hamburger.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  float: right;
+  height: $ms-nav-panel-height;
+  outline: 0;
+  width: 48px;
+  @include mediaQuery(lg) { display: none; }
+  &:hover {
+    background-color: $ms-col-menu-lev1-bg;
+    cursor: pointer;
+  }
+  &.active {
+    background-color: $ms-col-menu-lev1-bg;
+  }
+}
+
+.ms-nav__cart {
+  float: right;
+  a {
+    color: $ms-col-menu-item-text;
+    display: block;
+    font-size: 12px;
+    height: $ms-nav-panel-height;
+    line-height: $ms-nav-panel-height;
+    padding: 0 10px 0 35px;
+    position: relative;
+    text-decoration: none;
+    &::before {
+      @include sprite($ms-cart);
+      content: "";
+      display: block;
+      left: 10px;
+      top: 14px;
+      position: absolute;
+    }
+    &:hover {
+      background-color: $ms-col-menu-lev1-bg;
+      color: $ms-col-link-hovered;
+      &::before {
+        @include sprite($ms-cart-hovered);
+      }
+    }
+  }
+}
+
+.ms-nav-search-form {
+  display: none;
+  @include mediaQuery(md) { display: block; }
+  float: right;
+  margin: 7px 10px 0 0;
+  @media screen and (max-width : $device_md - 1px) {
+    &.active {
+      background-color: $ms-col-menu-lev1-bg;
+      clear: both;
+      display: block;
+      float: none;
+      margin: 0 auto;
+      padding: 1.5em 10px;
+      position: relative;
+      top: 100%;
+      &  .ms-nav-search__btn {
+        background-image: url(../images/ms-magnifier-white.svg);
+        background-color: rgb(0, 120, 215);
+        &:hover {
+          background-color: rgb(0, 96, 172);
+        }
+      }
+    }
+  }
+}
+
+.ms-nav-search {
+  // Search field with button
+  align-items: center;
+  border: 1px solid $ms-col-search-border;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 284px;
+  padding: 0;
+  &__input {
+    border: 0;
+    height: 32px;
+    outline: 0;
+    padding: 0 10px;
+    width: 252px;
+    &::placeholder { color: $ms-col-menu-item-text; }
+  }
+  &__btn {
+    background-color: $ms-col-bg;
+    background-image: url(../images/ms-magnifier.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    height: 32px;
+    outline: 0;
+    width: 32px;
+    background-size: 20px 20px;
+    &:hover {
+      cursor: pointer;
+      background-image: url(../images/ms-magnifier-blue.svg);
+    }
+  }
+}
+
+.ms-nav__find-btn {
+  // Search button
+  background-color: $ms-col-bg;
+  background-image: url(../images/ms-magnifier.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  float: right;
+  height: $ms-nav-panel-height;
+  outline: 0;
+  width: 48px;
+  @include mediaQuery(md) { display: none; }
+  &:hover {
+    background-color: $ms-col-menu-lev1-bg;
+    cursor: pointer;
+  }
+  &.active {
+    background-color: $ms-col-menu-lev1-bg;
   }
 }
 
 /*-----------------------------------------------------------------------------
   Menu Block
 -----------------------------------------------------------------------------*/
-#ms-menu {
+#ms-menu__wrapper {
   color: $ms-col-menu-item-text;
-  font-family: "Segoe UI","wf_segoe-ui_normal","Arial",sans-serif;
-  font-weight: normal;
-  font-size: 1em;
+  font: {
+    family: "Segoe UI","wf_segoe-ui_normal","Arial",sans-serif;
+    size: 1em;
+    weight: normal;
+  }
+  height: calc(100% - 48px);
   margin: 0;
   padding: 0;
+  transition: width .3s ease-out;
+  width: 0;
+  @include mediaQuery(lg) {
+    float: left;
+    height: auto;
+    margin: 0 0 0 18px;
+  }
+  &.hidden {
+    display: none;
+    @include mediaQuery(lg) { display: block; }
+  }
+  &.active {
+    // max-width: 0;
+    // width: 0;
+    background-color: $ms-col-menu-lev1-bg;
+    clear: both;
+    display: block;
+    position: absolute;
+    top: $ms-nav-panel-height;
+    width: 100%;
+    z-index: $ms-menu-z-index;
+    @include mediaQuery(sm) {
+      // margin-top: $ms-nav-panel-height;
+      max-width: $ms-menu-width-when-ham;
+      right: 0;
+      // width: 80%;
+    }
+    @include mediaQuery(lg) {
+      clear: none;
+      position: static;
+    }
+  }
 }
 
 .ms-menu {
@@ -44,11 +242,13 @@ $ms-col-menu-lev4-bg: #ccc;
   margin: 0;
   padding-left: 0;
   z-index: $ms-menu-z-index;
-  @include mediaQuery(md) {}
+  @include mediaQuery(sm) {}
   @include mediaQuery(lg) {}
   &.level1 {
     background-color: $ms-col-menu-lev1-bg;
-    max-width: $device-md;
+    //////////////////////////////////////////////////////////////////////////////////////
+    max-width: $device-sm;
+    //////////////////////////////////////////////////////////////////////////////////////
     @include mediaQuery(lg) {
       background-color: $ms-col-bg;
       display: flex;
@@ -100,6 +300,7 @@ $ms-col-menu-lev4-bg: #ccc;
   position: relative;
   text-decoration: none;
   padding: 0 1em;
+  transition: background-color .3s ease-out .2s;
   @include mediaQuery(md) {
     padding: 0 1.5em;
   }
@@ -115,22 +316,29 @@ $ms-col-menu-lev4-bg: #ccc;
   // #Block end
   // #Block - Define background color for hovered menu item
   &:hover {
-    text-decoration: underline;
+    transition: background-color .3s ease-out;
+    @include mediaQuery(lg) { text-decoration: underline; }
     &.with-submenu { text-decoration: none }
   }
   &:hover.level1 {
     background-color: $ms-col-menu-lev2-bg;
+    transition: background-color .3s ease-out;
     @include mediaQuery(lg) { background-color: $ms-col-menu-lev1-bg; }
   }
   &:hover.level2 {
     background-color: $ms-col-menu-lev3-bg;
+    transition: background-color .3s ease-out;
     @include mediaQuery(lg) { background-color: $ms-col-menu-lev2-bg; }
   }
   &:hover.level3 {
     background-color: $ms-col-menu-lev4-bg;
+    transition: background-color .3s ease-out;
     @include mediaQuery(lg) { background-color: $ms-col-menu-lev3-bg; }
   }
   // #Block end
+  &--signin {
+    @include mediaQuery(sm) { display: none; }
+  }
 }
 
 @include mediaQuery(lg) {
@@ -145,6 +353,7 @@ $ms-col-menu-lev4-bg: #ccc;
     family: Dashicons;
     size: 0.6em;
   }
+  // content: "\e11a";
   left: 100%;
   line-height: $ms-nav-panel-height + 5px;
   margin-left: -2em;

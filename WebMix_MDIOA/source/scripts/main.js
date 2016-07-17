@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('ms-header-template').innerHTML,
     {variable: 'data'}
   );
-  document.getElementById('ms-menu')
+  document.getElementById('ms-menu__wrapper')
     .insertAdjacentHTML('beforeend', lodashCompiledTemplate(getMsMenu()));
-  document.getElementById('ms-menu').addEventListener( 'click', e => {
-    if (~e.target.className.indexOf('ms-menu__item')) {
+  document.getElementById('ms-menu__wrapper').addEventListener( 'click', e => {
+    if (e.target.classList.contains('ms-menu__item')) {
       let subMenu = e.target.nextElementSibling;  // Looking for a submenu
       let parent = e.target.parentElement.parentElement; // UL.ms-menu < LI < (A.ms-menu__item)
       // Close all siblings and descendants
-      let isActive = ~e.target.className.indexOf('active');
+      let isActive = e.target.classList.contains('active');
       let activeElements;
       while((activeElements = parent.getElementsByClassName('active')).length > 0) {
         if (activeElements[0].getAttribute('data-height')) { // Restore original height
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.target.className += ' active';
         if (subMenu) {
           subMenu.className += ' active';
-          if (~subMenu.className.indexOf('level3')) {
+          if (subMenu.classList.contains('level3')) {
             let parentHeight;
             if (!parent.getAttribute('data-height')) {
               parentHeight = parent.offsetHeight;
@@ -49,23 +49,32 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
-  document.getElementById('ms-menu').addEventListener( 'mouseover', e => {
-    if (~e.target.className.indexOf('ms-menu__item level2 with-submenu')) {
+  document.getElementById('ms-menu__wrapper').addEventListener( 'mouseover', e => {
+    if (e.target.classList.contains('ms-menu__item level2 with-submenu')) {
       console.log('Open submenu...');
       console.log(e.target);
     }
   });
+  document.getElementById('ms-toggle-search').addEventListener('click', e => {
+    toggleClass(e.target, 'active');
+    toggleClass(document.getElementById('ms-search-form'), 'active');
+  });
+  document.getElementById('ms-nav__toggle-menu').addEventListener('click', e => {
+    toggleClass(e.target, 'active');
+    toggleClass(document.getElementById('ms-menu__wrapper'), 'active');
+    setTimeout(() => toggleClass(document.getElementById('ms-menu__wrapper'), 'hidden'), 300);
+  });
 
   /*-- **************************   Section_Dp   ************************* --*/
   document.getElementById('db-carousel__paginator').addEventListener('click', e => {
-    if (~e.target.className.indexOf('db-carousel__paginator-btn')) {
-      if (!~e.target.className.indexOf('active')) {
+    if (e.target.classList.contains('db-carousel__paginator-btn')) {
+      if (!e.target.classList.contains('active')) {
         const page = parseInt(e.target.getAttribute('data-pg'));
         setCurrentPage(page);
       }
     }
   });
-  document.getElementById('db-carousel__navigation-arrow').addEventListener('click', e => {
+  document.getElementById('db-carousel__navigation-arrow').addEventListener('click', () => {
     setCurrentPage();
   });
   /**
@@ -75,13 +84,13 @@ document.addEventListener('DOMContentLoaded', function() {
   *    newPage     - the number of a selected page (0,1,2) or ignore this parameter to select the NEXT page
   */
   function setCurrentPage(newPage = -1) {
-    const slideNames = ['together', 'performance', 'safe']
+    const slideNames = ['together', 'performance', 'safe'];
     const paginator = document.getElementById('db-carousel__paginator');
     let currentPage = 0;
     // Change active paginator button
     const btns = paginator.getElementsByClassName('db-carousel__paginator-btn');
     for(let i =0; i < btns.length; i++) {
-      if (~btns[i].className.indexOf('active')) {
+      if (btns[i].classList.contains('active')) {
         toggleClass(btns[i], 'active');
         currentPage = i;
         break;
@@ -171,17 +180,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /*-- ************************   Section_Apple   ************************ --*/
   document.querySelector('nav.ap-navigation').addEventListener('click', e => {
-    if ( ~e.target.className.indexOf('ap-navigation__button')
+    if ( e.target.classList.contains('ap-navigation__button')
           && ~window.getComputedStyle(e.target, ':after').getPropertyValue('content').indexOf('+') ) {
       toggleClass(e.target, 'active');
     }
   });
 
   function toggleClass(element, toggledClass) {
-    if (~element.className.indexOf(toggledClass.trim())) {
-      element.className = element.className.replace(' ' + toggledClass.trim(), '');
+    toggledClass = toggledClass.trim();
+    if (element.classList.contains(toggledClass)) {
+      element.classList.remove(toggledClass);
     } else {
-      element.className += (' ' +  toggledClass.trim());
+      element.classList.add(toggledClass);
     }
   }
 
@@ -190,11 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function getMsMenu() {
   return(
     [
-      {
-        name: "Sign in",
-        link: "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=12&ct=1468141168&rver=6.5.6509.0&wp=MBI&wreply=https:%2F%2Fwww.microsoft.com%2Fen-us%2F&lc=1033",
-        children: []
-      },
       {
         name: "Store",
         link: "javascript:void(0)",
