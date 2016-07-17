@@ -18,6 +18,10 @@ var gulp          = require('gulp'),
     jshint        = require('gulp-jshint'),
     jshintstylish = require('jshint-stylish'),
     babel         = require('gulp-babel'),
+    browserify    = require('browserify'),
+    babelify      = require('babelify'),
+    vinylsource   = require('vinyl-source-stream'),
+    utils         = require('gulp-util'),
     uglify        = require('gulp-uglify'),
     spritesmith   = require('gulp.spritesmith'),
     imagemin      = require('gulp-imagemin'),
@@ -103,20 +107,35 @@ gulp.task('build:fonts', function() {
 
 // S c r i p t s
 gulp.task('build:scripts', function() {
-  return gulp.src(path.source.scripts + "**/*.js")
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(babel({
-      presets: ['es2015']
-    }))
+  return browserify(path.source.scripts + "main.js")
+    .transform("babelify", {presets: ["es2015"]})
+    .bundle()
+    .on('error', function(e) {
+      utils.log(e);
+    })
+    .pipe(vinylsource('bundle.js'))
     // .pipe(sourcemaps.init())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))
     // .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.dist.scripts))
     .pipe(connect.reload());
+  // return gulp.src(path.source.scripts + "**/*.js")
+  //   .pipe(jshint())
+  //   .pipe(jshint.reporter('jshint-stylish'))
+  //   .pipe(babel({
+  //     presets: ['es2015']
+  //   }))
+  //   .pipe(sourcemaps.init())
+  //   .pipe(uglify())
+  //   .pipe(rename({
+  //     suffix: '.min'
+  //   }))
+  //   .pipe(sourcemaps.write())
+  //   .pipe(gulp.dest(path.dist.scripts))
+  //   .pipe(connect.reload());
 });
 
 // B o w e r   C o m p o n e n t s
