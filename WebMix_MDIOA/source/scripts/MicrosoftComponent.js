@@ -77,8 +77,9 @@ function performMenuAction(e) {
   }
 }
 
-function addMenuItemOnClickEvent() {
+function addMenuItemOnClickEvent(e) {
   document.getElementById('ms-menu__wrapper').addEventListener( 'click', e => {
+    e.stopPropagation();
     if (isMenuHorisontal()) { // Disable click on Vertical Menu Lev. 1 Item (replaced bu Hover Action)
       if (e.target.className.indexOf('ms-menu__item level2 with-submenu') === -1) {
         performMenuAction(e);
@@ -100,13 +101,20 @@ function addMenuItemOnHoverEvent() {
   });
 }
 
+function toggleMenuBtn(e) {
+  e.stopPropagation();
+  toggleClass(document.getElementsByTagName('html')[0], 'ms-block-content');
+  if (toggleClass(document.getElementById('ms-nav__toggle-menu'), 'active')) {
+    document.addEventListener('click', toggleMenuBtn);
+  } else {
+    document.removeEventListener('click', toggleMenuBtn);
+  }
+  toggleClass(document.getElementById('ms-menu__wrapper'), 'active');
+  setTimeout(() => toggleClass(document.getElementById('ms-menu__wrapper'), 'hidden'), 300);
+}
+
 function addToggleMenuBtnEvent() {
-  document.getElementById('ms-nav__toggle-menu').addEventListener('click', e => {
-    toggleClass(document.getElementsByTagName('html')[0], 'ms-block-content');
-    toggleClass(e.target, 'active');
-    toggleClass(document.getElementById('ms-menu__wrapper'), 'active');
-    setTimeout(() => toggleClass(document.getElementById('ms-menu__wrapper'), 'hidden'), 300);
-  });
+  document.getElementById('ms-nav__toggle-menu').addEventListener('click', toggleMenuBtn);
 }
 
 function addToggleSearchEvent() {

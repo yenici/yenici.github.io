@@ -11,9 +11,12 @@
 
 export default function toggleClass(element, toggledClass) {
   toggledClass = toggledClass.trim();
+  let status = false;
   if (element.classList.contains(toggledClass)) {
     element.classList.remove(toggledClass);
   } else {
     element.classList.add(toggledClass);
+    status = true;
   }
+  return status;
 }
