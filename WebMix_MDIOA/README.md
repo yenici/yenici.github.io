@@ -16,3 +16,4 @@
   <li>Вы будете использовать инструменты сборки (gulp, grunt, webpack)</li>
   <li>Вы будете использовать pre/post processors</li>
 </ul>
+<a href="https://yenici.github.io/WebMix_MDIOA/dist/">Посмотреть выполненное задание</a>
