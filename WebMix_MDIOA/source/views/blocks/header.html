@@ -3,11 +3,11 @@
   <div class="ms-nav__wrapper clearfix">
     <a class="ms-nav__logo" href="http://www.microsoft.com"><img src="images/ms_logo.png" alt="Microsoft Logo" height="23px" /></a>
     <div class="ms-nav__signin">
-      <a class="ms-menu__item level1" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1468141168&amp;rver=6.5.6509.0&amp;wp=MBI&amp;wreply=https:%2F%2Fwww.microsoft.com%2Fen-us%2F&amp;lc=1033">
+      <a class="ms-menu__item level0" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1468141168&amp;rver=6.5.6509.0&amp;wp=MBI&amp;wreply=https:%2F%2Fwww.microsoft.com%2Fen-us%2F&amp;lc=1033">
         Sign in
       </a>
     </div>
-    <button id="ms-nav__toggle-menu" class="ms-nav__hamburger" type="button" title="Menu" name="Menu"></button>
+    <button id="ms-nav__btn-toggle-menu" class="ms-nav__hamburger" type="button" title="Menu" name="Menu"></button>
     <div class="ms-nav__cart">
       <a href="//www.microsoftstore.com/store/msusa/en_US/DisplayThreePgCheckoutShoppingCartPage" title="Cart">0</a>
     </div>
@@ -23,23 +23,20 @@
 </header>
 
 <script id="ms-header-template" type="text/template">
-  <ul class="ms-menu level1">
-    <li>
-      <a class="ms-menu__item ms-menu__item--signin level1 " href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1468141168&amp;rver=6.5.6509.0&amp;wp=MBI&amp;wreply=https:%2F%2Fwww.microsoft.com%2Fen-us%2F&amp;lc=1033">Sign in</a>
-    </li>
+  <ul class="ms-menu level0">
   <% for(var i = 0; i < data.length; i++) { %>
     <li>
-      <a class="ms-menu__item level1<%= (data[i].children.length > 0)?' with-submenu':'' %>" href="<%= data[i].link %>"><%= data[i].name %></a>
+      <a href="<%= data[i].link %>" class="ms-menu__item level0<%= (data[i].children.length > 0)?' with-submenu':'' %><%= data[i].classes?' ' + data[i].classes:'' %>" data-id="<%= i %>"><%= data[i].name %></a>
       <% if(data[i].children.length > 0) { %>
-        <ul class="ms-menu level2">
+        <ul class="ms-menu level1">
         <% for(var j = 0; j < data[i].children.length; j++) { %>
           <li>
-            <a class="ms-menu__item level2<%= (data[i].children[j].children.length > 0)?' with-submenu':'' %>" href="<%= data[i].children[j].link %>"><%= data[i].children[j].name %></a>
+            <a class="ms-menu__item level1<%= (data[i].children[j].children.length > 0)?' with-submenu':'' %>" href="<%= data[i].children[j].link %>" data-id="<%= i + '.' + j %>"><%= data[i].children[j].name %></a>
             <% if(data[i].children[j].children.length > 0) { %>
-              <ul class="ms-menu level3">
+              <ul class="ms-menu level2">
               <% for(var k = 0; k < data[i].children[j].children.length; k++) { %>
                 <li>
-                  <a class="ms-menu__item level3" href="<%= data[i].children[j].children[k].link %>"><%= data[i].children[j].children[k].name %></a>
+                  <a class="ms-menu__item level2" href="<%= data[i].children[j].children[k].link %>" data-id="<%= i + '.' + j + '.' + k %>"><%= data[i].children[j].children[k].name %></a>
                 </li>
               <% } %>
               </ul>

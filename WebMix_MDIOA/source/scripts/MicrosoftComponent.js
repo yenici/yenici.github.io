@@ -1,152 +1,143 @@
 'use strict';
 
 import toggleClass from './toggleClass';
-import MicrosoftMenu from "./MicrosoftMenu";
-import tmpl from "./tmpl";
+import tmpl from './tmpl';
 
-function createMenuFromTemplate() {
-  document.getElementById('ms-menu__wrapper')
-    .insertAdjacentHTML('beforeend',
-                        tmpl(document.getElementById('ms-header-template').innerHTML, {data: MicrosoftMenu}));
-}
+export default function MicrosoftComponent (menuData) {
+  this.state = {
+    menuContainer: document.getElementById('ms-menu__wrapper'),
+    menuObject: menuData,
+    menuTemplate: document.getElementById('ms-header-template').innerHTML,
+    menuActive: false,
+    vertical: false,
+    activeItem: [],
+    menuBtn: document.getElementById('ms-nav__btn-toggle-menu'),
+    searchBtn: document.getElementById('ms-toggle-search'),
+    searchForm: document.getElementById('ms-search-form')
+  };
+  // Creating HTML representation of a Menu Component
+  this.state.menuContainer.insertAdjacentHTML('beforeend',
+        tmpl(this.state.menuTemplate, {data: this.state.menuObject}));
+  // Setting orientation
+  this.state.vertical = isMenuVertical();
 
-function isMenuReady() {
-  const MAX_WAIT_TIME = 1000;
-  const WAIT_TIME = 100;
-  let iteration = 0;
-  while (!document.getElementById('ms-menu__wrapper')) {
-    setTimeout( () => {}, 100);
-    iteration += WAIT_TIME;
-    if ( WAIT_TIME > MAX_WAIT_TIME) {
-      return false;
-    }
-  }
-  return true;
-}
-
-function isMenuHorisontal() {
-  return  window.getComputedStyle(document.getElementById('ms-menu__wrapper'))
-                .getPropertyValue('position') !== 'absolute';
-}
-
-function performMenuAction(e) {
-  const needHeightControl = isMenuHorisontal();
-  let subMenu = e.target.nextElementSibling;  // Looking for a submenu
-  let parent = e.target.parentElement.parentElement; // UL.ms-menu < LI < (A.ms-menu__item)
-  // Close all siblings and descendants
-  let isActive = e.target.classList.contains('active');
-  let activeElements;
-  while((activeElements = parent.getElementsByClassName('active')).length > 0) {
-    if (activeElements[0].getAttribute('data-height')) { // Restore original height
-      if (needHeightControl) {
-        activeElements[0].style.height = activeElements[0].getAttribute('data-height') + 'px';
-      } else {
-        activeElements[0].style.height = 'auto';
-      }
-    }
-    activeElements[0].className = activeElements[0].className.replace(' active', '');
-  }
-  // Remove / set active status
-  if (isActive) {
-    if (parent.getAttribute('data-height')) { // Restore original height
-      if (needHeightControl) {
-        parent.style.height = parent.getAttribute('data-height') + 'px';
-      } else {
-        parent.style.height = 'auto';
-      }
-    }
-  } else {
-    e.target.className += ' active';
-    if (subMenu) {
-      subMenu.className += ' active';
-      if (needHeightControl && subMenu.classList.contains('level3')) {
-        let parentHeight;
-        if (!parent.getAttribute('data-height')) {
-          parentHeight = parent.offsetHeight;
-          parent.setAttribute('data-height', parentHeight); // Store original height for the 2nd level ms-menu
-        } else {
-          parentHeight = parent.getAttribute('data-height');
-        }
-        if (parentHeight > subMenu.offsetHeight) {
-          subMenu.style.height = parentHeight + 'px';
-        } else {
-          parent.style.height = subMenu.offsetHeight + 'px';
-        }
-      }
-    }
-  }
-}
-
-function addMenuItemOnClickEvent(e) {
-  document.getElementById('ms-menu__wrapper').addEventListener( 'click', e => {
+  // Adding event listeners
+  this.state.menuContainer.addEventListener('click', processClickEvent.bind(this));
+  this.state.menuContainer.addEventListener('mouseover', processHoverEvent.bind(this));
+  let self = this;
+  this.state.menuBtn.addEventListener('click', function (e) {
     e.stopPropagation();
-    if (isMenuHorisontal()) { // Disable click on Vertical Menu Lev. 1 Item (replaced bu Hover Action)
-      if (e.target.className.indexOf('ms-menu__item level2 with-submenu') === -1) {
-        performMenuAction(e);
-      }
-    } else {
-      performMenuAction(e);
-    }
+    self.toggleVerticalMenu();    
   });
-}
-
-function addMenuItemOnHoverEvent() {
-  document.getElementById('ms-menu__wrapper').addEventListener( 'mouseover', e => {
-    if (~e.target.className.indexOf('ms-menu__item level2')) {
-      if (isMenuHorisontal() &&                       // Applied only for horisontal menu
-          !e.target.classList.contains('active') ) {  // Don't hide vertical submenu after 2nd hover
-        performMenuAction(e);
-      }
-    }
-  });
-}
-
-function toggleMenuBtn(e) {
-  e.stopPropagation();
-  toggleClass(document.getElementsByTagName('html')[0], 'ms-block-content');
-  if (toggleClass(document.getElementById('ms-nav__toggle-menu'), 'active')) {
-    document.addEventListener('click', toggleMenuBtn);
-  } else {
-    document.removeEventListener('click', toggleMenuBtn);
-  }
-  toggleClass(document.getElementById('ms-menu__wrapper'), 'active');
-  setTimeout(() => toggleClass(document.getElementById('ms-menu__wrapper'), 'hidden'), 300);
-}
-
-function addToggleMenuBtnEvent() {
-  document.getElementById('ms-nav__toggle-menu').addEventListener('click', toggleMenuBtn);
-}
-
-function addToggleSearchEvent() {
-  document.getElementById('ms-toggle-search').addEventListener('click', e => {
+  this.state.searchBtn.addEventListener('click', e => {
     toggleClass(e.target, 'active');
-    toggleClass(document.getElementById('ms-search-form'), 'active');
+    toggleClass(self.state.searchForm, 'active');
   });
-}
 
-const MicrosoftComponent = {
-  initMenu: () => {
-    createMenuFromTemplate();
-    if (isMenuReady()) {
-      addMenuItemOnClickEvent();
-      addMenuItemOnHoverEvent();
-      addToggleMenuBtnEvent();
+  // Hie menu on click outside of it
+  this.hideMenu = function () {
+    if (this.state.vertical) {
+      if (this.state.menuActive) this.toggleVerticalMenu();
+    } else {
+      this.processEvent([]);
     }
-    addToggleSearchEvent();
-  },
-  cleanMenu: () => {
-    let menuElement = document.getElementById('ms-menu__wrapper');
-    // Clean heights
-    let nodeList = menuElement.getElementsByTagName('ul');
-    let iterator = 0;
-    let node;
-    while ((node = nodeList[iterator++])) {
-      if (node.getAttribute('style')) {
-        node.removeAttribute('data-height');
-        node.removeAttribute('style');
+  };
+
+  // Show/hide vertical menu (media-width < lg)
+  this.toggleVerticalMenu = function () {
+    toggleClass(document.getElementsByTagName('html')[0], 'ms-block-content');
+    this.state.menuActive = toggleClass(this.state.menuContainer, 'active');
+    setTimeout(() => toggleClass(this.state.menuContainer, 'hidden'), 300);
+  };
+
+  // Change the state on window resize
+  this.processResize = function () {
+    this.processEvent([]);
+    if (this.state.menuActive) this.toggleVerticalMenu();
+    this.state.vertical = isMenuVertical();
+  };
+
+  // Process click and hover events on menu items
+  this.processEvent = function (newActiveItem) {
+    // Compare new state with current state
+    let diffLevel = -1;
+    for (let i = 0; i < Math.min(this.state.activeItem.length, newActiveItem.length); i++) {
+      if (this.state.activeItem[i] !== newActiveItem[i]) {
+        diffLevel = i;
+        break;
+      }
+    }
+    if (diffLevel < 0 && this.state.activeItem.length !== newActiveItem.length) {
+      diffLevel = Math.min(this.state.activeItem.length, newActiveItem.length);
+    }
+    if (diffLevel < 0) {
+      // New state is equal to current
+      this.toggleMenu(newActiveItem);
+      this.state.activeItem = newActiveItem.slice(0, newActiveItem.length - 1);
+    } else {
+      // Toggle current state
+      for (let i = this.state.activeItem.length - 1; i >= diffLevel; i--) {
+        this.toggleMenu(this.state.activeItem.slice(0, i + 1));
+      }
+      // Toggle new state
+      // if (diffLevel === newActiveItem.length && diffLevel > 0) diffLevel--;
+      for (let i = diffLevel; i < newActiveItem.length; i++) {
+        this.toggleMenu(newActiveItem.slice(0, i + 1));
+      }
+      this.state.activeItem = newActiveItem;
+    }
+  };
+
+  // Helper function to hide/show menu items
+  this.toggleMenu = function (item) {
+    let listElement = this.state.menuContainer;
+    for (let i = 0; i < item.length; i++) {
+      listElement = listElement.querySelectorAll(`.ms-menu.level${i}>li`)[parseInt(item[i], 10)];
+    }
+    const itemElement = listElement.getElementsByTagName('a')[0];
+    const activeStatus = toggleClass(itemElement, 'active');
+    if (itemElement.classList.contains('with-submenu')) {
+      const submenuElement = listElement.getElementsByClassName('ms-menu')[0];
+      toggleClass(submenuElement, 'active');
+      if (!this.state.vertical && item.length > 1) {
+        if (activeStatus) {
+          const height = Math.max(listElement.parentElement.offsetHeight, submenuElement.offsetHeight);
+          listElement.parentElement.style.height = height + 'px';
+          submenuElement.style.height = height + 'px';
+        } else {
+          listElement.parentElement.style.height = 'auto';
+          submenuElement.style.height = 'auto';
+        }
+      }
+    }
+  };
+
+  // Click event wrapper
+  function processClickEvent (e) {
+    const elementId = e.target.getAttribute('data-id');
+    if (elementId) { // Process click on menu item only
+      e.stopPropagation();
+      this.processEvent(elementId.split('.'));
+    }
+  }
+
+  // Hover event wrapper
+  function processHoverEvent (e) {
+    if (!this.state.vertical) {  // For horisontal menu on base level only
+      const elementId = e.target.getAttribute('data-id');
+      if (elementId) { // Process click on menu item only
+        const activeItem = elementId.split('.');
+        if (activeItem.length === 2) { // For first vertical menu only
+          e.stopPropagation();
+          this.processEvent(activeItem);
+        }
       }
     }
   }
-};
 
-export default MicrosoftComponent;
+  // Helper function to check menu orientation
+  function isMenuVertical () {
+    return window.getComputedStyle(document.getElementById('ms-menu__wrapper'))
+      .getPropertyValue('position') === 'absolute';
+  }
+}

@@ -251,7 +251,7 @@ $ms-col-menu-lev4-bg: #ccc;
   z-index: $ms-menu-z-index;
   @include mediaQuery(sm) {}
   @include mediaQuery(lg) {}
-  &.level1 {
+  &.level0 {
     background-color: $ms-col-menu-lev1-bg;
     @include mediaQuery(lg) {
       background-color: $ms-col-bg;
@@ -262,7 +262,7 @@ $ms-col-menu-lev4-bg: #ccc;
       }
     }
   }
-  &.level2 {
+  &.level1 {
     background-color: $ms-col-menu-lev2-bg;
     display: none;
     @include mediaQuery(lg) {
@@ -276,7 +276,7 @@ $ms-col-menu-lev4-bg: #ccc;
       width: $ms-menu-submenu-width;
     }
   }
-  &.level3 {
+  &.level2 {
     background-color: $ms-col-menu-lev3-bg;
     display: none;
     @include mediaQuery(lg) {
@@ -292,8 +292,8 @@ $ms-col-menu-lev4-bg: #ccc;
   }
 }
 
-.ms-menu.level2.active,
-.ms-menu.level3.active {
+.ms-menu.level1.active,
+.ms-menu.level2.active {
   display: block;
 }
 
@@ -309,10 +309,10 @@ $ms-col-menu-lev4-bg: #ccc;
     padding: 0 1.5em;
   }
   @include mediaQuery(md) {
-    &.level2,
-    &.level3 { line-height: $ms-menu-item-lg-height; }
+    &.level1,
+    &.level2 { line-height: $ms-menu-item-lg-height; }
   }
-  &.level1.active {}
+  &.level0.active {}
   // #Block - Define additional 1em padding for submenu arrow
   @include mediaQuery(md) {
     &.with-submenu { padding-right: 2.5em; }
@@ -324,17 +324,17 @@ $ms-col-menu-lev4-bg: #ccc;
     @include mediaQuery(lg) { text-decoration: underline; }
     &.with-submenu { text-decoration: none }
   }
-  &:hover.level1 {
+  &:hover.level0 {
     background-color: $ms-col-menu-lev2-bg;
     transition: background-color .3s ease-out;
     @include mediaQuery(lg) { background-color: $ms-col-menu-lev1-bg; }
   }
-  &:hover.level2 {
+  &:hover.level1 {
     background-color: $ms-col-menu-lev3-bg;
     transition: background-color .3s ease-out;
     @include mediaQuery(lg) { background-color: $ms-col-menu-lev2-bg; }
   }
-  &:hover.level3 {
+  &:hover.level2 {
     background-color: $ms-col-menu-lev4-bg;
     transition: background-color .3s ease-out;
     @include mediaQuery(lg) { background-color: $ms-col-menu-lev3-bg; }
@@ -347,8 +347,8 @@ $ms-col-menu-lev4-bg: #ccc;
 }
 
 @include mediaQuery(lg) {
-  .ms-menu__item.level1.active { background-color: $ms-col-menu-lev1-bg }
-  .ms-menu__item.level2.active { background-color: $ms-col-menu-lev2-bg }
+  .ms-menu__item.level0.active { background-color: $ms-col-menu-lev1-bg }
+  .ms-menu__item.level1.active { background-color: $ms-col-menu-lev2-bg }
 }
 
 .with-submenu:after {
@@ -366,7 +366,7 @@ $ms-col-menu-lev4-bg: #ccc;
   @include mediaQuery(md) { margin-left: -2.5em; }
 }
 @include mediaQuery(lg) {
-  .level2.with-submenu:after {
+  .level1.with-submenu:after {
     content: "\f345";
     // content: ">";
     font: {
