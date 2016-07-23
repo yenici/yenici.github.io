@@ -122,26 +122,12 @@ gulp.task('build:scripts', function() {
     // .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.dist.scripts))
     .pipe(connect.reload());
-  // return gulp.src(path.source.scripts + "**/*.js")
-  //   .pipe(jshint())
-  //   .pipe(jshint.reporter('jshint-stylish'))
-  //   .pipe(babel({
-  //     presets: ['es2015']
-  //   }))
-  //   .pipe(sourcemaps.init())
-  //   .pipe(uglify())
-  //   .pipe(rename({
-  //     suffix: '.min'
-  //   }))
-  //   .pipe(sourcemaps.write())
-  //   .pipe(gulp.dest(path.dist.scripts))
-  //   .pipe(connect.reload());
 });
 
 // B o w e r   C o m p o n e n t s
-gulp.task('build:bower', function() {
-  const FILTER_JS = filter('**/*.js', {restore:  true});
-  const FILTER_CSS = filter('**/*.css', {restore:  true});
+gulp.task('build:bower', function () {
+  const FILTER_JS = filter('**/*.js', {restore: true});
+  const FILTER_CSS = filter('**/*.css', {restore: true});
   return gulp.src('./bower.json')
     .pipe(bowerfiles())
     .pipe(flatten())
