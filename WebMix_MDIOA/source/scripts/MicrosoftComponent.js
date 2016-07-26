@@ -27,7 +27,7 @@ export default function MicrosoftComponent (menuData) {
   let self = this;
   this.state.menuBtn.addEventListener('click', function (e) {
     e.stopPropagation();
-    self.toggleVerticalMenu();    
+    self.toggleVerticalMenu();
   });
   this.state.searchBtn.addEventListener('click', e => {
     toggleClass(e.target, 'active');
@@ -37,7 +37,9 @@ export default function MicrosoftComponent (menuData) {
   // Hie menu on click outside of it
   this.hideMenu = function () {
     if (this.state.vertical) {
-      if (this.state.menuActive) this.toggleVerticalMenu();
+      if (this.state.menuActive) {
+        this.toggleVerticalMenu();
+      }
     } else {
       this.processEvent([]);
     }
@@ -53,7 +55,9 @@ export default function MicrosoftComponent (menuData) {
   // Change the state on window resize
   this.processResize = function () {
     this.processEvent([]);
-    if (this.state.menuActive) this.toggleVerticalMenu();
+    if (this.state.menuActive) {
+      this.toggleVerticalMenu();
+    }
     this.state.vertical = isMenuVertical();
   };
 
