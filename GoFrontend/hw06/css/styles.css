@@ -13,6 +13,10 @@
 /******************************************************************************
 *    Header
 ******************************************************************************/
+body {
+  background-color: #fff;
+}
+
 header {
     background-color: #fff;
     font-family: 'Lucida Sans Unicoderegular', Tahoma, sans-serif;
