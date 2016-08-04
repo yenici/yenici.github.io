@@ -2,4 +2,8 @@
 @import "base/clearfix";
 @import "helpers/variables";
 
+body {
+  background-color: #fff;
+}
+
 @import "pages/home"
