@@ -1,3 +1,6 @@
+body {
+  background-color: #fff; }
+
 .test-wrapper {
   border: solid 2px #ccc;
   border-radius: 10px;
