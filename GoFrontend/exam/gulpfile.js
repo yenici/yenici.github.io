@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 
 var httpServer = {
   host: '192.68.0.2',
-  port: 8080,
+  port: 3000,
   root: './dist'
 }
 var path = {
